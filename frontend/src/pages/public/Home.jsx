@@ -31,6 +31,9 @@ import event3 from "../../assets/images/event3.jpeg";
 import event4 from "../../assets/images/event4.jpeg";
 import event5 from "../../assets/images/event5.jpeg";
 import pestControlImg from "../../assets/images/pest-control.jpg";
+import solarImg from "../../assets/images/solar.png";
+import advocatesImg from "../../assets/images/advocates.png";
+import interiorDesignImg from "../../assets/images/interior-design.png";
 
 function Home() {
   useReveal();
@@ -96,6 +99,9 @@ function Home() {
     { name: "Painter", img: painterImg, desc: "Wall painting, textures & waterproofing", group: "repairs", emoji: "🎨", color: "219, 39, 119" },
     { name: "Repairing", img: repairingImg, desc: "Appliance & electronics servicing", group: "repairs", emoji: "⚙️", color: "75, 85, 99" },
     { name: "AC Repair", img: acImg, desc: "Servicing, installation & gas filling", group: "repairs", emoji: "❄️", color: "6, 182, 212" },
+    { name: "Solar", img: solarImg, desc: "Solar panel installation & maintenance", group: "repairs", emoji: "☀️", color: "249, 115, 22" },
+    { name: "Advocates", img: advocatesImg, desc: "Legal advice & documentations", group: "professional", emoji: "⚖️", color: "79, 70, 229" },
+    { name: "Interior Design", img: interiorDesignImg, desc: "Modern space planning & decoration", group: "professional", emoji: "🛋️", color: "139, 92, 246" },
   ];
 
   const filteredCategories = categories.filter(item => {

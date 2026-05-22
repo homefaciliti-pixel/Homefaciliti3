@@ -24,6 +24,9 @@ import taxImg from "../../assets/images/tax.jpg";
 import painterImg from "../../assets/images/Painter.jpg";
 import repairingImg from "../../assets/images/Repairing.jpg";
 import pestControlImg from "../../assets/images/pest-control.jpg";
+import solarImg from "../../assets/images/solar.png";
+import advocatesImg from "../../assets/images/advocates.png";
+import interiorDesignImg from "../../assets/images/interior-design.png";
 
 function Categories() {
   const navigate = useNavigate();
@@ -51,6 +54,9 @@ function Categories() {
     { name: "Tax Consultancy", image: taxImg, count: 5 },
     { name: "Painter", image: painterImg, count: 10 },
     { name: "Repairing", image: repairingImg, count: 13 },
+    { name: "Solar", image: solarImg, count: 8 },
+    { name: "Advocates", image: advocatesImg, count: 4 },
+    { name: "Interior Design", image: interiorDesignImg, count: 11 },
   ];
 
   const filteredCategories = categories.filter((cat) =>
