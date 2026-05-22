@@ -220,7 +220,6 @@ function Home() {
                   <h3>{service.title}</h3>
                   <div className="service-footer">
                     <div className="price-tag">
-                      <span className="price-label">Starts from</span>
                       <span className="price-value">{service.price}</span>
                     </div>
                     <a href="https://play.google.com/store/apps/details?id=com.homefacility" target="_blank" rel="noopener noreferrer" className="btn-premium btn-small" style={{ textDecoration: 'none', width: '100%', textAlign: 'center' }}>Book Now</a>
