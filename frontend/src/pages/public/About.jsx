@@ -2,9 +2,9 @@ import MainLayout from "../../layouts/MainLayout";
 import useReveal from "../../hooks/useReveal";
 
 // Import Assets
-import cleaningImg from "../../assets/images/cleaning.jpg";
-import architectureImg from "../../assets/images/architecture.jpg";
-import bannerImg from "../../assets/images/banner.png";
+import cleaningImg from "../../assets/images/about_cleaning.png";
+import architectureImg from "../../assets/images/about_consultation.png";
+import bannerImg from "../../assets/images/about_banner.png";
 
 function About() {
   useReveal();
@@ -25,10 +25,10 @@ function About() {
         <div className="container grid-2">
           <div className="about-image-stack reveal-left">
             <div className="image-main">
-              <img src={cleaningImg} alt="Home Cleaning" />
+              <img src={cleaningImg} alt="Professional Cleaning Service" />
             </div>
             <div className="image-sub glass">
-              <img src={architectureImg} alt="Home Architecture" />
+              <img src={architectureImg} alt="Professional Service Consultation" />
             </div>
             <div className="image-stack-glow"></div>
           </div>
