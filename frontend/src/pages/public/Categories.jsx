@@ -56,7 +56,7 @@ function Categories() {
     { name: "Repairing", image: repairingImg, count: 13 },
     { name: "Solar", image: solarImg, count: 8 },
     { name: "Advocates", image: advocatesImg, count: 4 },
-    { name: "Interior Design", image: interiorDesignImg, count: 11 },
+    { name: "Interior Design", image: interiorDesignImg, count: 1 },
   ];
 
   const filteredCategories = categories.filter((cat) =>
