@@ -27,6 +27,9 @@ import taxImg from "../../assets/images/tax.jpg";
 import painterImg from "../../assets/images/Painter.jpg";
 import repairingImg from "../../assets/images/Repairing.jpg";
 import pestControlImg from "../../assets/images/pest-control.jpg";
+import solarImg from "../../assets/images/solar.png";
+import advocatesImg from "../../assets/images/advocates.png";
+import interiorDesignImg from "../../assets/images/interior-design.png";
 
 function CategoryServices() {
   const { categoryName } = useParams();
@@ -1861,30 +1864,129 @@ function CategoryServices() {
       },
      ],
      CarWashing: [],
-      "Pest Control": [
-        {
-          name: "General Pest Control",
-          image: pestControlImg,
-          desc: "Complete eradication of cockroaches, ants, and other common household pests.",
-          price: 999.00,
-          time: "1-2 hours"
-        },
-        {
-          name: "Termite Treatment",
-          image: pestControlImg,
-          desc: "Professional termite control and wood preservation treatment with warranty.",
-          price: 2499.00,
-          time: "2-3 hours"
-        }
-      ]
-    };
+       "Pest Control": [
+         {
+           name: "General Pest Control",
+           image: pestControlImg,
+           desc: "Complete eradication of cockroaches, ants, and other common household pests.",
+           price: 999.00,
+           time: "1-2 hours"
+         },
+         {
+           name: "Termite Treatment",
+           image: pestControlImg,
+           desc: "Professional termite control and wood preservation treatment with warranty.",
+           price: 2499.00,
+           time: "2-3 hours"
+         }
+       ],
+       Solar: [
+         {
+           name: "Solar Panel Installation",
+           image: solarImg,
+           desc: "Professional solar panel installation and setup with warranty and post-installation support.",
+           price: 49999.00,
+           time: "1-2 Days"
+         },
+         {
+           name: "Solar Panel Service & Cleaning",
+           image: solarImg,
+           desc: "Deep cleaning and inspection of solar panels to maximize efficiency and output.",
+           price: 1499.00,
+           time: "2-3 Hours"
+         },
+         {
+           name: "Solar Inverter Maintenance",
+           image: solarImg,
+           desc: "Expert diagnostic, repair, and maintenance services for solar power inverters.",
+           price: 999.00,
+           time: "1-2 Hours"
+         }
+       ],
+       Advocates: [
+         {
+           name: "Legal Consultation (General)",
+           image: advocatesImg,
+           desc: "Personalized consultation with experienced advocate for property, civil, or corporate matters.",
+           price: 999.00,
+           time: "1 Hours"
+         },
+         {
+           name: "Document Verification & Drafting",
+           image: advocatesImg,
+           desc: "Professional drafting and legal verification of agreements, deeds, and contracts.",
+           price: 2499.00,
+           time: "1-2 Days"
+         },
+         {
+           name: "Affidavit & Notary Services",
+           image: advocatesImg,
+           desc: "Fast and reliable preparation and notary verification of legal affidavits.",
+           price: 499.00,
+           time: "2-3 Hours"
+         }
+       ],
+       "Interior Design": [
+         {
+           name: "Interior Design Consultation",
+           image: interiorDesignImg,
+           desc: "One-on-one session with our top designer for layout planning, themes, and color consultations.",
+           price: 1499.00,
+           time: "2 Hours"
+         },
+         {
+           name: "3D Living Room Design",
+           image: interiorDesignImg,
+           desc: "Detailed 3D design and layout planning for your living room including furniture mapping.",
+           price: 4999.00,
+           time: "3-5 Days"
+         },
+         {
+           name: "Full Home Interior Planning",
+           image: interiorDesignImg,
+           desc: "Comprehensive interior planning, color palette selection, and custom modular solutions.",
+           price: 19999.00,
+           time: "7-10 Days"
+         }
+       ]
+     };
 
-  const categoryKey = categoryName === "Pandit Ji" ? "PanditJI" :
-                      categoryName === "Car Washing" ? "CarWashing" :
-                      categoryName === "Tax Consultancy" ? "TaxConsultancy" :
-                      categoryName;
+  // Decode parameters in case of URL encoding issues
+  const decodedCategory = categoryName ? decodeURIComponent(categoryName).trim() : "";
+  const normalizedCategory = decodedCategory.toLowerCase().replace(/[\s-_]+/g, "");
 
-  const services = categoryName === "Car Washing" && selectedSubCategory
+  const isCarWashing = normalizedCategory === "carwashing";
+
+  // Map normalized category names to servicesData keys
+  const categoryKeyMap = {
+    plumbing: "Plumbing",
+    electrician: "Electrician",
+    cleaning: "Cleaning",
+    pestcontrol: "Pest Control",
+    acrepair: "AC Repair",
+    salon: "Salon",
+    spa: "SPA",
+    architecture: "Architecture",
+    carpenter: "Carpenter",
+    panditji: "PanditJI",
+    driver: "Driver",
+    photographer: "Photographer",
+    doctor: "Doctor",
+    compounder: "Compounder",
+    halwai: "Halwai",
+    carwashing: "CarWashing",
+    mechanic: "Mechanic",
+    taxconsultancy: "TaxConsultancy",
+    painter: "Painter",
+    repairing: "Repairing",
+    solar: "Solar",
+    advocates: "Advocates",
+    interiordesign: "Interior Design"
+  };
+
+  const categoryKey = categoryKeyMap[normalizedCategory] || decodedCategory;
+
+  const services = isCarWashing && selectedSubCategory
     ? carWashingServices[selectedSubCategory]
     : (servicesData[categoryKey] || []);
 
@@ -1905,10 +2007,10 @@ function CategoryServices() {
     <MainLayout>
       <section className="service-explorer section">
         <div className="container">
-          {categoryName === "Car Washing" && !selectedSubCategory ? (
+          {isCarWashing && !selectedSubCategory ? (
             <div className="subcategory-selection-wrapper">
               <div className="subcategory-header animate-fade-in">
-                <span className="section-tag">{categoryName}</span>
+                <span className="section-tag">{decodedCategory}</span>
                 <h1 className="section-title">Select Your Vehicle Type</h1>
                 <p className="text-secondary">Choose your vehicle type to view customized washing and detailing packages.</p>
               </div>
@@ -1940,18 +2042,18 @@ function CategoryServices() {
               {/* Header */}
               <div className="service-header animate-fade-in">
                 <span className="section-tag">
-                  {categoryName} {selectedSubCategory && ` • ${selectedSubCategory}`}
+                  {decodedCategory} {selectedSubCategory && ` • ${selectedSubCategory}`}
                 </span>
                 <h1 className="section-title">
-                  {selectedSubCategory ? `${selectedSubCategory} Washing Solutions` : `Professional ${categoryName} Solutions`}
+                  {selectedSubCategory ? `${selectedSubCategory} Washing Solutions` : `Professional ${decodedCategory} Solutions`}
                 </h1>
                 <p className="text-secondary">
                   {selectedSubCategory 
                     ? `Book verified experts for premium ${selectedSubCategory} washing and detailing.` 
-                    : `Book verified experts for ${categoryName} tasks in minutes.`}
+                    : `Book verified experts for ${decodedCategory} tasks in minutes.`}
                 </p>
                 
-                {categoryName === "Car Washing" && selectedSubCategory && (
+                {isCarWashing && selectedSubCategory && (
                   <button 
                     className="btn-outline-premium back-to-subcategories-btn animate-fade-in"
                     onClick={() => setSelectedSubCategory(null)}
@@ -2002,7 +2104,7 @@ function CategoryServices() {
                 {services.length === 0 && (
                   <div className="no-services">
                     <div className="glass empty-state">
-                      <p>We are currently updating our {categoryName} services. Please check back soon!</p>
+                      <p>We are currently updating our {decodedCategory} services. Please check back soon!</p>
                       <button className="btn-outline-premium" onClick={() => navigate("/categories")}>View Other Categories</button>
                     </div>
                   </div>
