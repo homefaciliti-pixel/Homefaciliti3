@@ -34,6 +34,269 @@ function CategoryServices() {
   const { user } = useAuth();
   useReveal();
 
+  const [selectedSubCategory, setSelectedSubCategory] = React.useState(null);
+
+  React.useEffect(() => {
+    setSelectedSubCategory(null);
+  }, [categoryName]);
+
+  const subCategories = [
+    {
+      name: "Hatchback",
+      desc: "Tailored cleaning solutions for small to mid-sized hatchbacks (e.g. Swift, i20).",
+      themeColor: "59, 130, 246",
+      icon: (
+        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+          <defs>
+            <linearGradient id="hatchbackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#3b82f6" />
+              <stop offset="100%" stopColor="#1d4ed8" />
+            </linearGradient>
+          </defs>
+          <path d="M10 32 L15 22 Q22 18 35 18 L55 18 Q65 18 70 24 L78 32 Q85 32 88 35 L88 40 L10 40 Z" fill="url(#hatchbackGrad)" />
+          <circle cx="28" cy="40" r="6" fill="#1e293b" stroke="#ffffff" strokeWidth="2" />
+          <circle cx="70" cy="40" r="6" fill="#1e293b" stroke="#ffffff" strokeWidth="2" />
+          <path d="M22 23 L35 22 L35 28 L20 28 Z" fill="#ffffff" opacity="0.6" />
+          <path d="M39 22 L52 22 L52 28 L39 28 Z" fill="#ffffff" opacity="0.6" />
+          <path d="M56 22 L63 24 L61 28 L56 28 Z" fill="#ffffff" opacity="0.6" />
+        </svg>
+      )
+    },
+    {
+      name: "Sedan",
+      desc: "Premium interior vacuuming, paint protection & glass polish for mid to full-size sedans.",
+      themeColor: "139, 92, 246",
+      icon: (
+        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+          <defs>
+            <linearGradient id="sedanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#8b5cf6" />
+              <stop offset="100%" stopColor="#6d28d9" />
+            </linearGradient>
+          </defs>
+          <path d="M10 32 Q15 28 25 28 L30 20 L65 20 L75 28 L85 28 Q92 28 92 33 L92 40 L8 40 Z" fill="url(#sedanGrad)" />
+          <circle cx="28" cy="40" r="6" fill="#1e293b" stroke="#ffffff" strokeWidth="2" />
+          <circle cx="72" cy="40" r="6" fill="#1e293b" stroke="#ffffff" strokeWidth="2" />
+          <path d="M33 23 L48 23 L48 28 L30 28 Z" fill="#ffffff" opacity="0.6" />
+          <path d="M52 23 L63 23 L61 28 L52 28 Z" fill="#ffffff" opacity="0.6" />
+        </svg>
+      )
+    },
+    {
+      name: "SUV",
+      desc: "Robust exterior foam wash, under-chassis cleaning & high ground-clearance mud removal.",
+      themeColor: "249, 115, 22",
+      icon: (
+        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+          <defs>
+            <linearGradient id="suvGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#f97316" />
+              <stop offset="100%" stopColor="#ea580c" />
+            </linearGradient>
+          </defs>
+          <path d="M5 34 L12 25 Q18 20 28 20 L68 20 L75 25 Q78 28 85 30 L90 32 L90 40 L5 40 Z" fill="url(#suvGrad)" />
+          <circle cx="26" cy="40" r="7" fill="#1e293b" stroke="#ffffff" strokeWidth="2" />
+          <circle cx="70" cy="40" r="7" fill="#1e293b" stroke="#ffffff" strokeWidth="2" />
+          <path d="M22 23 L40 23 L40 28 L20 28 Z" fill="#ffffff" opacity="0.6" />
+          <path d="M44 23 L60 23 L60 28 L44 28 Z" fill="#ffffff" opacity="0.6" />
+        </svg>
+      )
+    },
+    {
+      name: "MUV",
+      desc: "Multi-Utility family car detailing. Deep multi-row vacuuming and comprehensive stain protection.",
+      themeColor: "16, 185, 129",
+      icon: (
+        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+          <defs>
+            <linearGradient id="muvGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#10b981" />
+              <stop offset="100%" stopColor="#059669" />
+            </linearGradient>
+          </defs>
+          <path d="M6 34 L12 22 Q18 18 28 18 L76 18 Q82 18 85 24 L90 32 L90 40 L6 40 Z" fill="url(#muvGrad)" />
+          <circle cx="26" cy="40" r="7" fill="#1e293b" stroke="#ffffff" strokeWidth="2" />
+          <circle cx="72" cy="40" r="7" fill="#1e293b" stroke="#ffffff" strokeWidth="2" />
+          <path d="M22 21 L42 21 L42 28 L18 28 Z" fill="#ffffff" opacity="0.6" />
+          <path d="M46 21 L68 21 L68 28 L46 28 Z" fill="#ffffff" opacity="0.6" />
+          <path d="M72 21 L82 21 L80 28 L72 28 Z" fill="#ffffff" opacity="0.6" />
+        </svg>
+      )
+    },
+    {
+      name: "Luxury",
+      desc: "Elite paint correction, clay-bar decontaminations & high-grade carnauba wax sealants.",
+      themeColor: "236, 72, 153",
+      icon: (
+        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+          <defs>
+            <linearGradient id="luxuryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ec4899" />
+              <stop offset="100%" stopColor="#db2777" />
+            </linearGradient>
+          </defs>
+          <path d="M12 33 L24 25 Q32 20 48 20 L68 20 Q78 20 86 28 L94 33 L94 38 L10 38 Z" fill="url(#luxuryGrad)" />
+          <circle cx="28" cy="38" r="5" fill="#1e293b" stroke="#ffffff" strokeWidth="1.5" />
+          <circle cx="74" cy="38" r="5" fill="#1e293b" stroke="#ffffff" strokeWidth="1.5" />
+          <path d="M36 22 L55 22 L62 26 L30 26 Z" fill="#ffffff" opacity="0.6" />
+        </svg>
+      )
+    }
+  ];
+
+  const carWashingServices = {
+    SUV: [
+      {
+        name: "Basic Wash - SUV",
+        image: carWashImg,
+        desc: "Rugged exterior foam wash, tire dressing & high-pressure under-chassis cleaning.",
+        price: 319.00,
+        time: "1 Hours"
+      },
+      {
+        name: "Standard Wash - SUV",
+        image: carWashImg,
+        desc: "Exterior foam wash + thorough interior vacuuming, dashboard dressing, and floor mat cleaning.",
+        price: 589.00,
+        time: "1.5 Hours"
+      },
+      {
+        name: "Premium Cleaning - SUV",
+        image: carWashImg,
+        desc: "Deep carpet shampooing, seat stain removal, dashboard sanitization, and high-gloss exterior wax.",
+        price: 1119.00,
+        time: "2 Hours"
+      },
+      {
+        name: "Luxury Detailing - SUV",
+        image: carWashImg,
+        desc: "Paint correction, premium synthetic wax, deep interior leather conditioning, and glass hydrophobic coating.",
+        price: 2999.00,
+        time: "3.5 Hours"
+      }
+    ],
+    Hatchback: [
+      {
+        name: "Basic Wash - Hatchback",
+        image: carWashImg,
+        desc: "Quick exterior foam wash, wheel cleaning & tire polish for small to mid-sized hatchbacks.",
+        price: 249.00,
+        time: "1 Hours"
+      },
+      {
+        name: "Standard Wash - Hatchback",
+        image: carWashImg,
+        desc: "Exterior foam wash + interior vacuuming, console wipe-down, and glass cleaning.",
+        price: 349.00,
+        time: "1 Hours"
+      },
+      {
+        name: "Premium Cleaning - Hatchback",
+        image: carWashImg,
+        desc: "Deep foam wash, interior carpet/fabric shampooing, dashboard dressing, and dual-layer polish.",
+        price: 799.00,
+        time: "1.5 Hours"
+      },
+      {
+        name: "Luxury Detailing - Hatchback",
+        image: carWashImg,
+        desc: "Complete exterior machine buffing, premium carnauba wax, interior sanitization & engine bay detailing.",
+        price: 1949.00,
+        time: "2.5 Hours"
+      }
+    ],
+    MUV: [
+      {
+        name: "Basic Wash - MUV",
+        image: carWashImg,
+        desc: "Full exterior pressure wash, wheel detailing, and tire polishing for spacious MUVs.",
+        price: 349.00,
+        time: "1 Hours"
+      },
+      {
+        name: "Standard Wash - MUV",
+        image: carWashImg,
+        desc: "Exterior pressure wash + detailed multi-row interior vacuuming, dashboard cleaning, and boot vacuuming.",
+        price: 649.00,
+        time: "1.5 Hours"
+      },
+      {
+        name: "Premium Cleaning - MUV",
+        image: carWashImg,
+        desc: "Deep interior upholstery shampoo, door pad detailing, roof liner cleaning, and high-shine exterior polish.",
+        price: 1299.00,
+        time: "2.5 Hours"
+      },
+      {
+        name: "Luxury Detailing - MUV",
+        image: carWashImg,
+        desc: "Full paint decontamination, polymer sealant, deep leather conditioning, and odor elimination treatment.",
+        price: 3299.00,
+        time: "4 Hours"
+      }
+    ],
+    Sedan: [
+      {
+        name: "Basic Wash - Sedan",
+        image: carWashImg,
+        desc: "Gentle exterior hand wash, wheel cleaning & tire dressing for classic sedans.",
+        price: 299.00,
+        time: "1 Hours"
+      },
+      {
+        name: "Standard Wash - Sedan",
+        image: carWashImg,
+        desc: "Exterior wash + complete interior vacuuming, AC vent dusting, and dashboard dressing.",
+        price: 499.00,
+        time: "1 Hours"
+      },
+      {
+        name: "Premium Spa - Sedan",
+        image: carWashImg,
+        desc: "Deep interior carpet extraction, seat sanitization, trunk detailing, and synthetic sealant finish.",
+        price: 949.00,
+        time: "2 Hours"
+      },
+      {
+        name: "Luxury Detailing - Sedan",
+        image: carWashImg,
+        desc: "Machine gloss enhancement, ultra-durable paint coating, premium interior detailing & engine conditioning.",
+        price: 2499.00,
+        time: "3 Hours"
+      }
+    ],
+    Luxury: [
+      {
+        name: "Basic Wash - Luxury",
+        image: carWashImg,
+        desc: "Scratch-free premium hand wash, pH-neutral detailing spray, and gentle microfiber dry.",
+        price: 499.00,
+        time: "1 Hours"
+      },
+      {
+        name: "Standard Wash - Luxury",
+        image: carWashImg,
+        desc: "Premium exterior wash + thorough interior vacuuming, leather detailing, and luxury scent spray.",
+        price: 899.00,
+        time: "1.5 Hours"
+      },
+      {
+        name: "Premium Spa - Luxury",
+        image: carWashImg,
+        desc: "Decontamination clay treatment, deep leather conditioning, engine detailing, and paint sealant protection.",
+        price: 1799.00,
+        time: "2.5 Hours"
+      },
+      {
+        name: "Luxury Detailing - Professional",
+        image: carWashImg,
+        desc: "Elite paint correction, carnauba paste wax, premium interior restoration & ceramic boost maintenance.",
+        price: 3499.00,
+        time: "4 Hours"
+      }
+    ]
+  };
+
   const servicesData = {
     Plumbing: [
       {
@@ -1597,106 +1860,7 @@ function CategoryServices() {
           time: "1 Hours"
       },
      ],
-     CarWashing: [
-      {
-          name: "Basic Car Wash(Exterior Only)",
-          image: carWashImg,
-          desc: "Professional basic car wash(exterior only) services. Book experienced professionals for guaranteed satisfaction.",
-          price: 249.00,
-          time: "1 Hours"
-      },
-      {
-          name: "Standard Car Wash(Exterior+INterior)",
-          image: carWashImg,
-          desc: "Professional standard car wash(exterior+interior) services. Book experienced professionals for guaranteed satisfaction.",
-          price: 449.00,
-          time: "1 Hours"
-      },
-      {
-          name: "Premium Car Spa(Deep Cleaning)",
-          image: carWashImg,
-          desc: "Professional premium car spa(deep cleaning) services. Book experienced professionals for guaranteed satisfaction.",
-          price: 1249.00,
-          time: "1 Hours"
-      },
-      {
-          name: "Luxury Car Detailing(Professional)",
-          image: carWashImg,
-          desc: "Professional luxury car detailing(professional) services. Book experienced professionals for guaranteed satisfaction.",
-          price: 3499.00,
-          time: "1 Hours"
-      },
-      {
-          name: "Basic Wash-Hatchback",
-          image: carWashImg,
-          desc: "Professional basic wash-hatchback services. Book experienced professionals for guaranteed satisfaction.",
-          price: 249.00,
-          time: "1 Hours"
-      },
-      {
-          name: "Standard Wash-Hatchback",
-          image: carWashImg,
-          desc: "Professional standard wash-hatchback services. Book experienced professionals for guaranteed satisfaction.",
-          price: 349.00,
-          time: "1 Hours"
-      },
-      {
-          name: "Premium Cleaning-Hatchback",
-          image: carWashImg,
-          desc: "Professional premium cleaning-hatchback services. Book experienced professionals for guaranteed satisfaction.",
-          price: 799.00,
-          time: "1 Hours"
-      },
-      {
-          name: "Luxury Detailing-Hatchback",
-          image: carWashImg,
-          desc: "Professional luxury detailing-hatchback services. Book experienced professionals for guaranteed satisfaction.",
-          price: 1949.00,
-          time: "1 Hours"
-      },
-      {
-          name: "Basic Wash-Sedan",
-          image: carWashImg,
-          desc: "Professional basic wash-sedan services. Book experienced professionals for guaranteed satisfaction.",
-          price: 299.00,
-          time: "1 Hours"
-      },
-      {
-          name: "Standard Wash-Sedan",
-          image: carWashImg,
-          desc: "Professional standard wash-sedan services. Book experienced professionals for guaranteed satisfaction.",
-          price: 499.00,
-          time: "1 Hours"
-      },
-      {
-          name: "Premium Spa-Sedan",
-          image: carWashImg,
-          desc: "Professional premium spa-sedan services. Book experienced professionals for guaranteed satisfaction.",
-          price: 949.00,
-          time: "1 Hours"
-      },
-      {
-          name: "Basic Wash-Compact SUV",
-          image: carWashImg,
-          desc: "Professional basic wash-compact suv services. Book experienced professionals for guaranteed satisfaction.",
-          price: 319.00,
-          time: "1 Hours"
-      },
-      {
-          name: "Standard Wash-Compact SUV",
-          image: carWashImg,
-          desc: "Professional standard wash-compact suv services. Book experienced professionals for guaranteed satisfaction.",
-          price: 589.00,
-          time: "1 Hours"
-      },
-      {
-          name: "Premium Cleaning-Compact SUV",
-          image: carWashImg,
-          desc: "Professional premium cleaning-compact suv services. Book experienced professionals for guaranteed satisfaction.",
-          price: 1119.00,
-          time: "1 Hours"
-      },
-      ],
+     CarWashing: [],
       "Pest Control": [
         {
           name: "General Pest Control",
@@ -1720,7 +1884,9 @@ function CategoryServices() {
                       categoryName === "Tax Consultancy" ? "TaxConsultancy" :
                       categoryName;
 
-  const services = servicesData[categoryKey] || [];
+  const services = categoryName === "Car Washing" && selectedSubCategory
+    ? carWashingServices[selectedSubCategory]
+    : (servicesData[categoryKey] || []);
 
   const handleBookNow = (service) => {
     if (!user) {
@@ -1739,60 +1905,111 @@ function CategoryServices() {
     <MainLayout>
       <section className="service-explorer section">
         <div className="container">
-          {/* Header */}
-          <div className="service-header animate-fade-in">
-            <span className="section-tag">{categoryName}</span>
-            <h1 className="section-title">Professional {categoryName} Solutions</h1>
-            <p className="text-secondary">Book verified experts for {categoryName} tasks in minutes.</p>
-          </div>
-
-          {/* Grid */}
-          <div className="services-list-grid">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="premium-card service-list-card reveal"
-                style={{ transitionDelay: `${index * 0.1}s` }}
-              >
-                <div className="service-img-box">
-                  <img src={service.image} alt={service.name} />
-                  <div className="service-price-floating">₹{service.price}</div>
-                </div>
-                <div className="service-list-content">
-                  <div className="service-info-top">
-                    <h3>{service.name}</h3>
-                    <span className="duration-tag">⏱ {service.time}</span>
-                  </div>
-                  <p className="service-desc">{service.desc}</p>
-                  
-                  <div className="service-list-footer">
-                    <div className="benefits">
-                      <span>✓ 4.8 Rating</span>
-                      <span>✓ Moneyback Guarantee</span>
+          {categoryName === "Car Washing" && !selectedSubCategory ? (
+            <div className="subcategory-selection-wrapper">
+              <div className="subcategory-header animate-fade-in">
+                <span className="section-tag">{categoryName}</span>
+                <h1 className="section-title">Select Your Vehicle Type</h1>
+                <p className="text-secondary">Choose your vehicle type to view customized washing and detailing packages.</p>
+              </div>
+              
+              <div className="subcategory-grid">
+                {subCategories.map((sub, index) => (
+                  <div
+                    key={sub.name}
+                    className="premium-card subcategory-card reveal animate-fade-in"
+                    style={{ transitionDelay: `${index * 0.1}s`, '--card-theme': sub.themeColor }}
+                    onClick={() => setSelectedSubCategory(sub.name)}
+                  >
+                    <div className="subcategory-icon-box">
+                      {sub.icon}
                     </div>
-                    <a 
-                      href="https://play.google.com/store/apps/details?id=com.homefacility"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-premium btn-full"
-                      style={{ textDecoration: 'none', display: 'block', textAlign: 'center' }}
-                    >
-                      Book This Service
-                    </a>
+                    <div className="subcategory-content">
+                      <h3>{sub.name}</h3>
+                      <p>{sub.desc}</p>
+                      <button className="btn-premium subcategory-btn">
+                        View Services
+                      </button>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
+          ) : (
+            <>
+              {/* Header */}
+              <div className="service-header animate-fade-in">
+                <span className="section-tag">
+                  {categoryName} {selectedSubCategory && ` • ${selectedSubCategory}`}
+                </span>
+                <h1 className="section-title">
+                  {selectedSubCategory ? `${selectedSubCategory} Washing Solutions` : `Professional ${categoryName} Solutions`}
+                </h1>
+                <p className="text-secondary">
+                  {selectedSubCategory 
+                    ? `Book verified experts for premium ${selectedSubCategory} washing and detailing.` 
+                    : `Book verified experts for ${categoryName} tasks in minutes.`}
+                </p>
+                
+                {categoryName === "Car Washing" && selectedSubCategory && (
+                  <button 
+                    className="btn-outline-premium back-to-subcategories-btn animate-fade-in"
+                    onClick={() => setSelectedSubCategory(null)}
+                  >
+                    ← Back to Vehicle Types
+                  </button>
+                )}
+              </div>
 
-            {services.length === 0 && (
-              <div className="no-services">
-                <div className="glass empty-state">
-                  <p>We are currently updating our {categoryName} services. Please check back soon!</p>
-                  <button className="btn-outline-premium" onClick={() => navigate("/categories")}>View Other Categories</button>
-                </div>
+              {/* Grid */}
+              <div className="services-list-grid">
+                {services.map((service, index) => (
+                  <div
+                    key={index}
+                    className="premium-card service-list-card reveal"
+                    style={{ transitionDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="service-img-box">
+                      <img src={service.image} alt={service.name} />
+                      <div className="service-price-floating">₹{service.price}</div>
+                    </div>
+                    <div className="service-list-content">
+                      <div className="service-info-top">
+                        <h3>{service.name}</h3>
+                        <span className="duration-tag">⏱ {service.time}</span>
+                      </div>
+                      <p className="service-desc">{service.desc}</p>
+                      
+                      <div className="service-list-footer">
+                        <div className="benefits">
+                          <span>✓ 4.8 Rating</span>
+                          <span>✓ Moneyback Guarantee</span>
+                        </div>
+                        <a 
+                          href="https://play.google.com/store/apps/details?id=com.homefacility"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-premium btn-full"
+                          style={{ textDecoration: 'none', display: 'block', textAlign: 'center' }}
+                        >
+                          Book This Service
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+
+                {services.length === 0 && (
+                  <div className="no-services">
+                    <div className="glass empty-state">
+                      <p>We are currently updating our {categoryName} services. Please check back soon!</p>
+                      <button className="btn-outline-premium" onClick={() => navigate("/categories")}>View Other Categories</button>
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
+            </>
+          )}
         </div>
       </section>
 
@@ -1800,6 +2017,9 @@ function CategoryServices() {
         .service-header {
           text-align: center;
           margin-bottom: 60px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
         .text-secondary {
           color: var(--text-muted);
@@ -1916,11 +2136,105 @@ function CategoryServices() {
           color: var(--text-muted);
         }
 
+        /* Subcategory Selector Styling */
+        .subcategory-selection-wrapper {
+          margin-top: 20px;
+        }
+        .subcategory-header {
+          text-align: center;
+          margin-bottom: 50px;
+        }
+        .subcategory-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          gap: 28px;
+          justify-content: center;
+        }
+        .subcategory-card {
+          cursor: pointer;
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
+          border: 1px solid rgba(226, 232, 240, 0.8);
+          background: rgba(255, 255, 255, 0.7);
+          backdrop-filter: blur(12px);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 30px 24px;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+        }
+        .subcategory-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background: linear-gradient(90deg, rgba(var(--card-theme), 0.8), rgba(var(--card-theme), 0.3));
+          opacity: 0.8;
+          transition: height 0.3s ease;
+        }
+        .subcategory-card:hover {
+          transform: translateY(-8px) scale(1.02);
+          border-color: rgba(var(--card-theme), 0.4);
+          box-shadow: 0 20px 40px -15px rgba(var(--card-theme), 0.15), 0 0 0 1px rgba(var(--card-theme), 0.1);
+        }
+        .subcategory-card:hover::before {
+          height: 6px;
+        }
+        .subcategory-icon-box {
+          width: 120px;
+          height: 60px;
+          margin-bottom: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .subcategory-card:hover .subcategory-icon-box {
+          transform: scale(1.15) translateY(-4px);
+        }
+        .subcategory-content h3 {
+          font-size: 22px;
+          font-weight: 700;
+          margin-bottom: 12px;
+          color: var(--text-main);
+        }
+        .subcategory-content p {
+          font-size: 14px;
+          line-height: 1.6;
+          color: var(--text-muted);
+          margin-bottom: 24px;
+          min-height: 66px;
+        }
+        .subcategory-btn {
+          width: 100%;
+          padding: 10px 20px;
+          font-size: 14px;
+          border-radius: 10px;
+          font-weight: 600;
+        }
+        .back-to-subcategories-btn {
+          margin-top: 20px;
+          padding: 8px 18px;
+          font-size: 14px;
+          border-radius: 10px;
+          font-weight: 600;
+        }
+
         @media (max-width: 640px) {
           .services-list-grid { grid-template-columns: 1fr; }
           .service-img-box { height: 180px; }
           .service-header { margin-bottom: 32px; }
           .section-title { font-size: 32px; }
+          .subcategory-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+          .subcategory-card {
+            padding: 24px 20px;
+          }
         }
       `}</style>
     </MainLayout>
