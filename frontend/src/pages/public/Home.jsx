@@ -520,18 +520,35 @@ function Home() {
           border-radius: 50%;
           position: relative;
           overflow: hidden;
-          margin: 12px auto 20px;
+          margin: 16px auto 24px;
           border: 4px solid white;
-          box-shadow: var(--shadow-md);
-          transition: transform 0.4s ease;
+          box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.08), var(--shadow-md);
+          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .service-card:hover .service-img {
-          transform: scale(1.05);
+          transform: scale(1.06);
+          box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2), var(--shadow-lg);
         }
         .service-img img {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .service-card:hover .service-img img {
+          transform: scale(1.12);
+        }
+        .service-img::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to bottom, rgba(37, 99, 235, 0.04), rgba(15, 23, 42, 0.12));
+          opacity: 1;
+          transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          pointer-events: none;
+        }
+        .service-card:hover .service-img::after {
+          opacity: 0;
         }
         .service-tag-floating {
           position: absolute;
