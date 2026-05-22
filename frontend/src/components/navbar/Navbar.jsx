@@ -49,8 +49,19 @@ function Navbar() {
         </div>
 
         {/* ===== MOBILE TOGGLE ===== */}
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-          <span className={`hamburger ${menuOpen ? "open" : ""}`}></span>
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle Menu">
+          {menuOpen ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="menu-icon-svg">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="menu-icon-svg">
+              <circle cx="12" cy="5" r="2.5"></circle>
+              <circle cx="12" cy="12" r="2.5"></circle>
+              <circle cx="12" cy="19" r="2.5"></circle>
+            </svg>
+          )}
         </button>
       </div>
 
@@ -180,29 +191,17 @@ function Navbar() {
           border: none;
           cursor: pointer;
           padding: 8px;
+          color: var(--text-main);
+          transition: transform 0.3s ease;
         }
-        .hamburger {
+        .menu-toggle:hover {
+          transform: scale(1.1);
+        }
+        .menu-icon-svg {
           display: block;
           width: 24px;
-          height: 2px;
-          background: var(--text-main);
-          position: relative;
-          transition: all 0.3s ease;
+          height: 24px;
         }
-        .hamburger::before, .hamburger::after {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          background: var(--text-main);
-          left: 0;
-          transition: all 0.3s ease;
-        }
-        .hamburger::before { top: -8px; }
-        .hamburger::after { bottom: -8px; }
-        .hamburger.open { background: transparent; }
-        .hamburger.open::before { transform: rotate(45deg); top: 0; }
-        .hamburger.open::after { transform: rotate(-45deg); bottom: 0; }
 
         @media (max-width: 1024px) {
           .nav-links {
