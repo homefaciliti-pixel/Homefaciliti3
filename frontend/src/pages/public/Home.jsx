@@ -515,19 +515,19 @@ function Home() {
           align-items: center;
         }
         .service-img {
-          width: 140px;
-          height: 140px;
-          border-radius: 50%;
+          width: 100%;
+          aspect-ratio: 1 / 1;
+          border-radius: 24px;
           position: relative;
           overflow: hidden;
-          margin: 16px auto 24px;
+          margin: 12px auto 24px;
           border: 4px solid white;
-          box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.08), var(--shadow-md);
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), var(--shadow-md);
           transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .service-card:hover .service-img {
-          transform: scale(1.06);
-          box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2), var(--shadow-lg);
+          transform: scale(1.02);
+          box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1), var(--shadow-lg);
         }
         .service-img img {
           width: 100%;
