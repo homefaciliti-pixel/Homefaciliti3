@@ -66,33 +66,44 @@ function Home() {
   };
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [activeTab, setActiveTab] = useState("all");
 
-  const categories = [
-    { name: "Mechanic", img: mechanicImg, desc: "24/7 Roadside & Shop repairs" },
-    { name: "Plumbing", img: plumberImg, desc: "Leakages, blockages & fittings" },
-    { name: "Electrician", img: electricianImg, desc: "Wiring, installation & appliances" },
-    { name: "Salon & Spa", img: salonImg, desc: "At-home grooming & pampering" },
-    { name: "Cleaning", img: cleaningImg, desc: "Deep & sanitization services" },
-    { name: "Pest Control", img: pestControlImg, desc: "Safe, chemical-free termination" },
-    { name: "Architecture", img: architectureImg, desc: "Vastu planning & 3D walkthroughs" },
-    { name: "Carpenter", img: carpenterImg, desc: "Furniture build & restorations" },
-    { name: "Pandit Ji", img: panditImg, desc: "Pooja, rituals & consultations" },
-    { name: "Driver", img: driverImg, desc: "Experienced local & tour chauffeurs" },
-    { name: "Photographer", img: photographerImg, desc: "Weddings, shoots & portfolios" },
-    { name: "Doctor", img: doctorImg, desc: "Home consultation & checkups" },
-    { name: "Compounder", img: compounderImg, desc: "Nursing care & clinical support" },
-    { name: "Halwai", img: halwaiImg, desc: "Expert catering & traditional sweets" },
-    { name: "Car Washing", img: carWashImg, desc: "Doorstep detailing & deep wash" },
-    { name: "Tax Consultancy", img: taxImg, desc: "ITR filings, GST & legal planning" },
-    { name: "Painter", img: painterImg, desc: "Wall painting, textures & waterproofing" },
-    { name: "Repairing", img: repairingImg, desc: "Appliance & electronics servicing" },
-    { name: "AC Repair", img: acImg, desc: "Servicing, installation & gas filling" },
+  const tabs = [
+    { id: "all", label: "All Specialties", icon: "🌐" },
+    { id: "repairs", label: "Repairs & Maintenance", icon: "🛠️" },
+    { id: "cleaning", label: "Cleaning & Care", icon: "🧹" },
+    { id: "wellness", label: "Health & Wellness", icon: "💆" },
+    { id: "professional", label: "Professional & Events", icon: "💼" },
   ];
 
-  const filteredCategories = categories.filter(item =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.desc.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const categories = [
+    { name: "Mechanic", img: mechanicImg, desc: "24/7 Roadside & Shop repairs", group: "repairs", emoji: "🛠️", color: "244, 63, 94" },
+    { name: "Plumbing", img: plumberImg, desc: "Leakages, blockages & fittings", group: "repairs", emoji: "💧", color: "37, 99, 235" },
+    { name: "Electrician", img: electricianImg, desc: "Wiring, installation & appliances", group: "repairs", emoji: "⚡", color: "245, 158, 11" },
+    { name: "Salon & Spa", img: salonImg, desc: "At-home grooming & pampering", group: "wellness", emoji: "💇", color: "139, 92, 246" },
+    { name: "Cleaning", img: cleaningImg, desc: "Deep & sanitization services", group: "cleaning", emoji: "🧹", color: "16, 185, 129" },
+    { name: "Pest Control", img: pestControlImg, desc: "Safe, chemical-free termination", group: "cleaning", emoji: "🦟", color: "100, 116, 139" },
+    { name: "Architecture", img: architectureImg, desc: "Vastu planning & 3D walkthroughs", group: "professional", emoji: "📐", color: "6, 182, 212" },
+    { name: "Carpenter", img: carpenterImg, desc: "Furniture build & restorations", group: "repairs", emoji: "🪚", color: "180, 83, 9" },
+    { name: "Pandit Ji", img: panditImg, desc: "Pooja, rituals & consultations", group: "professional", emoji: "📿", color: "234, 88, 12" },
+    { name: "Driver", img: driverImg, desc: "Experienced local & tour chauffeurs", group: "professional", emoji: "🚗", color: "71, 85, 105" },
+    { name: "Photographer", img: photographerImg, desc: "Weddings, shoots & portfolios", group: "professional", emoji: "📸", color: "236, 72, 153" },
+    { name: "Doctor", img: doctorImg, desc: "Home consultation & checkups", group: "wellness", emoji: "🩺", color: "220, 38, 38" },
+    { name: "Compounder", img: compounderImg, desc: "Nursing care & clinical support", group: "wellness", emoji: "🩹", color: "14, 165, 233" },
+    { name: "Halwai", img: halwaiImg, desc: "Expert catering & traditional sweets", group: "professional", emoji: "🍳", color: "217, 119, 6" },
+    { name: "Car Washing", img: carWashImg, desc: "Doorstep detailing & deep wash", group: "cleaning", emoji: "🧼", color: "59, 130, 246" },
+    { name: "Tax Consultancy", img: taxImg, desc: "ITR filings, GST & legal planning", group: "professional", emoji: "💼", color: "79, 70, 229" },
+    { name: "Painter", img: painterImg, desc: "Wall painting, textures & waterproofing", group: "repairs", emoji: "🎨", color: "219, 39, 119" },
+    { name: "Repairing", img: repairingImg, desc: "Appliance & electronics servicing", group: "repairs", emoji: "⚙️", color: "75, 85, 99" },
+    { name: "AC Repair", img: acImg, desc: "Servicing, installation & gas filling", group: "repairs", emoji: "❄️", color: "6, 182, 212" },
+  ];
+
+  const filteredCategories = categories.filter(item => {
+    const matchesTab = activeTab === "all" || item.group === activeTab;
+    const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          item.desc.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesTab && matchesSearch;
+  });
 
   const services = [
     {
@@ -248,20 +259,25 @@ function Home() {
                 <button className="search-clear-btn" onClick={() => setSearchTerm("")}>×</button>
               )}
             </div>
+
+            {/* Filter Tabs */}
+            <div className="category-tabs-container">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  className={`category-tab-btn ${activeTab === tab.id ? "active" : ""}`}
+                  onClick={() => setActiveTab(tab.id)}
+                >
+                  <span className="tab-icon">{tab.icon}</span>
+                  <span className="tab-label">{tab.label}</span>
+                </button>
+              ))}
+            </div>
           </div>
 
           {filteredCategories.length > 0 ? (
             <div className="category-grid">
               {filteredCategories.map((item, index) => {
-                // Determine a theme color index for ambient shadow hover glows
-                const themeColors = [
-                  "rgba(37, 99, 235, 0.2)",  // blue
-                  "rgba(236, 72, 153, 0.2)",  // pink
-                  "rgba(245, 158, 11, 0.2)",  // gold
-                  "rgba(139, 92, 246, 0.2)"   // purple
-                ];
-                const activeColor = themeColors[index % themeColors.length];
-                
                 return (
                   <Link 
                     to="/categories" 
@@ -269,12 +285,14 @@ function Home() {
                     className="category-card-premium reveal" 
                     style={{ 
                       transitionDelay: `${(index % 8) * 0.05}s`,
-                      "--cat-glow": activeColor
+                      "--theme-color": item.color
                     }}
                   >
                     <div className="cat-img-box">
                       <img src={item.img} alt={item.name} />
-                      <div className="cat-badge-floating">Expert Help</div>
+                      <div className="cat-badge-floating">
+                        <span className="badge-emoji">{item.emoji}</span> {item.name}
+                      </div>
                     </div>
                     <div className="cat-info">
                       <h4>{item.name}</h4>
@@ -291,8 +309,16 @@ function Home() {
           ) : (
             <div className="category-empty-state">
               <span className="empty-icon">🔍</span>
-              <p>No services found matching "{searchTerm}"</p>
-              <button className="btn-premium btn-small" onClick={() => setSearchTerm("")}>Show All Categories</button>
+              <p>No services found in this category matching "{searchTerm}"</p>
+              <button 
+                className="btn-premium btn-small" 
+                onClick={() => {
+                  setSearchTerm("");
+                  setActiveTab("all");
+                }}
+              >
+                Reset All Filters
+              </button>
             </div>
           )}
         </div>
@@ -634,6 +660,49 @@ function Home() {
           color: var(--text-main);
         }
 
+        /* Tabs Filter Styling */
+        .category-tabs-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin: 32px auto 8px;
+          max-width: 900px;
+        }
+        .category-tab-btn {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 10px 20px;
+          background: rgba(255, 255, 255, 0.6);
+          border: 1px solid rgba(226, 232, 240, 0.8);
+          border-radius: 100px;
+          font-size: 14px;
+          font-weight: 600;
+          color: var(--text-muted);
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+        }
+        .category-tab-btn:hover {
+          transform: translateY(-2px);
+          color: var(--text-main);
+          border-color: rgba(37, 99, 235, 0.2);
+          background: rgba(255, 255, 255, 0.9);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        .category-tab-btn.active {
+          background: var(--grad-main);
+          color: white;
+          border-color: transparent;
+          box-shadow: 0 8px 20px -5px rgba(37, 99, 235, 0.3);
+        }
+        .tab-icon {
+          font-size: 16px;
+        }
+
         .category-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -657,8 +726,8 @@ function Home() {
         .category-card-premium:hover {
           transform: translateY(-6px);
           border-color: transparent;
-          box-shadow: 0 20px 40px -15px var(--cat-glow, rgba(37, 99, 235, 0.2)),
-                      0 0 0 1px rgba(255, 255, 255, 0.4);
+          box-shadow: 0 20px 40px -15px rgba(var(--theme-color), 0.25),
+                      0 0 0 1px rgba(var(--theme-color), 0.1);
         }
         .cat-img-box {
           position: relative;
@@ -683,17 +752,22 @@ function Home() {
           position: absolute;
           top: 10px;
           left: 10px;
-          background: rgba(15, 23, 42, 0.65);
+          background: rgba(15, 23, 42, 0.75);
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
           color: white;
-          padding: 4px 10px;
-          border-radius: 8px;
-          font-size: 10px;
+          padding: 6px 12px;
+          border-radius: 10px;
+          font-size: 11px;
           font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
           border: 1px solid rgba(255, 255, 255, 0.15);
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+        .badge-emoji {
+          font-size: 12px;
         }
         .cat-info {
           display: flex;
@@ -708,7 +782,7 @@ function Home() {
           text-align: left;
         }
         .category-card-premium:hover .cat-info h4 {
-          color: var(--primary);
+          color: rgba(var(--theme-color), 1);
         }
         .cat-desc {
           font-size: 13px;
@@ -734,6 +808,7 @@ function Home() {
           transition: all 0.3s ease;
         }
         .category-card-premium:hover .cat-cta {
+          color: rgba(var(--theme-color), 1);
           opacity: 1;
         }
         .cat-cta-arrow {
@@ -742,6 +817,7 @@ function Home() {
           transition: transform 0.3s ease;
         }
         .category-card-premium:hover .cat-cta-arrow {
+          color: rgba(var(--theme-color), 1);
           transform: translateX(4px);
         }
 
