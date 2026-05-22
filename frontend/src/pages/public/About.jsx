@@ -12,9 +12,9 @@ function About() {
   return (
     <MainLayout>
       {/* ===== HERO SECTION ===== */}
-      <section className="about-hero" style={{ backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6)), url(${bannerImg})` }}>
-        <div className="container animate-fade-in">
-          <span className="section-tag" style={{ color: "white", opacity: 0.9 }}>Our Story</span>
+      <section className="about-hero" style={{ backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.8)), url(${bannerImg})` }}>
+        <div className="container hero-container animate-fade-in">
+          <div className="hero-badge animate-float-slow">✨ Our Journey</div>
           <h1 className="hero-title white text-shadow-premium">Redefining Home Services</h1>
           <p className="hero-subtitle white text-shadow-soft">At HomeFaciliti, we're on a mission to bring world-class professional services to every doorstep, combining technology with human expertise.</p>
         </div>
@@ -30,6 +30,7 @@ function About() {
             <div className="image-sub glass">
               <img src={architectureImg} alt="Home Architecture" />
             </div>
+            <div className="image-stack-glow"></div>
           </div>
           <div className="about-text reveal">
             <span className="section-tag">Who we are</span>
@@ -38,17 +39,21 @@ function About() {
             <p className="text-secondary">Our goal is to connect customers with verified professionals anytime, anywhere. We believe that home maintenance should be a seamless experience, not a chore.</p>
             
             <div className="features-mini">
-              <div className="feature-item">
-                <span className="icon">✓</span>
-                <span>Verified Professionals</span>
+              <div className="feature-item-premium glass">
+                <div className="icon-wrapper">✓</div>
+                <span>Verified Pros</span>
               </div>
-              <div className="feature-item">
-                <span className="icon">✓</span>
-                <span>Transparent Pricing</span>
+              <div className="feature-item-premium glass">
+                <div className="icon-wrapper">✓</div>
+                <span>Fair Pricing</span>
               </div>
-              <div className="feature-item">
-                <span className="icon">✓</span>
-                <span>24/7 Quality Support</span>
+              <div className="feature-item-premium glass">
+                <div className="icon-wrapper">✓</div>
+                <span>24/7 Support</span>
+              </div>
+              <div className="feature-item-premium glass">
+                <div className="icon-wrapper">✓</div>
+                <span>100% Secure</span>
               </div>
             </div>
           </div>
@@ -59,15 +64,17 @@ function About() {
       <section className="section about-vision bg-alt">
         <div className="container">
           <div className="grid-2">
-            <div className="premium-card vision-card reveal">
+            <div className="premium-card vision-card card-mission reveal">
               <div className="icon-badge">🎯</div>
               <h3>Our Mission</h3>
               <p>To deliver trusted home services within minutes through technology-driven solutions and skilled professionals, empowering both customers and service partners.</p>
+              <div className="card-accent-line"></div>
             </div>
-            <div className="premium-card vision-card reveal" style={{ transitionDelay: '0.2s' }}>
+            <div className="premium-card vision-card card-vision reveal" style={{ transitionDelay: '0.2s' }}>
               <div className="icon-badge">✨</div>
               <h3>Our Vision</h3>
               <p>To become India’s most trusted 24/7 home services ecosystem, creating a new standard for home comfort and professional reliability.</p>
+              <div className="card-accent-line"></div>
             </div>
           </div>
         </div>
@@ -75,23 +82,25 @@ function About() {
 
       {/* ===== STATS SECTION ===== */}
       <section className="section about-stats reveal">
+        <div className="stats-ambient-glow glow-1"></div>
+        <div className="stats-ambient-glow glow-2"></div>
         <div className="container">
-          <div className="stats-grid glass">
+          <div className="stats-grid glass-premium">
             <div className="stat-item">
-              <h2>10K+</h2>
-              <p>Customers Served</p>
+              <h2 className="stat-number text-grad-pink">10K+</h2>
+              <p className="stat-label">Customers Served</p>
             </div>
             <div className="stat-item">
-              <h2>500+</h2>
-              <p>Verified Vendors</p>
+              <h2 className="stat-number text-grad-gold">500+</h2>
+              <p className="stat-label">Verified Vendors</p>
             </div>
             <div className="stat-item">
-              <h2>24/7</h2>
-              <p>Service Availability</p>
+              <h2 className="stat-number text-grad-blue">24/7</h2>
+              <p className="stat-label">Service Availability</p>
             </div>
             <div className="stat-item">
-              <h2>4.8/5</h2>
-              <p>Average Rating</p>
+              <h2 className="stat-number text-grad-purple">4.8/5</h2>
+              <p className="stat-label">Average Rating</p>
             </div>
           </div>
         </div>
@@ -99,12 +108,15 @@ function About() {
 
       {/* ===== JOIN US ===== */}
       <section className="section about-cta reveal">
-        <div className="container text-center">
-          <h2 className="section-title">Be Part of Our Journey</h2>
-          <p className="hero-subtitle" style={{ margin: "24px auto" }}>Whether you're looking for expert help or want to grow your business as a partner, HomeFaciliti is here for you.</p>
-          <div className="hero-btns" style={{ justifyContent: "center" }}>
-            <a href="https://play.google.com/store/apps/details?id=com.homefacility" target="_blank" rel="noopener noreferrer" className="btn-premium" style={{ textDecoration: 'none' }}>Book a Service</a>
-            <a href="https://play.google.com/store/apps/details?id=com.hf_partner" target="_blank" rel="noopener noreferrer" className="btn-outline-premium" style={{ textDecoration: 'none' }}>Become a Partner</a>
+        <div className="container">
+          <div className="cta-banner glass-dark-premium">
+            <div className="cta-glow"></div>
+            <h2 className="section-title white text-shadow-premium">Be Part of Our Journey</h2>
+            <p className="hero-subtitle white text-shadow-soft" style={{ margin: "20px auto 40px", maxWidth: "600px" }}>Whether you're looking for expert help or want to grow your business as a partner, HomeFaciliti is here for you.</p>
+            <div className="hero-btns" style={{ justifyContent: "center" }}>
+              <a href="https://play.google.com/store/apps/details?id=com.homefacility" target="_blank" rel="noopener noreferrer" className="btn-premium white-bg-hover" style={{ textDecoration: 'none' }}>Book a Service</a>
+              <a href="https://play.google.com/store/apps/details?id=com.hf_partner" target="_blank" rel="noopener noreferrer" className="btn-outline-premium white-border" style={{ textDecoration: 'none' }}>Become a Partner</a>
+            </div>
           </div>
         </div>
       </section>
@@ -112,16 +124,35 @@ function About() {
       <style jsx>{`
         .white { color: white !important; }
         .text-center { text-align: center; }
-        .bg-alt { background: #f1f5f9; }
+        .bg-alt { background: #f8fafc; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         
         .about-hero {
-          height: 60vh;
+          height: 55vh;
           background-size: cover;
           background-position: center;
           display: flex;
           align-items: center;
           text-align: center;
+          position: relative;
+        }
+        .hero-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .hero-badge {
+          background: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(8px);
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          color: white;
+          padding: 8px 20px;
+          border-radius: 100px;
+          font-weight: 700;
+          font-size: 14px;
+          margin-bottom: 24px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
         }
 
         .grid-2 {
@@ -136,24 +167,51 @@ function About() {
           padding-bottom: 40px;
         }
         .image-main {
-          width: 85%;
+          width: 82%;
           aspect-ratio: 1;
-          border-radius: 24px;
+          border-radius: 32px;
           overflow: hidden;
-          box-shadow: var(--shadow-lg);
+          box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+          border: 6px solid white;
+          position: relative;
+          z-index: 2;
+          transition: all 0.5s ease;
         }
         .image-main img { width: 100%; height: 100%; object-fit: cover; }
         .image-sub {
           position: absolute;
-          width: 50%;
+          width: 48%;
           aspect-ratio: 1;
           bottom: 0;
           right: 0;
-          border-radius: 20px;
+          border-radius: 28px;
           overflow: hidden;
           padding: 8px;
+          z-index: 3;
+          border: 6px solid white;
+          background: rgba(255, 255, 255, 0.8);
+          box-shadow: 0 15px 30px rgba(15, 23, 42, 0.12);
+          transition: all 0.5s ease;
         }
-        .image-sub img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+        .image-sub img { width: 100%; height: 100%; object-fit: cover; border-radius: 18px; }
+        .image-stack-glow {
+          position: absolute;
+          top: 10%;
+          left: 10%;
+          width: 70%;
+          height: 70%;
+          background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+          z-index: 1;
+          pointer-events: none;
+        }
+        .about-image-stack:hover .image-main {
+          transform: translateY(-5px) rotate(-1deg);
+          box-shadow: 0 25px 50px rgba(15, 23, 42, 0.2);
+        }
+        .about-image-stack:hover .image-sub {
+          transform: translateY(-8px) scale(1.03) rotate(2deg);
+          box-shadow: 0 20px 40px rgba(15, 23, 42, 0.18);
+        }
 
         .text-secondary {
           color: var(--text-muted);
@@ -168,32 +226,92 @@ function About() {
           gap: 16px;
           margin-top: 32px;
         }
-        .feature-item {
+        .feature-item-premium {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 14px;
           font-weight: 600;
           color: var(--text-main);
+          padding: 14px 20px;
+          border-radius: 20px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+          border: 1px solid rgba(226, 232, 240, 0.8);
+          transition: all 0.3s ease;
         }
-        .feature-item .icon {
-          width: 24px;
-          height: 24px;
-          background: var(--grad-main);
+        .feature-item-premium:hover {
+          transform: translateY(-2px);
+          border-color: rgba(37, 99, 235, 0.2);
+          background: rgba(37, 99, 235, 0.02) !important;
+          box-shadow: 0 8px 24px rgba(37, 99, 235, 0.06);
+        }
+        .feature-item-premium .icon-wrapper {
+          width: 28px;
+          height: 28px;
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
           color: white;
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 12px;
+          font-size: 14px;
+          font-weight: 800;
+          box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
         }
 
         .vision-card {
+          position: relative;
           text-align: left;
           padding: 40px;
+          background: white;
+          border-radius: 32px;
+          border: 1px solid rgba(226, 232, 240, 0.8);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+          overflow: hidden;
+          transition: all 0.4s ease;
+        }
+        .card-accent-line {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: var(--grad-main);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.4s ease;
+        }
+        .card-mission:hover .card-accent-line {
+          background: linear-gradient(90deg, #ec4899, #f43f5e);
+          transform: scaleX(1);
+        }
+        .card-vision:hover .card-accent-line {
+          background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+          transform: scaleX(1);
+        }
+        .vision-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+          border-color: rgba(226, 232, 240, 0.2);
         }
         .icon-badge {
-          font-size: 32px;
-          margin-bottom: 20px;
+          width: 60px;
+          height: 60px;
+          border-radius: 20px;
+          background: #f1f5f9;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 28px;
+          margin-bottom: 24px;
+          transition: all 0.3s ease;
+        }
+        .card-mission:hover .icon-badge {
+          background: rgba(236, 72, 153, 0.1);
+          transform: scale(1.08) rotate(-5deg);
+        }
+        .card-vision:hover .icon-badge {
+          background: rgba(59, 130, 246, 0.1);
+          transform: scale(1.08) rotate(5deg);
         }
         .vision-card h3 {
           font-size: 24px;
@@ -204,7 +322,44 @@ function About() {
           line-height: 1.7;
         }
 
+        .about-stats {
+          position: relative;
+          overflow: hidden;
+        }
+        .stats-ambient-glow {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(120px);
+          opacity: 0.12;
+          pointer-events: none;
+          z-index: 0;
+        }
+        .glow-1 {
+          top: -20%;
+          left: 10%;
+          width: 400px;
+          height: 400px;
+          background: #3b82f6;
+        }
+        .glow-2 {
+          bottom: -20%;
+          right: 10%;
+          width: 400px;
+          height: 400px;
+          background: #ec4899;
+        }
+
+        .glass-premium {
+          background: rgba(255, 255, 255, 0.7);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.4);
+          box-shadow: 0 20px 50px -10px rgba(148, 163, 184, 0.15), 
+                      inset 0 0 40px rgba(255, 255, 255, 0.2);
+        }
         .stats-grid {
+          position: relative;
+          z-index: 1;
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 32px;
@@ -212,24 +367,92 @@ function About() {
           border-radius: 32px;
           text-align: center;
         }
-        .stat-item h2 {
-          font-size: 48px;
+        .stat-number {
+          font-size: 54px;
+          font-weight: 800;
           margin-bottom: 8px;
-          color: black;
+          letter-spacing: -2px;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
+          display: inline-block;
         }
-        .stat-item p {
+        .text-grad-pink {
+          background-image: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+        }
+        .text-grad-gold {
+          background-image: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        .text-grad-blue {
+          background-image: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+        .text-grad-purple {
+          background-image: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+        }
+        .stat-label {
           color: var(--text-muted);
           font-weight: 600;
+          font-size: 15px;
+          letter-spacing: -0.2px;
+        }
+
+        .cta-banner {
+          position: relative;
+          overflow: hidden;
+          padding: 80px 40px;
+          border-radius: 40px;
+          text-align: center;
+          box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+        }
+        .glass-dark-premium {
+          background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.95) 100%);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .cta-glow {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 80%;
+          height: 80%;
+          background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(37, 99, 235, 0.05) 50%, transparent 80%);
+          pointer-events: none;
+          z-index: 0;
+        }
+        .white-bg-hover {
+          background: white !important;
+          color: var(--text-main) !important;
+          box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2) !important;
+        }
+        .white-bg-hover:hover {
+          transform: scale(1.03) !important;
+          box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4) !important;
+        }
+        .white-border {
+          border-color: rgba(255, 255, 255, 0.3) !important;
+          color: white !important;
+        }
+        .white-border:hover {
+          background: rgba(255, 255, 255, 0.1) !important;
+          border-color: white !important;
         }
         .hero-btns {
           display: flex;
           gap: 16px;
+          position: relative;
+          z-index: 1;
         }
 
         @media (max-width: 768px) {
           .grid-2 { grid-template-columns: 1fr; gap: 40px; }
           .stats-grid { grid-template-columns: 1fr 1fr; padding: 40px; }
           .about-hero { height: 40vh; }
+          .cta-banner { padding: 50px 24px; }
+          .image-main { width: 100%; border: none; }
+          .image-sub { display: none; }
         }
         @media (max-width: 480px) {
           .features-mini {

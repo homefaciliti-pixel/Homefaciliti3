@@ -34,6 +34,36 @@ import pestControlImg from "../../assets/images/pest-control.jpg";
 function Home() {
   useReveal();
 
+  const getTagGradient = (tag) => {
+    switch (tag?.toLowerCase()) {
+      case "trending":
+        return "linear-gradient(135deg, #ec4899 0%, #f43f5e 100%)";
+      case "best seller":
+        return "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)";
+      case "essential":
+        return "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)";
+      case "premium":
+        return "linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)";
+      default:
+        return "var(--grad-main)";
+    }
+  };
+
+  const getTagShadow = (tag) => {
+    switch (tag?.toLowerCase()) {
+      case "trending":
+        return "rgba(236, 72, 153, 0.35)";
+      case "best seller":
+        return "rgba(245, 158, 11, 0.35)";
+      case "essential":
+        return "rgba(37, 99, 235, 0.35)";
+      case "premium":
+        return "rgba(139, 92, 246, 0.35)";
+      default:
+        return "rgba(37, 99, 235, 0.15)";
+    }
+  };
+
   const categories = [
     { name: "Mechanic", img: mechanicImg },
     { name: "Plumbing", img: plumberImg },
@@ -62,24 +92,36 @@ function Home() {
       price: "₹ 1799",
       img: spaImg,
       tag: "Trending",
+      rating: "4.9",
+      reviews: "148",
+      features: ["Premium Products Included", "Certified Expert Therapists"],
     },
     {
       title: "Full Home Deep Cleaning",
       price: "₹ 2999",
       img: cleaningImg,
       tag: "Best Seller",
+      rating: "4.8",
+      reviews: "320",
+      features: ["Eco-Friendly Chemicals", "Complete Post-Clean Sanitization"],
     },
     {
       title: "Expert Tap & Faucet Repair",
       price: "₹ 249",
       img: tapRepairImg,
       tag: "Essential",
+      rating: "4.9",
+      reviews: "94",
+      features: ["15-min Guaranteed Arrival", "30 Days Warranty Service"],
     },
     {
       title: "Architecture Consultation",
       price: "₹ 5000",
       img: architectureImg,
       tag: "Premium",
+      rating: "5.0",
+      reviews: "42",
+      features: ["Vastu-Compliant Options", "Comprehensive 3D Walkthrough"],
     },
   ];
 
@@ -203,6 +245,7 @@ function Home() {
 
       {/* ===== FEATURED SERVICES SECTION ===== */}
       <section className="section services-section reveal">
+        <div className="services-spotlight"></div>
         <div className="container">
           <div className="section-header reveal">
             <span className="section-tag">Expertly Selected</span>
@@ -211,18 +254,41 @@ function Home() {
 
           <div className="services-grid">
             {services.map((service, index) => (
-              <div key={index} className="premium-card service-card reveal" style={{ transitionDelay: `${index * 0.1}s` }}>
-                <span className="service-tag-floating">{service.tag}</span>
+              <div 
+                key={index} 
+                className="premium-card service-card reveal" 
+                style={{ 
+                  transitionDelay: `${index * 0.1}s`,
+                  "--glow-color": getTagShadow(service.tag)
+                }}
+              >
                 <div className="service-img">
+                  <span className="service-tag-floating" style={{ background: getTagGradient(service.tag) }}>{service.tag}</span>
                   <img src={service.img} alt={service.title} />
                 </div>
                 <div className="service-content">
                   <h3>{service.title}</h3>
+                  
+                  <div className="service-rating">
+                    <span className="stars">⭐ {service.rating}</span>
+                    <span className="reviews">({service.reviews} reviews)</span>
+                  </div>
+
+                  <div className="service-features">
+                    {service.features.map((feat, fIdx) => (
+                      <span key={fIdx} className="feature-pill">
+                        <span className="check-icon">✓</span> {feat}
+                      </span>
+                    ))}
+                  </div>
+
                   <div className="service-footer">
                     <div className="price-tag">
                       <span className="price-value">{service.price}</span>
                     </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.homefacility" target="_blank" rel="noopener noreferrer" className="btn-premium btn-small" style={{ textDecoration: 'none', width: '100%', textAlign: 'center' }}>Book Now</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.homefacility" target="_blank" rel="noopener noreferrer" className="btn-premium btn-small" style={{ textDecoration: 'none', width: '100%', textAlign: 'center' }}>
+                      Book Now <span className="btn-arrow">→</span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -502,32 +568,60 @@ function Home() {
         .category-card-premium:hover .cat-img-box img { transform: scale(1.1); }
         .category-card-premium h4 { font-size: 20px; text-align: center; }
 
+        .services-section {
+          position: relative;
+          overflow: hidden;
+        }
+        .services-spotlight {
+          position: absolute;
+          top: 30%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 1000px;
+          height: 800px;
+          background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(37, 99, 235, 0.02) 40%, rgba(255, 255, 255, 0) 70%);
+          z-index: 0;
+          pointer-events: none;
+        }
         .services-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
           gap: 32px;
+          position: relative;
+          z-index: 1;
         }
         .service-card {
           position: relative;
-          text-align: center;
+          text-align: left;
           display: flex;
           flex-direction: column;
-          align-items: center;
+          align-items: stretch;
+          background: var(--surface);
+          border: 1px solid rgba(226, 232, 240, 0.8);
+          border-radius: 28px;
+          padding: 20px;
+          box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .service-card:hover {
+          transform: translateY(-8px);
+          border-color: transparent;
+          box-shadow: 0 20px 40px -15px var(--glow-color, rgba(37, 99, 235, 0.2)), 
+                      0 0 0 1px rgba(255, 255, 255, 0.4);
         }
         .service-img {
           width: 100%;
-          aspect-ratio: 1 / 1;
-          border-radius: 24px;
+          aspect-ratio: 1.2 / 1;
+          border-radius: 20px;
           position: relative;
           overflow: hidden;
-          margin: 12px auto 24px;
-          border: 4px solid white;
-          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), var(--shadow-md);
+          margin-bottom: 20px;
+          border: 1px solid rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 0 40px rgba(0,0,0,0.02);
           transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .service-card:hover .service-img {
-          transform: scale(1.02);
-          box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1), var(--shadow-lg);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
         }
         .service-img img {
           width: 100%;
@@ -536,13 +630,13 @@ function Home() {
           transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .service-card:hover .service-img img {
-          transform: scale(1.12);
+          transform: scale(1.08);
         }
         .service-img::after {
           content: '';
           position: absolute;
           inset: 0;
-          background: linear-gradient(to bottom, rgba(37, 99, 235, 0.04), rgba(15, 23, 42, 0.12));
+          background: linear-gradient(to bottom, rgba(37, 99, 235, 0.01), rgba(15, 23, 42, 0.04));
           opacity: 1;
           transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
           pointer-events: none;
@@ -552,50 +646,122 @@ function Home() {
         }
         .service-tag-floating {
           position: absolute;
-          top: 16px;
-          right: 16px;
-          background: var(--grad-main);
+          top: 12px;
+          right: 12px;
           color: white;
-          padding: 4px 12px;
-          border-radius: 8px;
+          padding: 6px 14px;
+          border-radius: 12px;
           font-size: 11px;
           font-weight: 700;
-          letter-spacing: 0.5px;
+          letter-spacing: 0.8px;
+          text-transform: uppercase;
           z-index: 5;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          backdrop-filter: blur(8px);
         }
         .service-content {
-          padding: 12px 0 0 0;
+          padding: 0;
           display: flex;
           flex-direction: column;
-          align-items: center;
+          align-items: stretch;
           flex: 1;
           width: 100%;
         }
         .service-content h3 {
           font-size: 20px;
-          margin-bottom: 20px;
-          min-height: 56px;
+          font-weight: 700;
+          color: var(--text-main);
+          margin-bottom: 8px;
+          min-height: auto;
+          display: block;
+          text-align: left;
+          letter-spacing: -0.5px;
+          line-height: 1.3;
+          transition: color 0.3s ease;
+        }
+        .service-card:hover .service-content h3 {
+          color: var(--primary);
+        }
+        .service-rating {
           display: flex;
           align-items: center;
-          justify-content: center;
+          gap: 6px;
+          font-size: 13px;
+          margin-bottom: 16px;
+        }
+        .service-rating .stars {
+          color: var(--accent);
+          font-weight: 700;
+        }
+        .service-rating .reviews {
+          color: var(--text-muted);
+          opacity: 0.8;
+        }
+        .service-features {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          margin-bottom: 20px;
+        }
+        .feature-pill {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 13px;
+          color: var(--text-muted);
+          font-weight: 500;
+        }
+        .feature-pill .check-icon {
+          color: #10b981;
+          font-weight: 800;
         }
         .service-footer {
           display: flex;
-          flex-direction: column;
           align-items: center;
-          gap: 16px;
+          justify-content: space-between;
+          gap: 12px;
           padding-top: 16px;
-          border-top: 1px solid #f1f5f9;
+          border-top: 1px dashed rgba(226, 232, 240, 0.8);
           width: 100%;
           margin-top: auto;
         }
         .price-tag {
+          background: rgba(37, 99, 235, 0.04);
+          padding: 8px 16px;
+          border-radius: 12px;
+          border: 1px solid rgba(37, 99, 235, 0.08);
           display: flex;
-          flex-direction: column;
           align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+          min-width: 90px;
         }
-        .price-label { font-size: 12px; color: var(--text-muted); }
-        .price-value { font-size: 20px; font-weight: 800; color: var(--text-main); }
+        .service-card:hover .price-tag {
+          background: var(--primary);
+          border-color: var(--primary);
+        }
+        .price-value {
+          font-size: 18px;
+          font-weight: 800;
+          color: var(--primary);
+          transition: color 0.3s ease;
+        }
+        .service-card:hover .price-value {
+          color: white;
+        }
+        .btn-small {
+          padding: 8px 16px !important;
+          font-size: 13px !important;
+          border-radius: 12px !important;
+        }
+        .btn-arrow {
+          display: inline-block;
+          transition: transform 0.3s ease;
+        }
+        .service-card:hover .btn-arrow {
+          transform: translateX(4px);
+        }
 
         .promo-banner {
           background: var(--grad-main);
