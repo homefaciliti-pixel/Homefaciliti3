@@ -31,20 +31,20 @@ function Navbar() {
 
       <div className="nav-container">
         {/* ===== LOGO ===== */}
-        <Link to="/" className="nav-logo">
+        <Link to="/" className="nav-logo" onClick={() => setMenuOpen(false)}>
           <img src={logo} alt="HomeFaciliti Logo" />
         </Link>
 
         {/* ===== NAV LINKS ===== */}
         <div className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <Link to="/" className={`nav-item ${isActive("/") ? "active" : ""}`}>Home</Link>
-          <Link to="/categories" className={`nav-item ${isActive("/categories") ? "active" : ""}`}>Categories</Link>
-          <Link to="/contact" className={`nav-item ${isActive("/contact") ? "active" : ""}`}>Contact</Link>
-          <Link to="/About" className={`nav-item ${isActive("/About") ? "active" : ""}`}>About</Link>
+          <Link to="/" className={`nav-item ${isActive("/") ? "active" : ""}`} onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link to="/categories" className={`nav-item ${isActive("/categories") ? "active" : ""}`} onClick={() => setMenuOpen(false)}>Categories</Link>
+          <Link to="/contact" className={`nav-item ${isActive("/contact") ? "active" : ""}`} onClick={() => setMenuOpen(false)}>Contact</Link>
+          <Link to="/About" className={`nav-item ${isActive("/About") ? "active" : ""}`} onClick={() => setMenuOpen(false)}>About</Link>
 
           <div className="nav-actions">
-            <a href="https://play.google.com/store/apps/details?id=com.homefacility" target="_blank" rel="noopener noreferrer" className="btn-premium btn-small" style={{ textDecoration: 'none' }}>User Portal</a>
-            <a href="https://play.google.com/store/apps/details?id=com.hf_partner" target="_blank" rel="noopener noreferrer" className="btn-outline-premium btn-small" style={{ textDecoration: 'none' }}>Vendor Portal</a>
+            <a href="https://play.google.com/store/apps/details?id=com.homefacility" target="_blank" rel="noopener noreferrer" className="btn-premium btn-small" style={{ textDecoration: 'none' }} onClick={() => setMenuOpen(false)}>User Portal</a>
+            <a href="https://play.google.com/store/apps/details?id=com.hf_partner" target="_blank" rel="noopener noreferrer" className="btn-outline-premium btn-small" style={{ textDecoration: 'none' }} onClick={() => setMenuOpen(false)}>Vendor Portal</a>
           </div>
         </div>
 
@@ -228,6 +228,22 @@ function Navbar() {
             flex-direction: column;
             margin-left: 0;
             margin-top: 32px;
+          }
+        }
+        @media (max-width: 768px) {
+          .nav-logo img {
+            height: 80px;
+          }
+          .navbar.scrolled .nav-logo img {
+            height: 60px;
+          }
+          .nav-links {
+            width: 80%;
+          }
+        }
+        @media (max-width: 480px) {
+          .nav-links {
+            width: 100%;
           }
         }
       `}</style>

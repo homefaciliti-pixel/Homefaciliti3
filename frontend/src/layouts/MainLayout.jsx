@@ -134,11 +134,27 @@ function MainLayout({ children }) {
           font-size: 14px;
         }
         @media (max-width: 768px) {
+          .main-content {
+            margin-top: 112px;
+            padding: 24px 0;
+          }
           .footer-grid {
             grid-template-columns: 1fr 1fr;
           }
           .footer-brand {
             grid-column: span 2;
+          }
+        }
+        @media (max-width: 480px) {
+          .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 32px;
+          }
+          .footer-brand {
+            grid-column: span 1;
+          }
+          .main-footer {
+            padding: 60px 0 30px;
           }
         }
       `}</style>

@@ -1853,12 +1853,16 @@ function CategoryServices() {
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
+          flex-wrap: wrap;
+          gap: 12px 8px;
           margin-bottom: 12px;
         }
         .service-info-top h3 {
           font-size: 20px;
           margin: 0;
           color: var(--text-main);
+          flex: 1;
+          min-width: 200px;
         }
         .duration-tag {
           font-size: 13px;
@@ -1884,7 +1888,8 @@ function CategoryServices() {
         }
         .benefits {
           display: flex;
-          gap: 16px;
+          flex-wrap: wrap;
+          gap: 8px 16px;
           margin-bottom: 20px;
           font-size: 12px;
           font-weight: 700;
@@ -1913,6 +1918,9 @@ function CategoryServices() {
 
         @media (max-width: 640px) {
           .services-list-grid { grid-template-columns: 1fr; }
+          .service-img-box { height: 180px; }
+          .service-header { margin-bottom: 32px; }
+          .section-title { font-size: 32px; }
         }
       `}</style>
     </MainLayout>

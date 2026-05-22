@@ -353,6 +353,10 @@ function Home() {
           max-width: 520px;
           margin-bottom: 48px;
         }
+        .hero-btns {
+          display: flex;
+          gap: 16px;
+        }
         .hero-stats {
           display: flex;
           align-items: center;
@@ -609,9 +613,29 @@ function Home() {
           .photo-1 { grid-column: span 2; grid-row: span 1; height: 300px; }
           .photo-2, .photo-3, .photo-4, .photo-5 { grid-column: span 1; height: 200px; }
         }
+        @media (max-width: 768px) {
+          .section { padding: 60px 0; }
+          .section-title { font-size: 36px; }
+          .hero-section { padding: 40px 0 60px; }
+        }
         @media (max-width: 640px) {
+          .hero-title { font-size: 38px; letter-spacing: -1px; }
+          .hero-subtitle { font-size: 16px; margin-bottom: 24px; }
+          .hero-stats { gap: 16px; margin-top: 32px; }
+          .stat strong { font-size: 20px; }
+          .stat span { font-size: 12px; }
+          .floating-card { display: none; }
+          .promo-content h2 { font-size: 30px; }
+          .promo-content p { font-size: 16px; margin-bottom: 24px; }
+          .promo-banner { padding: 32px 20px; border-radius: 24px; }
+          .section-title { font-size: 28px; }
           .event-gallery-grid { grid-template-columns: 1fr; }
           .photo-1, .photo-2, .photo-3, .photo-4, .photo-5 { grid-column: span 1; height: 250px; }
+        }
+        @media (max-width: 480px) {
+          .category-grid { grid-template-columns: 1fr; }
+          .hero-btns { flex-direction: column; width: 100%; gap: 12px; }
+          .hero-btns a { width: 100%; text-align: center; }
         }
       `}</style>
     </MainLayout>

@@ -221,11 +221,37 @@ function About() {
           color: var(--text-muted);
           font-weight: 600;
         }
+        .hero-btns {
+          display: flex;
+          gap: 16px;
+        }
 
         @media (max-width: 768px) {
           .grid-2 { grid-template-columns: 1fr; gap: 40px; }
           .stats-grid { grid-template-columns: 1fr 1fr; padding: 40px; }
           .about-hero { height: 40vh; }
+        }
+        @media (max-width: 480px) {
+          .features-mini {
+            grid-template-columns: 1fr;
+          }
+          .stats-grid {
+            grid-template-columns: 1fr;
+            padding: 24px;
+            gap: 24px;
+          }
+          .stat-item h2 {
+            font-size: 32px;
+          }
+          .hero-btns {
+            flex-direction: column;
+            width: 100%;
+            gap: 12px;
+          }
+          .hero-btns a {
+            width: 100%;
+            text-align: center;
+          }
         }
       `}</style>
     </MainLayout>

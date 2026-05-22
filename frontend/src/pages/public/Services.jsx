@@ -96,6 +96,15 @@ const Services = () => {
           grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
           gap: 40px;
         }
+        @media (max-width: 480px) {
+          .catalog-grid {
+            grid-template-columns: 1fr;
+            gap: 24px;
+          }
+          .section-header {
+            margin-bottom: 40px;
+          }
+        }
       `}</style>
     </MainLayout>
   );
