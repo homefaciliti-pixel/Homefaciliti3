@@ -44,7 +44,7 @@ function Navbar() {
 
           <div className="nav-actions">
             <a href="https://play.google.com/store/apps/details?id=com.homefacility" target="_blank" rel="noopener noreferrer" className="btn-premium btn-small" style={{ textDecoration: 'none' }} onClick={() => setMenuOpen(false)}>User Portal</a>
-            <a href="https://play.google.com/store/apps/details?id=com.hf_partner" target="_blank" rel="noopener noreferrer" className="btn-outline-premium btn-small" style={{ textDecoration: 'none' }} onClick={() => setMenuOpen(false)}>Vendor Portal</a>
+            <a href="https://play.google.com/store/apps/details?id=com.hf_partner" target="_blank" rel="noopener noreferrer" className="btn-outline-premium btn-small" style={{ textDecoration: 'none' }} onClick={() => setMenuOpen(false)}>Partner App</a>
           </div>
         </div>
 
