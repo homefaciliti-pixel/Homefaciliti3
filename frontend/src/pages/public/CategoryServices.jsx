@@ -147,152 +147,152 @@ function CategoryServices() {
   const carWashingServices = {
     SUV: [
       {
-        name: "Basic Wash - SUV",
+        name: "Basic Wash-Compact SUV",
         image: carWashImg,
-        desc: "Rugged exterior foam wash, tire dressing & high-pressure under-chassis cleaning.",
+        desc: "Professional basic wash-compact suv services. Book experienced professionals for guaranteed satisfaction.",
         price: 319.00,
         time: "1 Hours"
       },
       {
-        name: "Standard Wash - SUV",
+        name: "Standard Wash-Compact SUV",
         image: carWashImg,
-        desc: "Exterior foam wash + thorough interior vacuuming, dashboard dressing, and floor mat cleaning.",
+        desc: "Professional standard wash-compact suv services. Book experienced professionals for guaranteed satisfaction.",
         price: 589.00,
-        time: "1.5 Hours"
+        time: "1 Hours"
       },
       {
-        name: "Premium Cleaning - SUV",
+        name: "Premium Cleaning-Compact SUV",
         image: carWashImg,
-        desc: "Deep carpet shampooing, seat stain removal, dashboard sanitization, and high-gloss exterior wax.",
+        desc: "Professional premium cleaning-compact suv services. Book experienced professionals for guaranteed satisfaction.",
         price: 1119.00,
-        time: "2 Hours"
+        time: "1 Hours"
       },
       {
-        name: "Luxury Detailing - SUV",
+        name: "Luxury Detailing-Compact SUV",
         image: carWashImg,
-        desc: "Paint correction, premium synthetic wax, deep interior leather conditioning, and glass hydrophobic coating.",
+        desc: "Professional luxury detailing-compact suv services. Book experienced professionals for guaranteed satisfaction.",
         price: 2999.00,
-        time: "3.5 Hours"
+        time: "1 Hours"
       }
     ],
     Hatchback: [
       {
-        name: "Basic Wash - Hatchback",
+        name: "Basic Wash-Hatchback",
         image: carWashImg,
-        desc: "Quick exterior foam wash, wheel cleaning & tire polish for small to mid-sized hatchbacks.",
+        desc: "Professional basic wash-hatchback services. Book experienced professionals for guaranteed satisfaction.",
         price: 249.00,
         time: "1 Hours"
       },
       {
-        name: "Standard Wash - Hatchback",
+        name: "Standard Wash-Hatchback",
         image: carWashImg,
-        desc: "Exterior foam wash + interior vacuuming, console wipe-down, and glass cleaning.",
+        desc: "Professional standard wash-hatchback services. Book experienced professionals for guaranteed satisfaction.",
         price: 349.00,
         time: "1 Hours"
       },
       {
-        name: "Premium Cleaning - Hatchback",
+        name: "Premium Cleaning-Hatchback",
         image: carWashImg,
-        desc: "Deep foam wash, interior carpet/fabric shampooing, dashboard dressing, and dual-layer polish.",
+        desc: "Professional premium cleaning-hatchback services. Book experienced professionals for guaranteed satisfaction.",
         price: 799.00,
-        time: "1.5 Hours"
+        time: "1 Hours"
       },
       {
-        name: "Luxury Detailing - Hatchback",
+        name: "Luxury Detailing-Hatchback",
         image: carWashImg,
-        desc: "Complete exterior machine buffing, premium carnauba wax, interior sanitization & engine bay detailing.",
+        desc: "Professional luxury detailing-hatchback services. Book experienced professionals for guaranteed satisfaction.",
         price: 1949.00,
-        time: "2.5 Hours"
+        time: "1 Hours"
       }
     ],
     MUV: [
       {
-        name: "Basic Wash - MUV",
+        name: "Basic Wash-MUV",
         image: carWashImg,
-        desc: "Full exterior pressure wash, wheel detailing, and tire polishing for spacious MUVs.",
+        desc: "Professional basic wash-muv services. Book experienced professionals for guaranteed satisfaction.",
         price: 349.00,
         time: "1 Hours"
       },
       {
-        name: "Standard Wash - MUV",
+        name: "Standard Wash-MUV",
         image: carWashImg,
-        desc: "Exterior pressure wash + detailed multi-row interior vacuuming, dashboard cleaning, and boot vacuuming.",
+        desc: "Professional standard wash-muv services. Book experienced professionals for guaranteed satisfaction.",
         price: 649.00,
-        time: "1.5 Hours"
+        time: "1 Hours"
       },
       {
-        name: "Premium Cleaning - MUV",
+        name: "Premium Cleaning-MUV",
         image: carWashImg,
-        desc: "Deep interior upholstery shampoo, door pad detailing, roof liner cleaning, and high-shine exterior polish.",
+        desc: "Professional premium cleaning-muv services. Book experienced professionals for guaranteed satisfaction.",
         price: 1299.00,
-        time: "2.5 Hours"
+        time: "1 Hours"
       },
       {
-        name: "Luxury Detailing - MUV",
+        name: "Luxury Detailing-MUV",
         image: carWashImg,
-        desc: "Full paint decontamination, polymer sealant, deep leather conditioning, and odor elimination treatment.",
+        desc: "Professional luxury detailing-muv services. Book experienced professionals for guaranteed satisfaction.",
         price: 3299.00,
-        time: "4 Hours"
+        time: "1 Hours"
       }
     ],
     Sedan: [
       {
-        name: "Basic Wash - Sedan",
+        name: "Basic Wash-Sedan",
         image: carWashImg,
-        desc: "Gentle exterior hand wash, wheel cleaning & tire dressing for classic sedans.",
+        desc: "Professional basic wash-sedan services. Book experienced professionals for guaranteed satisfaction.",
         price: 299.00,
         time: "1 Hours"
       },
       {
-        name: "Standard Wash - Sedan",
+        name: "Standard Wash-Sedan",
         image: carWashImg,
-        desc: "Exterior wash + complete interior vacuuming, AC vent dusting, and dashboard dressing.",
+        desc: "Professional standard wash-sedan services. Book experienced professionals for guaranteed satisfaction.",
         price: 499.00,
         time: "1 Hours"
       },
       {
-        name: "Premium Spa - Sedan",
+        name: "Premium Spa-Sedan",
         image: carWashImg,
-        desc: "Deep interior carpet extraction, seat sanitization, trunk detailing, and synthetic sealant finish.",
+        desc: "Professional premium spa-sedan services. Book experienced professionals for guaranteed satisfaction.",
         price: 949.00,
-        time: "2 Hours"
+        time: "1 Hours"
       },
       {
-        name: "Luxury Detailing - Sedan",
+        name: "Luxury Detailing-Sedan",
         image: carWashImg,
-        desc: "Machine gloss enhancement, ultra-durable paint coating, premium interior detailing & engine conditioning.",
+        desc: "Professional luxury detailing-sedan services. Book experienced professionals for guaranteed satisfaction.",
         price: 2499.00,
-        time: "3 Hours"
+        time: "1 Hours"
       }
     ],
     Luxury: [
       {
-        name: "Basic Wash - Luxury",
+        name: "Basic Car Wash(Exterior Only)",
         image: carWashImg,
-        desc: "Scratch-free premium hand wash, pH-neutral detailing spray, and gentle microfiber dry.",
-        price: 499.00,
+        desc: "Professional basic car wash(exterior only) services. Book experienced professionals for guaranteed satisfaction.",
+        price: 249.00,
         time: "1 Hours"
       },
       {
-        name: "Standard Wash - Luxury",
+        name: "Standard Car Wash(Exterior+INterior)",
         image: carWashImg,
-        desc: "Premium exterior wash + thorough interior vacuuming, leather detailing, and luxury scent spray.",
-        price: 899.00,
-        time: "1.5 Hours"
+        desc: "Professional standard car wash(exterior+interior) services. Book experienced professionals for guaranteed satisfaction.",
+        price: 449.00,
+        time: "1 Hours"
       },
       {
-        name: "Premium Spa - Luxury",
+        name: "Premium Car Spa(Deep Cleaning)",
         image: carWashImg,
-        desc: "Decontamination clay treatment, deep leather conditioning, engine detailing, and paint sealant protection.",
-        price: 1799.00,
-        time: "2.5 Hours"
+        desc: "Professional premium car spa(deep cleaning) services. Book experienced professionals for guaranteed satisfaction.",
+        price: 1249.00,
+        time: "1 Hours"
       },
       {
-        name: "Luxury Detailing - Professional",
+        name: "Luxury Car Detailing(Professional)",
         image: carWashImg,
-        desc: "Elite paint correction, carnauba paste wax, premium interior restoration & ceramic boost maintenance.",
+        desc: "Professional luxury car detailing(professional) services. Book experienced professionals for guaranteed satisfaction.",
         price: 3499.00,
-        time: "4 Hours"
+        time: "1 Hours"
       }
     ]
   };
