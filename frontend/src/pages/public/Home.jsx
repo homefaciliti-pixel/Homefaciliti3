@@ -212,9 +212,9 @@ function Home() {
           <div className="services-grid">
             {services.map((service, index) => (
               <div key={index} className="premium-card service-card reveal" style={{ transitionDelay: `${index * 0.1}s` }}>
+                <span className="service-tag-floating">{service.tag}</span>
                 <div className="service-img">
                   <img src={service.img} alt={service.title} />
-                  <span className="service-tag-floating">{service.tag}</span>
                 </div>
                 <div className="service-content">
                   <h3>{service.title}</h3>
@@ -223,7 +223,7 @@ function Home() {
                       <span className="price-label">Starts from</span>
                       <span className="price-value">{service.price}</span>
                     </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.homefacility" target="_blank" rel="noopener noreferrer" className="btn-premium btn-small" style={{ textDecoration: 'none' }}>Book Now</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.homefacility" target="_blank" rel="noopener noreferrer" className="btn-premium btn-small" style={{ textDecoration: 'none', width: '100%', textAlign: 'center' }}>Book Now</a>
                   </div>
                 </div>
               </div>
@@ -508,9 +508,32 @@ function Home() {
           grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
           gap: 32px;
         }
-        .service-card { padding: 0; overflow: hidden; }
-        .service-img { height: 200px; position: relative; overflow: hidden; }
-        .service-img img { width: 100%; height: 100%; object-fit: cover; }
+        .service-card {
+          position: relative;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .service-img {
+          width: 140px;
+          height: 140px;
+          border-radius: 50%;
+          position: relative;
+          overflow: hidden;
+          margin: 12px auto 20px;
+          border: 4px solid white;
+          box-shadow: var(--shadow-md);
+          transition: transform 0.4s ease;
+        }
+        .service-card:hover .service-img {
+          transform: scale(1.05);
+        }
+        .service-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
         .service-tag-floating {
           position: absolute;
           top: 16px;
@@ -519,19 +542,42 @@ function Home() {
           color: white;
           padding: 4px 12px;
           border-radius: 8px;
-          font-size: 12px;
-          font-weight: 600;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          z-index: 5;
         }
-        .service-content { padding: 24px; }
-        .service-content h3 { font-size: 20px; margin-bottom: 20px; }
+        .service-content {
+          padding: 12px 0 0 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          flex: 1;
+          width: 100%;
+        }
+        .service-content h3 {
+          font-size: 20px;
+          margin-bottom: 20px;
+          min-height: 56px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
         .service-footer {
           display: flex;
-          justify-content: space-between;
+          flex-direction: column;
           align-items: center;
+          gap: 16px;
           padding-top: 16px;
           border-top: 1px solid #f1f5f9;
+          width: 100%;
+          margin-top: auto;
         }
-        .price-tag { display: flex; flex-direction: column; }
+        .price-tag {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
         .price-label { font-size: 12px; color: var(--text-muted); }
         .price-value { font-size: 20px; font-weight: 800; color: var(--text-main); }
 

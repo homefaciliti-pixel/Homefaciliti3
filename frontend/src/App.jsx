@@ -11,13 +11,17 @@ import CategoryServices from "./pages/public/CategoryServices";
 import Services from "./pages/public/Services";
 import Contact from "./pages/public/Contact";
 import About from "./pages/public/About";
-// ===== DASHBOARDS =====
+
+// ===== DASHBOARDS & DETAILS =====
 import UserDashboard from "./pages/user/UserDashboard";
 import VendorDashboard from "./pages/vendor/VendorDashboard";
-
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import UserDetails from "./pages/user/UserDetails";
+import VendorDetails from "./pages/vendor/VendorDetails";
 
 // ===== AUTH =====
 import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 
 // ===== OPTIONAL (404 PAGE) =====
 const NotFound = () => (
@@ -64,6 +68,14 @@ function App() {
 
           {/* ===== AUTH ===== */}
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
+          {/* ===== DASHBOARDS & DETAILS ===== */}
+          <Route path="/user/dashboard" element={<UserDashboard />} />
+          <Route path="/vendor/dashboard" element={<VendorDashboard />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/user-details" element={<UserDetails />} />
+          <Route path="/vendor-details" element={<VendorDetails />} />
 
           {/* ===== FALLBACK ROUTE ===== */}
           <Route path="*" element={<NotFound />} />

@@ -3,14 +3,42 @@ import Navbar from "../components/navbar/Navbar";
 
 const DashboardLayout = ({ children }) => {
   return (
-    <div className="flex">
+    <div className="dashboard-layout">
       <Sidebar />
-      <div className="flex-1">
+      <div className="dashboard-main">
         <Navbar />
-        <div className="p-6 bg-gray-50 min-h-screen">
+        <div className="dashboard-content">
           {children}
         </div>
       </div>
+
+      <style jsx>{`
+        .dashboard-layout {
+          display: flex;
+          min-height: 100vh;
+          background: #f8fafc;
+        }
+        .dashboard-main {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          min-width: 0;
+        }
+        .dashboard-content {
+          padding: 140px 40px 40px 40px;
+          background: #f8fafc;
+          min-height: 100vh;
+        }
+
+        @media (max-width: 768px) {
+          .dashboard-layout {
+            flex-direction: column;
+          }
+          .dashboard-content {
+            padding: 110px 20px 40px 20px;
+          }
+        }
+      `}</style>
     </div>
   );
 };

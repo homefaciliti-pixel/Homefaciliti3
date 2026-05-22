@@ -40,7 +40,7 @@ function Navbar() {
           <Link to="/" className={`nav-item ${isActive("/") ? "active" : ""}`} onClick={() => setMenuOpen(false)}>Home</Link>
           <Link to="/categories" className={`nav-item ${isActive("/categories") ? "active" : ""}`} onClick={() => setMenuOpen(false)}>Categories</Link>
           <Link to="/contact" className={`nav-item ${isActive("/contact") ? "active" : ""}`} onClick={() => setMenuOpen(false)}>Contact</Link>
-          <Link to="/About" className={`nav-item ${isActive("/About") ? "active" : ""}`} onClick={() => setMenuOpen(false)}>About</Link>
+          <Link to="/about" className={`nav-item ${isActive("/about") ? "active" : ""}`} onClick={() => setMenuOpen(false)}>About</Link>
 
           <div className="nav-actions">
             <a href="https://play.google.com/store/apps/details?id=com.homefacility" target="_blank" rel="noopener noreferrer" className="btn-premium btn-small" style={{ textDecoration: 'none' }} onClick={() => setMenuOpen(false)}>User Portal</a>
@@ -215,13 +215,14 @@ function Navbar() {
             justify-content: center;
             transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: -20px 0 60px rgba(0,0,0,0.05);
+            z-index: 1005;
           }
           .nav-links.open {
             right: 0;
           }
           .menu-toggle {
             display: block;
-            z-index: 1001;
+            z-index: 1006;
           }
           .nav-actions {
             flex-direction: column;

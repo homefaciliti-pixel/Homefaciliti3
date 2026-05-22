@@ -80,10 +80,13 @@ const container = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  padding: "20px",
+  boxSizing: "border-box",
 };
 
 const formStyle = {
-  width: "420px",
+  width: "100%",
+  maxWidth: "420px",
   padding: "30px",
   background: "#fff",
   borderRadius: "10px",
