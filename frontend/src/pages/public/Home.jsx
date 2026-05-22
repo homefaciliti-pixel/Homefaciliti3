@@ -1,3 +1,4 @@
+import { useState } from "react";
 import MainLayout from "../../layouts/MainLayout";
 import { Link } from "react-router-dom";
 import useReveal from "../../hooks/useReveal";
@@ -64,27 +65,34 @@ function Home() {
     }
   };
 
+  const [searchTerm, setSearchTerm] = useState("");
+
   const categories = [
-    { name: "Mechanic", img: mechanicImg },
-    { name: "Plumbing", img: plumberImg },
-    { name: "Electrician", img: electricianImg },
-    { name: "Salon & Spa", img: salonImg },
-    { name: "Cleaning", img: cleaningImg },
-    { name: "Pest Control", img: pestControlImg },
-    { name: "Architecture", img: architectureImg },
-    { name: "Carpenter", img: carpenterImg },
-    { name: "Pandit Ji", img: panditImg },
-    { name: "Driver", img: driverImg },
-    { name: "Photographer", img: photographerImg },
-    { name: "Doctor", img: doctorImg },
-    { name: "Compounder", img: compounderImg },
-    { name: "Halwai", img: halwaiImg },
-    { name: "Car Washing", img: carWashImg },
-    { name: "Tax Consultancy", img: taxImg },
-    { name: "Painter", img: painterImg },
-    { name: "Repairing", img: repairingImg },
-    { name: "AC Repair", img: acImg },
+    { name: "Mechanic", img: mechanicImg, desc: "24/7 Roadside & Shop repairs" },
+    { name: "Plumbing", img: plumberImg, desc: "Leakages, blockages & fittings" },
+    { name: "Electrician", img: electricianImg, desc: "Wiring, installation & appliances" },
+    { name: "Salon & Spa", img: salonImg, desc: "At-home grooming & pampering" },
+    { name: "Cleaning", img: cleaningImg, desc: "Deep & sanitization services" },
+    { name: "Pest Control", img: pestControlImg, desc: "Safe, chemical-free termination" },
+    { name: "Architecture", img: architectureImg, desc: "Vastu planning & 3D walkthroughs" },
+    { name: "Carpenter", img: carpenterImg, desc: "Furniture build & restorations" },
+    { name: "Pandit Ji", img: panditImg, desc: "Pooja, rituals & consultations" },
+    { name: "Driver", img: driverImg, desc: "Experienced local & tour chauffeurs" },
+    { name: "Photographer", img: photographerImg, desc: "Weddings, shoots & portfolios" },
+    { name: "Doctor", img: doctorImg, desc: "Home consultation & checkups" },
+    { name: "Compounder", img: compounderImg, desc: "Nursing care & clinical support" },
+    { name: "Halwai", img: halwaiImg, desc: "Expert catering & traditional sweets" },
+    { name: "Car Washing", img: carWashImg, desc: "Doorstep detailing & deep wash" },
+    { name: "Tax Consultancy", img: taxImg, desc: "ITR filings, GST & legal planning" },
+    { name: "Painter", img: painterImg, desc: "Wall painting, textures & waterproofing" },
+    { name: "Repairing", img: repairingImg, desc: "Appliance & electronics servicing" },
+    { name: "AC Repair", img: acImg, desc: "Servicing, installation & gas filling" },
   ];
+
+  const filteredCategories = categories.filter(item =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.desc.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const services = [
     {
@@ -225,21 +233,68 @@ function Home() {
           <div className="section-header reveal">
             <span className="section-tag">Browse by Specialty</span>
             <h2 className="section-title">Explore Our Wide Network</h2>
+            
+            {/* Search Input */}
+            <div className="category-search-container">
+              <span className="search-icon">🔍</span>
+              <input 
+                type="text" 
+                placeholder="Search home services (e.g. plumbing, painting, salon)..." 
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="category-search-input"
+              />
+              {searchTerm && (
+                <button className="search-clear-btn" onClick={() => setSearchTerm("")}>×</button>
+              )}
+            </div>
           </div>
 
-          <div className="category-grid">
-            {categories.map((item, index) => (
-              <Link to="/categories" key={index} className="category-card-premium reveal" style={{ transitionDelay: `${index * 0.1}s` }}>
-                <div className="cat-img-box">
-                  <img src={item.img} alt={item.name} />
-                  <div className="cat-overlay">
-                    <span className="cat-btn">Explore</span>
-                  </div>
-                </div>
-                <h4>{item.name}</h4>
-              </Link>
-            ))}
-          </div>
+          {filteredCategories.length > 0 ? (
+            <div className="category-grid">
+              {filteredCategories.map((item, index) => {
+                // Determine a theme color index for ambient shadow hover glows
+                const themeColors = [
+                  "rgba(37, 99, 235, 0.2)",  // blue
+                  "rgba(236, 72, 153, 0.2)",  // pink
+                  "rgba(245, 158, 11, 0.2)",  // gold
+                  "rgba(139, 92, 246, 0.2)"   // purple
+                ];
+                const activeColor = themeColors[index % themeColors.length];
+                
+                return (
+                  <Link 
+                    to="/categories" 
+                    key={index} 
+                    className="category-card-premium reveal" 
+                    style={{ 
+                      transitionDelay: `${(index % 8) * 0.05}s`,
+                      "--cat-glow": activeColor
+                    }}
+                  >
+                    <div className="cat-img-box">
+                      <img src={item.img} alt={item.name} />
+                      <div className="cat-badge-floating">Expert Help</div>
+                    </div>
+                    <div className="cat-info">
+                      <h4>{item.name}</h4>
+                      <p className="cat-desc">{item.desc}</p>
+                      <div className="cat-footer">
+                        <span className="cat-cta">Explore Services</span>
+                        <span className="cat-cta-arrow">→</span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="category-empty-state">
+              <span className="empty-icon">🔍</span>
+              <p>No services found matching "{searchTerm}"</p>
+              <button className="btn-premium btn-small" onClick={() => setSearchTerm("")}>Show All Categories</button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -527,46 +582,191 @@ function Home() {
           z-index: 1;
         }
 
+        .category-search-container {
+          position: relative;
+          max-width: 580px;
+          margin: 32px auto 0;
+          display: flex;
+          align-items: center;
+          background: rgba(255, 255, 255, 0.7);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border: 1px solid rgba(226, 232, 240, 0.8);
+          border-radius: 20px;
+          padding: 6px 18px;
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03);
+          transition: all 0.3s ease;
+        }
+        .category-search-container:focus-within {
+          border-color: var(--primary);
+          box-shadow: 0 10px 30px -5px rgba(37, 99, 235, 0.12), 0 0 0 3px rgba(37, 99, 235, 0.05);
+          background: white;
+        }
+        .search-icon {
+          font-size: 18px;
+          margin-right: 12px;
+          opacity: 0.6;
+        }
+        .category-search-input {
+          border: none;
+          outline: none;
+          background: transparent;
+          width: 100%;
+          padding: 12px 0;
+          font-size: 16px;
+          color: var(--text-main);
+          font-weight: 500;
+        }
+        .category-search-input::placeholder {
+          color: var(--text-muted);
+          opacity: 0.8;
+        }
+        .search-clear-btn {
+          background: none;
+          border: none;
+          font-size: 22px;
+          color: var(--text-muted);
+          cursor: pointer;
+          padding: 0 4px;
+          line-height: 1;
+        }
+        .search-clear-btn:hover {
+          color: var(--text-main);
+        }
+
         .category-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 32px;
+          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+          gap: 28px;
+          position: relative;
+          z-index: 1;
         }
         .category-card-premium {
           text-decoration: none;
           color: var(--text-main);
+          background: var(--surface);
+          border: 1px solid rgba(226, 232, 240, 0.8);
+          border-radius: 24px;
+          padding: 14px;
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.03);
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .category-card-premium:hover {
+          transform: translateY(-6px);
+          border-color: transparent;
+          box-shadow: 0 20px 40px -15px var(--cat-glow, rgba(37, 99, 235, 0.2)),
+                      0 0 0 1px rgba(255, 255, 255, 0.4);
         }
         .cat-img-box {
           position: relative;
-          border-radius: 32px;
+          border-radius: 18px;
           overflow: hidden;
-          aspect-ratio: 16/10;
-          margin-bottom: 20px;
-          box-shadow: var(--shadow-md);
+          aspect-ratio: 1.1 / 1;
+          margin-bottom: 16px;
+          box-shadow: inset 0 0 30px rgba(0,0,0,0.02);
+          border: 1px solid rgba(0, 0, 0, 0.03);
+          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .cat-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .cat-overlay {
+        .cat-img-box img { 
+          width: 100%; 
+          height: 100%; 
+          object-fit: cover; 
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .category-card-premium:hover .cat-img-box img { 
+          transform: scale(1.08) rotate(0.5deg); 
+        }
+        .cat-badge-floating {
           position: absolute;
-          inset: 0;
-          background: rgba(15, 23, 42, 0.4);
+          top: 10px;
+          left: 10px;
+          background: rgba(15, 23, 42, 0.65);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          color: white;
+          padding: 4px 10px;
+          border-radius: 8px;
+          font-size: 10px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .cat-info {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+        }
+        .cat-info h4 { 
+          font-size: 18px; 
+          font-weight: 700; 
+          margin-bottom: 6px; 
+          transition: color 0.3s ease;
+          text-align: left;
+        }
+        .category-card-premium:hover .cat-info h4 {
+          color: var(--primary);
+        }
+        .cat-desc {
+          font-size: 13px;
+          color: var(--text-muted);
+          line-height: 1.4;
+          margin-bottom: 16px;
+          text-align: left;
+          flex: 1;
+        }
+        .cat-footer {
           display: flex;
           align-items: center;
-          justify-content: center;
-          opacity: 0;
-          transition: opacity 0.4s ease;
+          justify-content: space-between;
+          border-top: 1px solid rgba(226, 232, 240, 0.6);
+          padding-top: 12px;
+          margin-top: auto;
         }
-        .cat-btn {
-          background: white;
-          padding: 12px 24px;
-          border-radius: 12px;
+        .cat-cta {
+          font-size: 13px;
           font-weight: 700;
-          transform: translateY(20px);
-          transition: transform 0.4s ease;
+          color: var(--primary);
+          opacity: 0.8;
+          transition: all 0.3s ease;
         }
-        .category-card-premium:hover .cat-overlay { opacity: 1; }
-        .category-card-premium:hover .cat-btn { transform: translateY(0); }
-        .category-card-premium:hover .cat-img-box img { transform: scale(1.1); }
-        .category-card-premium h4 { font-size: 20px; text-align: center; }
+        .category-card-premium:hover .cat-cta {
+          opacity: 1;
+        }
+        .cat-cta-arrow {
+          font-size: 14px;
+          color: var(--primary);
+          transition: transform 0.3s ease;
+        }
+        .category-card-premium:hover .cat-cta-arrow {
+          transform: translateX(4px);
+        }
+
+        .category-empty-state {
+          text-align: center;
+          padding: 60px 20px;
+          background: rgba(248, 250, 252, 0.5);
+          border: 2px dashed rgba(226, 232, 240, 0.8);
+          border-radius: 28px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+          max-width: 480px;
+          margin: 0 auto;
+        }
+        .empty-icon {
+          font-size: 42px;
+          opacity: 0.3;
+        }
+        .category-empty-state p {
+          color: var(--text-muted);
+          font-size: 16px;
+          font-weight: 500;
+        }
 
         .services-section {
           position: relative;
