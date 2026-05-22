@@ -14,11 +14,32 @@ const useReveal = () => {
       });
     }, observerOptions);
 
-    const reveals = document.querySelectorAll('.reveal, .reveal-left');
-    reveals.forEach((el) => observer.observe(el));
+    // Function to find and observe elements
+    const observeElements = () => {
+      const reveals = document.querySelectorAll('.reveal, .reveal-left');
+      reveals.forEach((el) => {
+        if (!el.classList.contains('active')) {
+          observer.observe(el);
+        }
+      });
+    };
+
+    // Initial observation
+    observeElements();
+
+    // Set up MutationObserver to detect dynamically added nodes
+    const mutationObserver = new MutationObserver(() => {
+      observeElements();
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
 
     return () => {
-      reveals.forEach((el) => observer.unobserve(el));
+      observer.disconnect();
+      mutationObserver.disconnect();
     };
   }, []);
 };

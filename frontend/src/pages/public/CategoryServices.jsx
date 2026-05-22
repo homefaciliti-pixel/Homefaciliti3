@@ -2068,7 +2068,7 @@ function CategoryServices() {
                 {services.map((service, index) => (
                   <div
                     key={index}
-                    className="premium-card service-list-card reveal"
+                    className="premium-card service-list-card reveal animate-fade-in"
                     style={{ transitionDelay: `${index * 0.1}s` }}
                   >
                     <div className="service-img-box">
