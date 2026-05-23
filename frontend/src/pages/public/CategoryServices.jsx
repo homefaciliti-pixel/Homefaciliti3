@@ -149,8 +149,8 @@ function CategoryServices() {
 
   const solarSubCategories = [
     {
-      name: "Solar new installation 3kw to 8 kw",
-      desc: "Perfect for residential homes and small offices looking to go solar.",
+      name: "Solar new purchase Starting from 3kw To 8kw",
+      desc: "Order a brand new solar panel system installation starting at just ₹99,000.",
       themeColor: "249, 115, 22",
       icon: (
         <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
@@ -171,74 +171,8 @@ function CategoryServices() {
       )
     },
     {
-      name: "Solar new installation 10kw to 20kw",
-      desc: "High capacity installations for large properties, commercial estates, or institutes.",
-      themeColor: "234, 179, 8",
-      icon: (
-        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
-          <defs>
-            <linearGradient id="solarInst2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#eab308" />
-              <stop offset="100%" stopColor="#ca8a04" />
-            </linearGradient>
-          </defs>
-          <circle cx="50" cy="10" r="7" fill="#f97316" />
-          <path d="M50 1 L50 2 M50 18 L50 19 M41 10 L42 10 M58 10 L59 10" stroke="#f97316" strokeWidth="1.5" />
-          <path d="M15 40 L25 18 L75 18 L85 40 Z" fill="url(#solarInst2Grad)" />
-          <line x1="30" y1="18" x2="25" y2="40" stroke="#ffffff" strokeWidth="1.5" />
-          <line x1="42.5" y1="18" x2="42.5" y2="40" stroke="#ffffff" strokeWidth="1.5" />
-          <line x1="57.5" y1="18" x2="57.5" y2="40" stroke="#ffffff" strokeWidth="1.5" />
-          <line x1="70" y1="18" x2="75" y2="40" stroke="#ffffff" strokeWidth="1.5" />
-          <line x1="21.5" y1="29" x2="78.5" y2="29" stroke="#ffffff" strokeWidth="1.5" />
-        </svg>
-      )
-    },
-    {
-      name: "Solar pannel Services and cleaning 3kw to 8kw",
-      desc: "Routine solar panel washing and performance optimization checkups (3kW-8kW).",
-      themeColor: "16, 185, 129",
-      icon: (
-        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
-          <defs>
-            <linearGradient id="solarClean1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#10b981" />
-              <stop offset="100%" stopColor="#059669" />
-            </linearGradient>
-          </defs>
-          <path d="M20 38 L30 18 L70 18 L80 38 Z" fill="url(#solarClean1Grad)" />
-          <line x1="40" y1="18" x2="35" y2="38" stroke="#ffffff" strokeWidth="1" />
-          <line x1="50" y1="18" x2="50" y2="38" stroke="#ffffff" strokeWidth="1" />
-          <line x1="60" y1="18" x2="65" y2="38" stroke="#ffffff" strokeWidth="1" />
-          <line x1="25" y1="28" x2="75" y2="28" stroke="#ffffff" strokeWidth="1" />
-          <path d="M15 15 L32 20 L28 25 Z" fill="#38bdf8" />
-          <circle cx="80" cy="15" r="2" fill="#38bdf8" />
-          <circle cx="85" cy="22" r="1.5" fill="#38bdf8" />
-        </svg>
-      )
-    },
-    {
-      name: "Solar pannel services cleaning 10kw to 20 kw",
-      desc: "Commercial grade high-pressure deep cleaning and diagnostic health checks (10kW-20kW).",
-      themeColor: "6, 182, 212",
-      icon: (
-        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
-          <defs>
-            <linearGradient id="solarClean2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#06b6d4" />
-              <stop offset="100%" stopColor="#0891b2" />
-            </linearGradient>
-          </defs>
-          <path d="M10 38 L20 18 L45 18 L40 38 Z" fill="url(#solarClean2Grad)" />
-          <path d="M55 38 L60 18 L85 18 L90 38 Z" fill="url(#solarClean2Grad)" opacity="0.8" />
-          <path d="M35 15 Q45 5 50 18 Q55 30 65 15" stroke="#38bdf8" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-          <circle cx="48" cy="8" r="2" fill="#38bdf8" />
-          <circle cx="58" cy="10" r="1.5" fill="#38bdf8" />
-        </svg>
-      )
-    },
-    {
-      name: "Solar Inverter maintaines 3kw to 20 kw",
-      desc: "Diagnostic checks, internal wire calibrations, and capacitor replacements for inverters.",
+      name: "Solar inveter maintaines 3kw to 8 kw",
+      desc: "Professional health check and diagnostics for 3kW - 8kW solar inverters.",
       themeColor: "139, 92, 246",
       icon: (
         <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
@@ -255,88 +189,112 @@ function CategoryServices() {
           <path d="M50 28 L47 33 L53 33 L50 38" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       )
+    },
+    {
+      name: "Solar inverter maintaines 10kw to 20 kw",
+      desc: "Commercial capacity diagnostics and calibration for 10kW - 20kW inverters.",
+      themeColor: "99, 102, 241",
+      icon: (
+        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+          <defs>
+            <linearGradient id="solarInvGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#6366f1" />
+              <stop offset="100%" stopColor="#4f46e5" />
+            </linearGradient>
+          </defs>
+          <rect x="30" y="8" width="40" height="34" rx="4" fill="url(#solarInvGrad2)" />
+          <rect x="35" y="14" width="30" height="10" rx="1" fill="#1e293b" />
+          <line x1="40" y1="19" x2="48" y2="19" stroke="#10b981" strokeWidth="1.5" />
+          <line x1="52" y1="19" x2="60" y2="19" stroke="#10b981" strokeWidth="1.5" />
+          <path d="M50 26 L47 31 L53 31 L50 36" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      )
+    },
+    {
+      name: "Solar service of 3kw to 8kw",
+      desc: "Comprehensive diagnostic check, safety inspection, and cabling audit for 3kW - 8kW systems.",
+      themeColor: "16, 185, 129",
+      icon: (
+        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+          <defs>
+            <linearGradient id="solarClean1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#10b981" />
+              <stop offset="100%" stopColor="#059669" />
+            </linearGradient>
+          </defs>
+          <path d="M20 38 L30 18 L70 18 L80 38 Z" fill="url(#solarClean1Grad)" />
+          <line x1="40" y1="18" x2="35" y2="38" stroke="#ffffff" strokeWidth="1" />
+          <line x1="50" y1="18" x2="50" y2="38" stroke="#ffffff" strokeWidth="1" />
+          <line x1="60" y1="18" x2="65" y2="38" stroke="#ffffff" strokeWidth="1" />
+          <line x1="25" y1="28" x2="75" y2="28" stroke="#ffffff" strokeWidth="1" />
+        </svg>
+      )
+    },
+    {
+      name: "Solar service of 10kw to 20 kw",
+      desc: "Commercial capacity wiring diagnostics, earth testing, and diagnostic checks for 10kW - 20kW systems.",
+      themeColor: "6, 182, 212",
+      icon: (
+        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+          <defs>
+            <linearGradient id="solarClean2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#06b6d4" />
+              <stop offset="100%" stopColor="#0891b2" />
+            </linearGradient>
+          </defs>
+          <path d="M10 38 L20 18 L45 18 L40 38 Z" fill="url(#solarClean2Grad)" />
+          <path d="M55 38 L60 18 L85 18 L90 38 Z" fill="url(#solarClean2Grad)" opacity="0.8" />
+          <line x1="20" y1="28" x2="40" y2="28" stroke="#ffffff" strokeWidth="1" />
+          <line x1="60" y1="28" x2="85" y2="28" stroke="#ffffff" strokeWidth="1" />
+        </svg>
+      )
     }
   ];
 
   const solarServices = {
-    "Solar new installation 3kw to 8 kw": [
-      {
-        name: "Standard Solar Feasibility Survey",
-        image: solarImg,
-        desc: "Site survey, load profiling, structural load analysis, and shadow modeling for 3kW-8kW systems.",
-        price: 499.00,
-        time: "1 Hours"
-      },
+    "Solar new purchase Starting from 3kw To 8kw": [
       {
         name: "Premium Solar Setup (3kW - 8kW)",
         image: solarImg,
-        desc: "End-to-end solar panel mounting, electrical cabling, ACDB/DCDB box setup, earthing installation, and net metering assistance.",
-        price: 49999.00,
+        desc: "Complete premium solar panels purchase and installation setup. Includes panels, high-efficiency inverter, standard mounting brackets, ACDB/DCDB boxes, and net metering assistance. Starting price is 99000 only.",
+        price: 99000.00,
         time: "1-2 Days"
       }
     ],
-    "Solar new installation 10kw to 20kw": [
+    "Solar inveter maintaines 3kw to 8 kw": [
       {
-        name: "Commercial Solar Design & Shadow Analysis",
+        name: "Solar Inverter Maintenance Service (3kW - 8kW)",
         image: solarImg,
-        desc: "High-level site engineering, shadow analysis via dedicated software, return-on-investment plan audit, and structural safety calculations.",
-        price: 1999.00,
-        time: "2 Hours"
-      },
-      {
-        name: "High-Capacity Solar Installation (10kW - 20kW)",
-        image: solarImg,
-        desc: "Elite installation for commercial establishments or large estates. Includes dual-inverter configurations, heavy-duty structural mountings, and compliance support.",
-        price: 99999.00,
-        time: "3-4 Days"
-      }
-    ],
-    "Solar pannel Services and cleaning 3kw to 8kw": [
-      {
-        name: "Standard Solar Panel Deep Wash",
-        image: solarImg,
-        desc: "De-mineralized soft water cleaning of panels to remove soot, dust, pollen, and debris. Restores panel energy output.",
+        desc: "Diagnostic visit and expert troubleshooting checkup for standard inverters. Calibrating charge controllers, terminal wiring check, and cooling fans diagnostic. Visiting fee is 1499.",
         price: 1499.00,
-        time: "2 Hours"
-      },
-      {
-        name: "DC Cable & Connection Safety Audit",
-        image: solarImg,
-        desc: "Thorough inspection of standard DC wiring, joint cleaning, connection checkup, and MC4 connector replacements.",
-        price: 799.00,
-        time: "1 Hours"
+        time: "1-2 Hours"
       }
     ],
-    "Solar pannel services cleaning 10kw to 20 kw": [
+    "Solar inverter maintaines 10kw to 20 kw": [
       {
-        name: "Commercial High-Pressure Wash & Thermography",
+        name: "Solar Inverter Maintenance Service (10kW - 20kW)",
         image: solarImg,
-        desc: "Commercial high-pressure panel washing combined with thermal imaging diagnostics to identify micro-cracks and hot-spots.",
-        price: 2999.00,
-        time: "4 Hours"
-      },
-      {
-        name: "Lightning Arrestor & Earthing Pit Recharge",
-        image: solarImg,
-        desc: "Testing earthing values, salt-charcoal recharging of earth pits, and maintenance of copper lightning arrestors.",
-        price: 999.00,
-        time: "1 Hours"
-      }
-    ],
-    "Solar Inverter maintaines 3kw to 20 kw": [
-      {
-        name: "Solar Inverter Healthcheck & Calibration",
-        image: solarImg,
-        desc: "Firmware checks, terminal cleaning, cooling fan servicing, parametric performance logging, and error-code clearance.",
-        price: 999.00,
-        time: "2 Hours"
-      },
-      {
-        name: "Inverter Power Cable Upgrades & Battery Check",
-        image: solarImg,
-        desc: "Upgrading power terminals, checking surge protection devices (SPDs), calibrating battery charging voltages, and securing cable runs.",
+        desc: "Commercial capacity solar inverter inspection. Checking firmware errors, power terminals security check, capacitor diagnosis, and calibration. Visiting fee is 1999.",
         price: 1999.00,
-        time: "2-3 Hours"
+        time: "2 Hours"
+      }
+    ],
+    "Solar service of 3kw to 8kw": [
+      {
+        name: "Solar System Service Visit (3kW - 8kW)",
+        image: solarImg,
+        desc: "Standard solar panel maintenance service visit. Performance efficiency review, cabling safety inspection, and generation capacity audit. Visiting fee is 399.",
+        price: 399.00,
+        time: "1 Hour"
+      }
+    ],
+    "Solar service of 10kw to 20 kw": [
+      {
+        name: "Solar System Service Visit (10kW - 20kW)",
+        image: solarImg,
+        desc: "High capacity solar panel maintenance service visit. Earth pit testing, terminal tightness audit, structural safety audit, and system output analysis. Visiting fees is 499.",
+        price: 499.00,
+        time: "1-2 Hours"
       }
     ]
   };
@@ -2075,28 +2033,42 @@ function CategoryServices() {
          }
        ],
        Solar: [
-         {
-           name: "Solar Panel Installation",
-           image: solarImg,
-           desc: "Professional solar panel installation and setup with warranty and post-installation support.",
-           price: 49999.00,
-           time: "1-2 Days"
-         },
-         {
-           name: "Solar Panel Service & Cleaning",
-           image: solarImg,
-           desc: "Deep cleaning and inspection of solar panels to maximize efficiency and output.",
-           price: 1499.00,
-           time: "2-3 Hours"
-         },
-         {
-           name: "Solar Inverter Maintenance",
-           image: solarImg,
-           desc: "Expert diagnostic, repair, and maintenance services for solar power inverters.",
-           price: 999.00,
-           time: "1-2 Hours"
-         }
-       ],
+          {
+            name: "Solar new purchase Starting from 3kw To 8kw",
+            image: solarImg,
+            desc: "Complete premium solar panels purchase and installation setup. Includes panels, high-efficiency inverter, mounting brackets, ACDB/DCDB boxes, and net metering assistance. Starting price is 99000 only.",
+            price: 99000.00,
+            time: "1-2 Days"
+          },
+          {
+            name: "Solar inveter maintaines 3kw to 8 kw",
+            image: solarImg,
+            desc: "Diagnostic visit and expert troubleshooting checkup for standard inverters. Calibrating charge controllers, terminal wiring check, and cooling fans diagnostic. Visiting fee is 1499.",
+            price: 1499.00,
+            time: "1-2 Hours"
+          },
+          {
+            name: "Solar inverter maintaines 10kw to 20 kw",
+            image: solarImg,
+            desc: "Commercial capacity solar inverter inspection. Checking firmware errors, power terminals security check, capacitor diagnosis, and calibration. Visiting fee is 1999.",
+            price: 1999.00,
+            time: "2 Hours"
+          },
+          {
+            name: "Solar service of 3kw to 8kw",
+            image: solarImg,
+            desc: "Standard solar panel maintenance service visit. Performance efficiency review, cabling safety inspection, and generation capacity audit. Visiting fee is 399.",
+            price: 399.00,
+            time: "1 Hour"
+          },
+          {
+            name: "Solar service of 10kw to 20 kw",
+            image: solarImg,
+            desc: "High capacity solar panel maintenance service visit. Earth pit testing, terminal tightness audit, structural safety audit, and system output analysis. Visiting fees is 499.",
+            price: 499.00,
+            time: "1-2 Hours"
+          }
+        ],
        Advocates: [
          {
            name: "Legal Consultation (General)",
