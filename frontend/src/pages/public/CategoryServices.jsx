@@ -20,7 +20,7 @@ import driverImg from "../../assets/images/Driver services.png";
 import photographerImg from "../../assets/images/Photographer.jpg";
 import doctorImg from "../../assets/images/Doctor.jpg";
 import compounderImg from "../../assets/images/Compounder.jpg";
-import halwaiImg from "../../assets/images/Halwai services.jpg";
+import caterImg from "../../assets/images/Halwai services.jpg";
 import carWashImg from "../../assets/images/Car Washing.jpg";
 import mechanicImg from "../../assets/images/mechanic.jpg";
 import taxImg from "../../assets/images/tax.jpg";
@@ -1783,11 +1783,11 @@ function CategoryServices() {
           time: "1 Hours"
       },
      ],
-     Halwai: [
+     "Cater's": [
       {
-          name: "Professional Halwai",
-          image: halwaiImg,
-          desc: "Professional professional halwai services. Book experienced professionals for guaranteed satisfaction.",
+          name: "Professional Caterer",
+          image: caterImg,
+          desc: "Professional catering services for events, parties, and weddings. Book experienced professionals for guaranteed satisfaction.",
           price: 999.00,
           time: "5 Hours"
       },
@@ -1973,7 +1973,9 @@ function CategoryServices() {
     photographer: "Photographer",
     doctor: "Doctor",
     compounder: "Compounder",
-    halwai: "Halwai",
+    halwai: "Cater's",
+    "cater's": "Cater's",
+    caters: "Cater's",
     carwashing: "CarWashing",
     mechanic: "Mechanic",
     taxconsultancy: "TaxConsultancy",

@@ -17,7 +17,7 @@ import driverImg from "../../assets/images/Driver services.png";
 import photographerImg from "../../assets/images/Photographer.jpg";
 import doctorImg from "../../assets/images/Doctor.jpg";
 import compounderImg from "../../assets/images/Compounder.jpg";
-import halwaiImg from "../../assets/images/Halwai services.jpg";
+import caterImg from "../../assets/images/Halwai services.jpg";
 import carWashImg from "../../assets/images/Car Washing.jpg";
 import mechanicImg from "../../assets/images/mechanic.jpg";
 import taxImg from "../../assets/images/tax.jpg";
@@ -48,7 +48,7 @@ function Categories() {
     { name: "Photographer", image: photographerImg, count: 7 },
     { name: "Doctor", image: doctorImg, count: 18 },
     { name: "Compounder", image: compounderImg, count: 11 },
-    { name: "Halwai", image: halwaiImg, count: 3 },
+    { name: "Cater's", image: caterImg, count: 3 },
     { name: "Car Washing", image: carWashImg, count: 16 },
     { name: "Mechanic", image: mechanicImg, count: 22 },
     { name: "Tax Consultancy", image: taxImg, count: 5 },

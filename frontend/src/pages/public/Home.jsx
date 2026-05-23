@@ -19,7 +19,7 @@ import driverImg from "../../assets/images/Driver services.png";
 import photographerImg from "../../assets/images/Photographer.jpg";
 import doctorImg from "../../assets/images/Doctor.jpg";
 import compounderImg from "../../assets/images/Compounder.jpg";
-import halwaiImg from "../../assets/images/Halwai services.jpg";
+import caterImg from "../../assets/images/Halwai services.jpg";
 import carWashImg from "../../assets/images/Car Washing.jpg";
 import taxImg from "../../assets/images/tax.jpg";
 import painterImg from "../../assets/images/Painter.jpg";
@@ -93,7 +93,7 @@ function Home() {
     { name: "Photographer", img: photographerImg, desc: "Weddings, shoots & portfolios", group: "professional", emoji: "📸", color: "236, 72, 153" },
     { name: "Doctor", img: doctorImg, desc: "Home consultation & checkups", group: "wellness", emoji: "🩺", color: "220, 38, 38" },
     { name: "Compounder", img: compounderImg, desc: "Nursing care & clinical support", group: "wellness", emoji: "🩹", color: "14, 165, 233" },
-    { name: "Halwai", img: halwaiImg, desc: "Expert catering & traditional sweets", group: "professional", emoji: "🍳", color: "217, 119, 6" },
+    { name: "Cater's", img: caterImg, desc: "Expert catering & traditional sweets", group: "professional", emoji: "🍳", color: "217, 119, 6" },
     { name: "Car Washing", img: carWashImg, desc: "Doorstep detailing & deep wash", group: "cleaning", emoji: "🧼", color: "59, 130, 246" },
     { name: "Tax Consultancy", img: taxImg, desc: "ITR filings, GST & legal planning", group: "professional", emoji: "💼", color: "79, 70, 229" },
     { name: "Painter", img: painterImg, desc: "Wall painting, textures & waterproofing", group: "repairs", emoji: "🎨", color: "219, 39, 119" },
