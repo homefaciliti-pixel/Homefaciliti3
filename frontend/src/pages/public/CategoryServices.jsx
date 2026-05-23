@@ -1889,6 +1889,34 @@ function CategoryServices() {
             desc: "Complete premium solar panels purchase and installation setup ranging from 3kW up to 20kW. Includes panels, high-efficiency inverter, standard mounting brackets, cabling, safety setup, and net metering assistance. Starting price is 99000 only.",
             price: 99000.00,
             time: "2-3 Days"
+          },
+          {
+            name: "Solar inverter maintenance 3kw to 8kw",
+            image: solarImg,
+            desc: "Diagnostic visit and expert troubleshooting checkup for standard inverters. Calibrating charge controllers, terminal wiring check, and cooling fans diagnostic. Starting price is 1499.",
+            price: 1499.00,
+            time: "1-2 Hours"
+          },
+          {
+            name: "Solar inverter maintenance 10kw to 20kw",
+            image: solarImg,
+            desc: "Commercial capacity solar inverter inspection. Checking firmware errors, power terminals security check, capacitor diagnosis, and calibration. Starting price is 1999.",
+            price: 1999.00,
+            time: "2 Hours"
+          },
+          {
+            name: "Solar services 3kw to 8kw",
+            image: solarImg,
+            desc: "Standard solar panel maintenance service visit. Performance efficiency review, cabling safety inspection, and generation capacity audit. Visiting fee is 399.",
+            price: 399.00,
+            time: "1 Hour"
+          },
+          {
+            name: "Solar services 10kw to 20kw",
+            image: solarImg,
+            desc: "High capacity solar panel maintenance service visit. Earth pit testing, terminal tightness audit, structural safety audit, and system output analysis. Visiting fee is 499.",
+            price: 499.00,
+            time: "1-2 Hours"
           }
         ],
        Advocates: [
