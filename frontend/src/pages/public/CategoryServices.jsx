@@ -147,6 +147,200 @@ function CategoryServices() {
     }
   ];
 
+  const solarSubCategories = [
+    {
+      name: "Solar new installation 3kw to 8 kw",
+      desc: "Perfect for residential homes and small offices looking to go solar.",
+      themeColor: "249, 115, 22",
+      icon: (
+        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+          <defs>
+            <linearGradient id="solarInst1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#f97316" />
+              <stop offset="100%" stopColor="#ea580c" />
+            </linearGradient>
+          </defs>
+          <circle cx="80" cy="15" r="8" fill="#eab308" />
+          <path d="M80 3 L80 6 M80 24 L80 27 M68 15 L71 15 M89 15 L92 15" stroke="#eab308" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M20 40 L20 28 L40 18 L60 28 L60 40 Z" fill="url(#solarInst1Grad)" />
+          <path d="M42 22 L55 28.5 L51 34 L38 27.5 Z" fill="#475569" stroke="#ffffff" strokeWidth="1" />
+          <line x1="46.5" y1="24.25" x2="44.5" y2="30.75" stroke="#94a3b8" strokeWidth="0.5" />
+          <line x1="51" y1="26.25" x2="49" y2="32.75" stroke="#94a3b8" strokeWidth="0.5" />
+          <line x1="10" y1="40" x2="90" y2="40" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      )
+    },
+    {
+      name: "Solar new installation 10kw to 20kw",
+      desc: "High capacity installations for large properties, commercial estates, or institutes.",
+      themeColor: "234, 179, 8",
+      icon: (
+        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+          <defs>
+            <linearGradient id="solarInst2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#eab308" />
+              <stop offset="100%" stopColor="#ca8a04" />
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="10" r="7" fill="#f97316" />
+          <path d="M50 1 L50 2 M50 18 L50 19 M41 10 L42 10 M58 10 L59 10" stroke="#f97316" strokeWidth="1.5" />
+          <path d="M15 40 L25 18 L75 18 L85 40 Z" fill="url(#solarInst2Grad)" />
+          <line x1="30" y1="18" x2="25" y2="40" stroke="#ffffff" strokeWidth="1.5" />
+          <line x1="42.5" y1="18" x2="42.5" y2="40" stroke="#ffffff" strokeWidth="1.5" />
+          <line x1="57.5" y1="18" x2="57.5" y2="40" stroke="#ffffff" strokeWidth="1.5" />
+          <line x1="70" y1="18" x2="75" y2="40" stroke="#ffffff" strokeWidth="1.5" />
+          <line x1="21.5" y1="29" x2="78.5" y2="29" stroke="#ffffff" strokeWidth="1.5" />
+        </svg>
+      )
+    },
+    {
+      name: "Solar pannel Services and cleaning 3kw to 8kw",
+      desc: "Routine solar panel washing and performance optimization checkups (3kW-8kW).",
+      themeColor: "16, 185, 129",
+      icon: (
+        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+          <defs>
+            <linearGradient id="solarClean1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#10b981" />
+              <stop offset="100%" stopColor="#059669" />
+            </linearGradient>
+          </defs>
+          <path d="M20 38 L30 18 L70 18 L80 38 Z" fill="url(#solarClean1Grad)" />
+          <line x1="40" y1="18" x2="35" y2="38" stroke="#ffffff" strokeWidth="1" />
+          <line x1="50" y1="18" x2="50" y2="38" stroke="#ffffff" strokeWidth="1" />
+          <line x1="60" y1="18" x2="65" y2="38" stroke="#ffffff" strokeWidth="1" />
+          <line x1="25" y1="28" x2="75" y2="28" stroke="#ffffff" strokeWidth="1" />
+          <path d="M15 15 L32 20 L28 25 Z" fill="#38bdf8" />
+          <circle cx="80" cy="15" r="2" fill="#38bdf8" />
+          <circle cx="85" cy="22" r="1.5" fill="#38bdf8" />
+        </svg>
+      )
+    },
+    {
+      name: "Solar pannel services cleaning 10kw to 20 kw",
+      desc: "Commercial grade high-pressure deep cleaning and diagnostic health checks (10kW-20kW).",
+      themeColor: "6, 182, 212",
+      icon: (
+        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+          <defs>
+            <linearGradient id="solarClean2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#06b6d4" />
+              <stop offset="100%" stopColor="#0891b2" />
+            </linearGradient>
+          </defs>
+          <path d="M10 38 L20 18 L45 18 L40 38 Z" fill="url(#solarClean2Grad)" />
+          <path d="M55 38 L60 18 L85 18 L90 38 Z" fill="url(#solarClean2Grad)" opacity="0.8" />
+          <path d="M35 15 Q45 5 50 18 Q55 30 65 15" stroke="#38bdf8" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+          <circle cx="48" cy="8" r="2" fill="#38bdf8" />
+          <circle cx="58" cy="10" r="1.5" fill="#38bdf8" />
+        </svg>
+      )
+    },
+    {
+      name: "Solar Inverter maintaines 3kw to 20 kw",
+      desc: "Diagnostic checks, internal wire calibrations, and capacitor replacements for inverters.",
+      themeColor: "139, 92, 246",
+      icon: (
+        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+          <defs>
+            <linearGradient id="solarInvGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#8b5cf6" />
+              <stop offset="100%" stopColor="#6d28d9" />
+            </linearGradient>
+          </defs>
+          <rect x="35" y="10" width="30" height="30" rx="4" fill="url(#solarInvGrad)" />
+          <rect x="40" y="15" width="20" height="8" rx="1" fill="#1e293b" />
+          <line x1="43" y1="19" x2="49" y2="19" stroke="#10b981" strokeWidth="1.5" />
+          <line x1="52" y1="19" x2="57" y2="19" stroke="#10b981" strokeWidth="1.5" />
+          <path d="M50 28 L47 33 L53 33 L50 38" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      )
+    }
+  ];
+
+  const solarServices = {
+    "Solar new installation 3kw to 8 kw": [
+      {
+        name: "Standard Solar Feasibility Survey",
+        image: solarImg,
+        desc: "Site survey, load profiling, structural load analysis, and shadow modeling for 3kW-8kW systems.",
+        price: 499.00,
+        time: "1 Hours"
+      },
+      {
+        name: "Premium Solar Setup (3kW - 8kW)",
+        image: solarImg,
+        desc: "End-to-end solar panel mounting, electrical cabling, ACDB/DCDB box setup, earthing installation, and net metering assistance.",
+        price: 49999.00,
+        time: "1-2 Days"
+      }
+    ],
+    "Solar new installation 10kw to 20kw": [
+      {
+        name: "Commercial Solar Design & Shadow Analysis",
+        image: solarImg,
+        desc: "High-level site engineering, shadow analysis via dedicated software, return-on-investment plan audit, and structural safety calculations.",
+        price: 1999.00,
+        time: "2 Hours"
+      },
+      {
+        name: "High-Capacity Solar Installation (10kW - 20kW)",
+        image: solarImg,
+        desc: "Elite installation for commercial establishments or large estates. Includes dual-inverter configurations, heavy-duty structural mountings, and compliance support.",
+        price: 99999.00,
+        time: "3-4 Days"
+      }
+    ],
+    "Solar pannel Services and cleaning 3kw to 8kw": [
+      {
+        name: "Standard Solar Panel Deep Wash",
+        image: solarImg,
+        desc: "De-mineralized soft water cleaning of panels to remove soot, dust, pollen, and debris. Restores panel energy output.",
+        price: 1499.00,
+        time: "2 Hours"
+      },
+      {
+        name: "DC Cable & Connection Safety Audit",
+        image: solarImg,
+        desc: "Thorough inspection of standard DC wiring, joint cleaning, connection checkup, and MC4 connector replacements.",
+        price: 799.00,
+        time: "1 Hours"
+      }
+    ],
+    "Solar pannel services cleaning 10kw to 20 kw": [
+      {
+        name: "Commercial High-Pressure Wash & Thermography",
+        image: solarImg,
+        desc: "Commercial high-pressure panel washing combined with thermal imaging diagnostics to identify micro-cracks and hot-spots.",
+        price: 2999.00,
+        time: "4 Hours"
+      },
+      {
+        name: "Lightning Arrestor & Earthing Pit Recharge",
+        image: solarImg,
+        desc: "Testing earthing values, salt-charcoal recharging of earth pits, and maintenance of copper lightning arrestors.",
+        price: 999.00,
+        time: "1 Hours"
+      }
+    ],
+    "Solar Inverter maintaines 3kw to 20 kw": [
+      {
+        name: "Solar Inverter Healthcheck & Calibration",
+        image: solarImg,
+        desc: "Firmware checks, terminal cleaning, cooling fan servicing, parametric performance logging, and error-code clearance.",
+        price: 999.00,
+        time: "2 Hours"
+      },
+      {
+        name: "Inverter Power Cable Upgrades & Battery Check",
+        image: solarImg,
+        desc: "Upgrading power terminals, checking surge protection devices (SPDs), calibrating battery charging voltages, and securing cable runs.",
+        price: 1999.00,
+        time: "2-3 Hours"
+      }
+    ]
+  };
+
   const carWashingServices = {
     SUV: [
       {
@@ -1988,9 +2182,15 @@ function CategoryServices() {
 
   const categoryKey = categoryKeyMap[normalizedCategory] || decodedCategory;
 
+  const isSolar = normalizedCategory === "solar";
+  const hasSubCategories = isCarWashing || isSolar;
+  const currentSubCategories = isCarWashing ? subCategories : (isSolar ? solarSubCategories : []);
+
   const services = isCarWashing && selectedSubCategory
     ? carWashingServices[selectedSubCategory]
-    : (servicesData[categoryKey] || []);
+    : (isSolar && selectedSubCategory
+       ? solarServices[selectedSubCategory]
+       : (servicesData[categoryKey] || []));
 
   const handleBookNow = (service) => {
     if (!user) {
@@ -2009,16 +2209,22 @@ function CategoryServices() {
     <MainLayout>
       <section className="service-explorer section">
         <div className="container">
-          {isCarWashing && !selectedSubCategory ? (
+          {hasSubCategories && !selectedSubCategory ? (
             <div className="subcategory-selection-wrapper">
               <div className="subcategory-header animate-fade-in">
                 <span className="section-tag">{decodedCategory}</span>
-                <h1 className="section-title">Select Your Vehicle Type</h1>
-                <p className="text-secondary">Choose your vehicle type to view customized washing and detailing packages.</p>
+                <h1 className="section-title">
+                  {isCarWashing ? "Select Your Vehicle Type" : "Select Solar Service Type"}
+                </h1>
+                <p className="text-secondary">
+                  {isCarWashing 
+                    ? "Choose your vehicle type to view customized washing and detailing packages." 
+                    : "Choose your solar solution type to view customized installation and maintenance services."}
+                </p>
               </div>
               
               <div className="subcategory-grid">
-                {subCategories.map((sub, index) => (
+                {currentSubCategories.map((sub, index) => (
                   <div
                     key={sub.name}
                     className="premium-card subcategory-card reveal animate-fade-in"
@@ -2047,20 +2253,24 @@ function CategoryServices() {
                   {decodedCategory} {selectedSubCategory && ` • ${selectedSubCategory}`}
                 </span>
                 <h1 className="section-title">
-                  {selectedSubCategory ? `${selectedSubCategory} Washing Solutions` : `Professional ${decodedCategory} Solutions`}
+                  {selectedSubCategory 
+                    ? (isCarWashing ? `${selectedSubCategory} Washing Solutions` : selectedSubCategory)
+                    : `Professional ${decodedCategory} Solutions`}
                 </h1>
                 <p className="text-secondary">
                   {selectedSubCategory 
-                    ? `Book verified experts for premium ${selectedSubCategory} washing and detailing.` 
+                    ? (isCarWashing 
+                        ? `Book verified experts for premium ${selectedSubCategory} washing and detailing.` 
+                        : `Book verified experts for ${selectedSubCategory} services.`)
                     : `Book verified experts for ${decodedCategory} tasks in minutes.`}
                 </p>
                 
-                {isCarWashing && selectedSubCategory && (
+                {hasSubCategories && selectedSubCategory && (
                   <button 
                     className="btn-outline-premium back-to-subcategories-btn animate-fade-in"
                     onClick={() => setSelectedSubCategory(null)}
                   >
-                    ← Back to Vehicle Types
+                    {isCarWashing ? "← Back to Vehicle Types" : "← Back to Solar Categories"}
                   </button>
                 )}
               </div>
