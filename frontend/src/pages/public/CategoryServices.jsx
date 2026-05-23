@@ -1882,41 +1882,13 @@ function CategoryServices() {
            time: "2-3 hours"
          }
        ],
-       Solar: [
+        Solar: [
           {
-            name: "Solar new purchase Starting from 3kw To 8kw",
+            name: "Solar Pannel new installation 3kw to 20kw",
             image: solarImg,
-            desc: "Complete premium solar panels purchase and installation setup. Includes panels, high-efficiency inverter, mounting brackets, ACDB/DCDB boxes, and net metering assistance. Starting price is 99000 only.",
+            desc: "Complete premium solar panels purchase and installation setup ranging from 3kW up to 20kW. Includes panels, high-efficiency inverter, standard mounting brackets, cabling, safety setup, and net metering assistance. Starting price is 99000 only.",
             price: 99000.00,
-            time: "1-2 Days"
-          },
-          {
-            name: "Solar inveter maintaines 3kw to 8 kw",
-            image: solarImg,
-            desc: "Diagnostic visit and expert troubleshooting checkup for standard inverters. Calibrating charge controllers, terminal wiring check, and cooling fans diagnostic. Visiting fee is 1499.",
-            price: 1499.00,
-            time: "1-2 Hours"
-          },
-          {
-            name: "Solar inverter maintaines 10kw to 20 kw",
-            image: solarImg,
-            desc: "Commercial capacity solar inverter inspection. Checking firmware errors, power terminals security check, capacitor diagnosis, and calibration. Visiting fee is 1999.",
-            price: 1999.00,
-            time: "2 Hours"
-          },
-          {
-            name: "Solar service of 3kw to 8kw",
-            image: solarImg,
-            desc: "Standard solar panel maintenance service visit. Performance efficiency review, cabling safety inspection, and generation capacity audit. Visiting fee is 399.",
-            price: 399.00,
-            time: "1 Hour"
-          },
-          {
-            name: "Solar service of 10kw to 20 kw",
-            image: solarImg,
-            desc: "High capacity solar panel maintenance service visit. Earth pit testing, terminal tightness audit, structural safety audit, and system output analysis. Visiting fees is 499.",
-            price: 499.00,
-            time: "1-2 Hours"
+            time: "2-3 Days"
           }
         ],
        Advocates: [
