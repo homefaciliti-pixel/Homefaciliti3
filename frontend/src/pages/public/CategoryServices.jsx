@@ -147,157 +147,7 @@ function CategoryServices() {
     }
   ];
 
-  const solarSubCategories = [
-    {
-      name: "Solar new purchase Starting from 3kw To 8kw",
-      desc: "Order a brand new solar panel system installation starting at just ₹99,000.",
-      themeColor: "249, 115, 22",
-      icon: (
-        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
-          <defs>
-            <linearGradient id="solarInst1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#f97316" />
-              <stop offset="100%" stopColor="#ea580c" />
-            </linearGradient>
-          </defs>
-          <circle cx="80" cy="15" r="8" fill="#eab308" />
-          <path d="M80 3 L80 6 M80 24 L80 27 M68 15 L71 15 M89 15 L92 15" stroke="#eab308" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M20 40 L20 28 L40 18 L60 28 L60 40 Z" fill="url(#solarInst1Grad)" />
-          <path d="M42 22 L55 28.5 L51 34 L38 27.5 Z" fill="#475569" stroke="#ffffff" strokeWidth="1" />
-          <line x1="46.5" y1="24.25" x2="44.5" y2="30.75" stroke="#94a3b8" strokeWidth="0.5" />
-          <line x1="51" y1="26.25" x2="49" y2="32.75" stroke="#94a3b8" strokeWidth="0.5" />
-          <line x1="10" y1="40" x2="90" y2="40" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-      )
-    },
-    {
-      name: "Solar inveter maintaines 3kw to 8 kw",
-      desc: "Professional health check and diagnostics for 3kW - 8kW solar inverters.",
-      themeColor: "139, 92, 246",
-      icon: (
-        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
-          <defs>
-            <linearGradient id="solarInvGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#8b5cf6" />
-              <stop offset="100%" stopColor="#6d28d9" />
-            </linearGradient>
-          </defs>
-          <rect x="35" y="10" width="30" height="30" rx="4" fill="url(#solarInvGrad)" />
-          <rect x="40" y="15" width="20" height="8" rx="1" fill="#1e293b" />
-          <line x1="43" y1="19" x2="49" y2="19" stroke="#10b981" strokeWidth="1.5" />
-          <line x1="52" y1="19" x2="57" y2="19" stroke="#10b981" strokeWidth="1.5" />
-          <path d="M50 28 L47 33 L53 33 L50 38" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      )
-    },
-    {
-      name: "Solar inverter maintaines 10kw to 20 kw",
-      desc: "Commercial capacity diagnostics and calibration for 10kW - 20kW inverters.",
-      themeColor: "99, 102, 241",
-      icon: (
-        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
-          <defs>
-            <linearGradient id="solarInvGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#6366f1" />
-              <stop offset="100%" stopColor="#4f46e5" />
-            </linearGradient>
-          </defs>
-          <rect x="30" y="8" width="40" height="34" rx="4" fill="url(#solarInvGrad2)" />
-          <rect x="35" y="14" width="30" height="10" rx="1" fill="#1e293b" />
-          <line x1="40" y1="19" x2="48" y2="19" stroke="#10b981" strokeWidth="1.5" />
-          <line x1="52" y1="19" x2="60" y2="19" stroke="#10b981" strokeWidth="1.5" />
-          <path d="M50 26 L47 31 L53 31 L50 36" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      )
-    },
-    {
-      name: "Solar service of 3kw to 8kw",
-      desc: "Comprehensive diagnostic check, safety inspection, and cabling audit for 3kW - 8kW systems.",
-      themeColor: "16, 185, 129",
-      icon: (
-        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
-          <defs>
-            <linearGradient id="solarClean1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#10b981" />
-              <stop offset="100%" stopColor="#059669" />
-            </linearGradient>
-          </defs>
-          <path d="M20 38 L30 18 L70 18 L80 38 Z" fill="url(#solarClean1Grad)" />
-          <line x1="40" y1="18" x2="35" y2="38" stroke="#ffffff" strokeWidth="1" />
-          <line x1="50" y1="18" x2="50" y2="38" stroke="#ffffff" strokeWidth="1" />
-          <line x1="60" y1="18" x2="65" y2="38" stroke="#ffffff" strokeWidth="1" />
-          <line x1="25" y1="28" x2="75" y2="28" stroke="#ffffff" strokeWidth="1" />
-        </svg>
-      )
-    },
-    {
-      name: "Solar service of 10kw to 20 kw",
-      desc: "Commercial capacity wiring diagnostics, earth testing, and diagnostic checks for 10kW - 20kW systems.",
-      themeColor: "6, 182, 212",
-      icon: (
-        <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
-          <defs>
-            <linearGradient id="solarClean2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#06b6d4" />
-              <stop offset="100%" stopColor="#0891b2" />
-            </linearGradient>
-          </defs>
-          <path d="M10 38 L20 18 L45 18 L40 38 Z" fill="url(#solarClean2Grad)" />
-          <path d="M55 38 L60 18 L85 18 L90 38 Z" fill="url(#solarClean2Grad)" opacity="0.8" />
-          <line x1="20" y1="28" x2="40" y2="28" stroke="#ffffff" strokeWidth="1" />
-          <line x1="60" y1="28" x2="85" y2="28" stroke="#ffffff" strokeWidth="1" />
-        </svg>
-      )
-    }
-  ];
 
-  const solarServices = {
-    "Solar new purchase Starting from 3kw To 8kw": [
-      {
-        name: "Premium Solar Setup (3kW - 8kW)",
-        image: solarImg,
-        desc: "Complete premium solar panels purchase and installation setup. Includes panels, high-efficiency inverter, standard mounting brackets, ACDB/DCDB boxes, and net metering assistance. Starting price is 99000 only.",
-        price: 99000.00,
-        time: "1-2 Days"
-      }
-    ],
-    "Solar inveter maintaines 3kw to 8 kw": [
-      {
-        name: "Solar Inverter Maintenance Service (3kW - 8kW)",
-        image: solarImg,
-        desc: "Diagnostic visit and expert troubleshooting checkup for standard inverters. Calibrating charge controllers, terminal wiring check, and cooling fans diagnostic. Visiting fee is 1499.",
-        price: 1499.00,
-        time: "1-2 Hours"
-      }
-    ],
-    "Solar inverter maintaines 10kw to 20 kw": [
-      {
-        name: "Solar Inverter Maintenance Service (10kW - 20kW)",
-        image: solarImg,
-        desc: "Commercial capacity solar inverter inspection. Checking firmware errors, power terminals security check, capacitor diagnosis, and calibration. Visiting fee is 1999.",
-        price: 1999.00,
-        time: "2 Hours"
-      }
-    ],
-    "Solar service of 3kw to 8kw": [
-      {
-        name: "Solar System Service Visit (3kW - 8kW)",
-        image: solarImg,
-        desc: "Standard solar panel maintenance service visit. Performance efficiency review, cabling safety inspection, and generation capacity audit. Visiting fee is 399.",
-        price: 399.00,
-        time: "1 Hour"
-      }
-    ],
-    "Solar service of 10kw to 20 kw": [
-      {
-        name: "Solar System Service Visit (10kW - 20kW)",
-        image: solarImg,
-        desc: "High capacity solar panel maintenance service visit. Earth pit testing, terminal tightness audit, structural safety audit, and system output analysis. Visiting fees is 499.",
-        price: 499.00,
-        time: "1-2 Hours"
-      }
-    ]
-  };
 
   const carWashingServices = {
     SUV: [
@@ -2155,14 +2005,12 @@ function CategoryServices() {
   const categoryKey = categoryKeyMap[normalizedCategory] || decodedCategory;
 
   const isSolar = normalizedCategory === "solar";
-  const hasSubCategories = isCarWashing || isSolar;
-  const currentSubCategories = isCarWashing ? subCategories : (isSolar ? solarSubCategories : []);
+  const hasSubCategories = isCarWashing;
+  const currentSubCategories = isCarWashing ? subCategories : [];
 
   const services = isCarWashing && selectedSubCategory
     ? carWashingServices[selectedSubCategory]
-    : (isSolar && selectedSubCategory
-       ? solarServices[selectedSubCategory]
-       : (servicesData[categoryKey] || []));
+    : (servicesData[categoryKey] || []);
 
   const handleBookNow = (service) => {
     if (!user) {
