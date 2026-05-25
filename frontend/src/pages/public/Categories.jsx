@@ -99,7 +99,6 @@ function Categories() {
                 </div>
                 <div className="explorer-content">
                   <h3>{cat.name}</h3>
-                  <p>{cat.count} Experts Available</p>
                   <span className="explore-link">Explore →</span>
                 </div>
               </div>
