@@ -1,31 +1,19 @@
-import API from "./axios";
+import { userAPI } from "./axios";
 
-// Create booking (User)
+// ── Create booking (User) ──
 export const createBooking = async (data) => {
-  const res = await API.post("/booking/create", data);
+  const res = await userAPI.post("/bookings/create", data);
   return res.data;
 };
 
-// Get my bookings (User)
+// ── Get my bookings (User) ──
 export const getMyBookings = async () => {
-  const res = await API.get("/booking/my");
+  const res = await userAPI.get("/bookings/my");
   return res.data;
 };
 
-// Vendor accept booking
-export const acceptBooking = async (id) => {
-  const res = await API.patch(`/booking/accept/${id}`);
-  return res.data;
-};
-
-// Vendor complete booking
-export const completeBooking = async (id) => {
-  const res = await API.patch(`/booking/complete/${id}`);
-  return res.data;
-};
-
-// Cancel booking (User/Vendor)
+// ── Cancel booking (User) ──
 export const cancelBooking = async (id) => {
-  const res = await API.patch(`/booking/cancel/${id}`);
+  const res = await userAPI.patch(`/bookings/cancel/${id}`);
   return res.data;
 };

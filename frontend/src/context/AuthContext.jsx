@@ -1,6 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useState, useEffect, useContext } from "react";
-import { getProfile } from "../api/auth.api";
 
 export const AuthContext = createContext();
 
@@ -8,50 +7,48 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // ===============================
-  // INIT AUTH (AUTO LOGIN)
-  // ===============================
+  // ── Restore session on page load ──
   useEffect(() => {
-    const initAuth = async () => {
-      try {
-        const token = localStorage.getItem("token");
-
-        if (token) {
-          const data = await getProfile();
-          setUser(data.user);
-        }
-      } catch (error) {
-        console.log("Auth error:", error);
-        localStorage.clear();
-        setUser(null);
-      } finally {
-        setLoading(false);
+    try {
+      const savedUser = localStorage.getItem("user");
+      const token =
+        localStorage.getItem("userToken") || localStorage.getItem("partnerToken");
+      if (savedUser && token) {
+        setUser(JSON.parse(savedUser));
       }
-    };
-
-    initAuth();
+    } catch {
+      localStorage.clear();
+      setUser(null);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-  // ===============================
-  // LOGIN FUNCTION
-  // ===============================
+  // ── Login — stores token by role ──
   const login = (data) => {
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("user", JSON.stringify(data.user));
-    setUser(data.user);
+    const userData = data.user || data.partner || data;
+    const token = data.token;
+    const role = userData.role || "user";
+
+    if (role === "vendor" || role === "partner") {
+      localStorage.setItem("partnerToken", token);
+    } else {
+      localStorage.setItem("userToken", token);
+    }
+    localStorage.setItem("user", JSON.stringify({ ...userData, role }));
+    setUser({ ...userData, role });
   };
 
-  // ===============================
-  // LOGOUT FUNCTION
-  // ===============================
+  // ── Logout ──
   const logout = () => {
-    localStorage.clear();
+    localStorage.removeItem("userToken");
+    localStorage.removeItem("partnerToken");
+    localStorage.removeItem("adminToken");
+    localStorage.removeItem("user");
     setUser(null);
+    window.location.href = "/";
   };
 
-  // ===============================
-  // AUTH STATE
-  // ===============================
   const value = {
     user,
     login,
@@ -67,7 +64,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// ===============================
-// CUSTOM HOOK (VERY IMPORTANT)
-// ===============================
 export const useAuth = () => useContext(AuthContext);

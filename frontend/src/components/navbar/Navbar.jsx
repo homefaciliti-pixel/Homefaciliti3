@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.jpeg";
+import { useAuth } from "../../context/AuthContext";
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const location = useLocation();
+  const { user, logout } = useAuth();
+
+  const dashboardPath =
+    user?.role === "vendor" || user?.role === "partner"
+      ? "/vendor/dashboard"
+      : "/user/dashboard";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,8 +50,78 @@ function Navbar() {
           <Link to="/about" className={`nav-item ${isActive("/about") ? "active" : ""}`} onClick={() => setMenuOpen(false)}>About</Link>
 
           <div className="nav-actions">
-            <a href="https://play.google.com/store/apps/details?id=com.homefacility" target="_blank" rel="noopener noreferrer" className="btn-premium btn-small" style={{ textDecoration: 'none' }} onClick={() => setMenuOpen(false)}>User App</a>
-            <a href="https://play.google.com/store/apps/details?id=com.hf_partner" target="_blank" rel="noopener noreferrer" className="btn-outline-premium btn-small" style={{ textDecoration: 'none' }} onClick={() => setMenuOpen(false)}>Partner App</a>
+            {user ? (
+              <>
+                <Link
+                  to={dashboardPath}
+                  className="nav-dashboard-btn"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <span className="dash-icon">
+                    {user.role === "vendor" || user.role === "partner" ? "🔧" : "👤"}
+                  </span>
+                  <span>{user.name?.split(" ")[0] || "Dashboard"}</span>
+                </Link>
+                <button
+                  className="nav-logout-btn"
+                  onClick={() => { logout(); setMenuOpen(false); }}
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="nav-login-btn"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Login
+                </Link>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.homefacility"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="app-badge-link user-app-badge"
+                  title="Download User App"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <div className="app-badge-content">
+                    <svg className="play-icon-svg" viewBox="0 0 512 512">
+                      <path fill="#00c6ff" d="M10 28.5c0-11 5.7-20 15.3-25l249 144.3L89.6 332.5 10 28.5z"/>
+                      <path fill="#00e676" d="M10 483.5c0 11 5.7 20 15.3 25l249-144.3-184.7-184.7L10 483.5z"/>
+                      <path fill="#ffeb3b" d="M496.7 231c9.6 5.5 15.3 14.5 15.3 25s-5.7 19.5-15.3 25L274.3 409.5l-184.7-184.7 184.7-184.7 222.4 128.4v2.5z"/>
+                      <path fill="#ff3d00" d="M274.3 125.5l222.4 128.4c9.6 5.5 15.3 14.5 15.3 25s-5.7 19.5-15.3 25L274.3 328.5L89.6 143.8 274.3 125.5z"/>
+                    </svg>
+                    <div className="app-badge-text">
+                      <span className="badge-subtitle">GET IT ON</span>
+                      <span className="badge-title">User App</span>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.hf_partner"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="app-badge-link partner-app-badge"
+                  title="Download Partner App"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <div className="app-badge-content">
+                    <svg className="play-icon-svg" viewBox="0 0 512 512">
+                      <path fill="#00c6ff" d="M10 28.5c0-11 5.7-20 15.3-25l249 144.3L89.6 332.5 10 28.5z"/>
+                      <path fill="#00e676" d="M10 483.5c0 11 5.7 20 15.3 25l249-144.3-184.7-184.7L10 483.5z"/>
+                      <path fill="#ffeb3b" d="M496.7 231c9.6 5.5 15.3 14.5 15.3 25s-5.7 19.5-15.3 25L274.3 409.5l-184.7-184.7 184.7-184.7 222.4 128.4v2.5z"/>
+                      <path fill="#ff3d00" d="M274.3 125.5l222.4 128.4c9.6 5.5 15.3 14.5 15.3 25s-5.7 19.5-15.3 25L274.3 328.5L89.6 143.8 274.3 125.5z"/>
+                    </svg>
+                    <div className="app-badge-text">
+                      <span className="badge-subtitle">GET IT ON</span>
+                      <span className="badge-title">Partner App</span>
+                    </div>
+                  </div>
+                </a>
+              </>
+            )}
           </div>
         </div>
 
@@ -152,10 +229,90 @@ function Navbar() {
         .nav-actions {
           display: flex;
           align-items: center;
-          gap: 16px;
+          gap: 12px;
           margin-left: 16px;
         }
+        .app-badge-link {
+          text-decoration: none;
+          display: inline-block;
+          background: #0f172a;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 8px;
+          padding: 6px 12px;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .app-badge-link:hover {
+          background: #020617;
+          transform: translateY(-2px);
+          border-color: rgba(255, 255, 255, 0.2);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        .app-badge-content {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .play-icon-svg {
+          width: 18px;
+          height: 18px;
+        }
+        .app-badge-text {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          line-height: 1.1;
+        }
+        .badge-subtitle {
+          font-size: 7px;
+          color: rgba(255, 255, 255, 0.6);
+          font-weight: 500;
+          letter-spacing: 0.5px;
+        }
+        .badge-title {
+          font-size: 10px;
+          color: #ffffff;
+          font-weight: 700;
+          letter-spacing: 0.2px;
+        }
+        /* ── Login / Dashboard / Logout buttons ── */
+        .nav-login-btn {
+          text-decoration: none;
+          padding: 8px 20px;
+          background: linear-gradient(135deg, #6366f1, #8b5cf6);
+          color: white;
+          border-radius: 100px;
+          font-size: 14px;
+          font-weight: 600;
+          transition: all 0.3s;
+          white-space: nowrap;
+        }
+        .nav-login-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(99,102,241,0.4); }
+        .nav-dashboard-btn {
+          display: flex; align-items: center; gap: 6px;
+          text-decoration: none;
+          padding: 8px 16px;
+          background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+          color: #166534;
+          border: 1.5px solid #86efac;
+          border-radius: 100px;
+          font-size: 13px; font-weight: 700;
+          transition: all 0.3s; white-space: nowrap;
+        }
+        .nav-dashboard-btn:hover { background: #dcfce7; transform: translateY(-1px); }
+        .dash-icon { font-size: 15px; }
+        .nav-logout-btn {
+          padding: 8px 16px;
+          background: transparent;
+          color: #ef4444;
+          border: 1.5px solid #fca5a5;
+          border-radius: 100px;
+          font-size: 13px; font-weight: 600;
+          cursor: pointer; transition: all 0.3s; white-space: nowrap;
+        }
+        .nav-logout-btn:hover { background: #fef2f2; border-color: #ef4444; }
+
         .btn-small {
+
           padding: 10px 20px;
           font-size: 13px;
           border-radius: 100px;
