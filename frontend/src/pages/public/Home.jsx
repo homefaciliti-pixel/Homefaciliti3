@@ -523,12 +523,17 @@ function Home() {
         .hero-image-wrapper {
           position: relative;
           z-index: 1;
-        }
-        .hero-main-img {
-          width: 100%;
+          overflow: hidden;
           border-radius: 40px;
           box-shadow: var(--shadow-premium);
           border: 12px solid white;
+          background: #f8fafc;
+        }
+        .hero-main-img {
+          width: 100%;
+          display: block;
+          animation: kenBurns 20s ease-in-out infinite;
+          transform-origin: center;
         }
         .floating-card {
           position: absolute;
@@ -550,13 +555,14 @@ function Home() {
           position: absolute;
           width: 120%;
           height: 120%;
-          background: var(--grad-main);
+          background: linear-gradient(135deg, #2563eb, #ec4899, #f59e0b, #3b82f6);
+          background-size: 300% 300%;
           filter: blur(80px);
-          opacity: 0.1;
+          opacity: 0.15;
           top: -10%;
           left: -10%;
           z-index: -1;
-          border-radius: 50%;
+          animation: morphBlob 16s ease-in-out infinite, gradientShift 12s ease infinite;
         }
 
         .section { padding: 80px 0; position: relative; }
@@ -1068,6 +1074,31 @@ function Home() {
         }
         .animate-float-slow { animation: float 6s ease-in-out infinite; }
         .animate-float-fast { animation: float 4s ease-in-out infinite; }
+
+        @keyframes kenBurns {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.08) translate(10px, -5px); }
+        }
+
+        @keyframes morphBlob {
+          0%, 100% {
+            transform: translate(0, 0) scale(1);
+            border-radius: 50%;
+          }
+          33% {
+            transform: translate(40px, -60px) scale(1.15);
+            border-radius: 30% 70% 70% 30% / 50% 60% 40% 50%;
+          }
+          66% {
+            transform: translate(-30px, 30px) scale(0.9);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+          }
+        }
+
+        @keyframes gradientShift {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
 
         .events-section { background: #fff; }
         .event-gallery-grid {

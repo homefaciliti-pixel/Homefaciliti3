@@ -12,7 +12,8 @@ function Contact() {
     <MainLayout>
       <section className="contact-page">
         {/* Background Hero */}
-        <div className="contact-hero" style={{ backgroundImage: `url(${contactBg})` }}>
+        <div className="contact-hero">
+          <div className="contact-hero-bg" style={{ backgroundImage: `url(${contactBg})` }}></div>
           <div className="overlay-dark"></div>
 
           {/* Ambient Glow Blurs */}
@@ -124,19 +125,31 @@ function Contact() {
       <style jsx>{`
         .contact-hero {
           min-height: 90vh;
-          background-size: cover;
-          background-position: center;
           display: flex;
           align-items: center;
           position: relative;
           padding: 80px 0;
           overflow: hidden;
         }
+        .contact-hero-bg {
+          position: absolute;
+          inset: 0;
+          background-size: cover;
+          background-position: center;
+          z-index: 0;
+          animation: kenBurnsBg 22s ease-in-out infinite;
+          transform-origin: center;
+        }
         .overlay-dark {
           position: absolute;
           inset: 0;
           background: rgba(15, 23, 42, 0.65);
           z-index: 1;
+        }
+        
+        @keyframes kenBurnsBg {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.08) translate(5px, -3px); }
         }
         
         /* Ambient Glow Blurs */

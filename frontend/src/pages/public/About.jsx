@@ -12,7 +12,8 @@ function About() {
   return (
     <MainLayout>
       {/* ===== HERO SECTION ===== */}
-      <section className="about-hero" style={{ backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.8)), url(${bannerImg})` }}>
+      <section className="about-hero">
+        <div className="about-hero-bg" style={{ backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.8)), url(${bannerImg})` }}></div>
         <div className="container hero-container animate-fade-in">
           <div className="hero-badge animate-float-slow">✨ Our Journey</div>
           <h1 className="hero-title white text-shadow-premium">Redefining Home Services</h1>
@@ -129,18 +130,33 @@ function About() {
         
         .about-hero {
           height: 55vh;
-          background-size: cover;
-          background-position: center;
           display: flex;
           align-items: center;
           text-align: center;
           position: relative;
+          overflow: hidden;
+        }
+        .about-hero-bg {
+          position: absolute;
+          inset: 0;
+          background-size: cover;
+          background-position: center;
+          z-index: 0;
+          animation: kenBurnsBg 24s ease-in-out infinite;
+          transform-origin: center;
         }
         .hero-container {
+          position: relative;
+          z-index: 1;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
+        }
+        
+        @keyframes kenBurnsBg {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.08) translate(5px, -3px); }
         }
         .hero-badge {
           background: rgba(255, 255, 255, 0.15);
