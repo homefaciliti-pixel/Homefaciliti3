@@ -79,7 +79,7 @@ function Navbar() {
                   Login
                 </Link>
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.homefacility"
+                  href="https://homefaciliti-pixel.github.io/homefaciliti-user-aap-link/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="app-badge-link user-app-badge"

@@ -29,7 +29,7 @@ function ServiceCard({ service, onBook }) {
           <h3>{service.name}</h3>
         </div>
         <p className="service-desc">{service.description}</p>
-        <a href="https://play.google.com/store/apps/details?id=com.homefacility" target="_blank" rel="noopener noreferrer" className="btn-premium btn-full" style={{ textDecoration: 'none', display: 'block', textAlign: 'center' }}>
+        <a href="https://homefaciliti-pixel.github.io/homefaciliti-user-aap-link/" target="_blank" rel="noopener noreferrer" className="btn-premium btn-full" style={{ textDecoration: 'none', display: 'block', textAlign: 'center' }}>
           Book Now
         </a>
       </div>

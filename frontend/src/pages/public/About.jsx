@@ -115,7 +115,7 @@ function About() {
             <h2 className="section-title white text-shadow-premium">Be Part of Our Journey</h2>
             <p className="hero-subtitle white text-shadow-soft" style={{ margin: "20px auto 40px", maxWidth: "600px" }}>Whether you're looking for expert help or want to grow your business as a partner, HomeFaciliti is here for you.</p>
             <div className="hero-btns" style={{ justifyContent: "center" }}>
-              <a href="https://play.google.com/store/apps/details?id=com.homefacility" target="_blank" rel="noopener noreferrer" className="btn-premium white-bg-hover" style={{ textDecoration: 'none' }}>Book a Service</a>
+              <a href="https://homefaciliti-pixel.github.io/homefaciliti-user-aap-link/" target="_blank" rel="noopener noreferrer" className="btn-premium white-bg-hover" style={{ textDecoration: 'none' }}>Book a Service</a>
               <a href="https://homefaciliti-pixel.github.io/homefaciliti-partner-aap-link/" target="_blank" rel="noopener noreferrer" className="btn-outline-premium white-border" style={{ textDecoration: 'none' }}>Become a Partner</a>
             </div>
           </div>

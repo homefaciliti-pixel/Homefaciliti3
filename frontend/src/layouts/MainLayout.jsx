@@ -82,7 +82,7 @@ function MainLayout({ children }) {
 
             {/* User App Badge */}
             <a
-              href="https://play.google.com/store/apps/details?id=com.homefacility"
+              href="https://homefaciliti-pixel.github.io/homefaciliti-user-aap-link/"
               target="_blank"
               rel="noopener noreferrer"
               className="gplay-badge user-app-badge"

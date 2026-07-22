@@ -373,7 +373,7 @@ function Home() {
                     <div className="price-tag">
                       <span className="price-value">{service.price}</span>
                     </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.homefacility" target="_blank" rel="noopener noreferrer" className="btn-premium btn-small" style={{ textDecoration: 'none', width: '100%', textAlign: 'center' }}>
+                    <a href="https://homefaciliti-pixel.github.io/homefaciliti-user-aap-link/" target="_blank" rel="noopener noreferrer" className="btn-premium btn-small" style={{ textDecoration: 'none', width: '100%', textAlign: 'center' }}>
                       Book Now <span className="btn-arrow">→</span>
                     </a>
                   </div>
