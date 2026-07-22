@@ -102,7 +102,7 @@ function MainLayout({ children }) {
 
             {/* Vendor App Badge */}
             <a
-              href="https://play.google.com/store/apps/details?id=com.hf_partner"
+              href="https://homefaciliti-pixel.github.io/homefaciliti-partner-aap-link/"
               target="_blank"
               rel="noopener noreferrer"
               className="gplay-badge vendor-app-badge"

@@ -100,7 +100,7 @@ function Navbar() {
                   </div>
                 </a>
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.hf_partner"
+                  href="https://homefaciliti-pixel.github.io/homefaciliti-partner-aap-link/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="app-badge-link partner-app-badge"

@@ -420,7 +420,7 @@ function Home() {
             <div className="promo-content">
               <h2 className="text-shadow-soft">Ready to transform your home?</h2>
               <p className="text-shadow-soft">Join over 10,000+ families who trust HomeFaciliti for their daily needs.</p>
-              <a href="https://play.google.com/store/apps/details?id=com.hf_partner" target="_blank" rel="noopener noreferrer" className="btn-premium white-bg" style={{ textDecoration: 'none', display: 'inline-block' }}>Download our App</a>
+              <a href="https://homefaciliti-pixel.github.io/homefaciliti-partner-aap-link/" target="_blank" rel="noopener noreferrer" className="btn-premium white-bg" style={{ textDecoration: 'none', display: 'inline-block' }}>Download our App</a>
             </div>
             <div className="promo-visual">
               <div className="hero-blob small"></div>
