@@ -43,6 +43,80 @@ function CategoryServices() {
     setSelectedSubCategory(null);
   }, [categoryName]);
 
+  const handleCardTilt = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const percentX = (x - centerX) / centerX;
+    const percentY = (y - centerY) / centerY;
+    
+    const maxTilt = 8;
+    const tiltX = (percentY * maxTilt).toFixed(2);
+    const tiltY = (-percentX * maxTilt).toFixed(2);
+    
+    card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.01, 1.01, 1.01)`;
+    
+    const img = card.querySelector(".service-img-box img");
+    if (img) {
+      const moveX = (percentX * -10).toFixed(2);
+      const moveY = (percentY * -10).toFixed(2);
+      img.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(1.12)`;
+    }
+    
+    card.style.setProperty("--mouse-x", `${x}px`);
+    card.style.setProperty("--mouse-y", `${y}px`);
+  };
+
+  const handleCardTiltLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    const img = card.querySelector(".service-img-box img");
+    if (img) {
+      img.style.transform = `translate3d(0, 0, 0) scale(1)`;
+    }
+  };
+
+  const handleSubCardTilt = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const percentX = (x - centerX) / centerX;
+    const percentY = (y - centerY) / centerY;
+    
+    const maxTilt = 8;
+    const tiltX = (percentY * maxTilt).toFixed(2);
+    const tiltY = (-percentX * maxTilt).toFixed(2);
+    
+    card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.01, 1.01, 1.01)`;
+    
+    const svg = card.querySelector(".subcategory-icon-box svg");
+    if (svg) {
+      const moveX = (percentX * -8).toFixed(2);
+      const moveY = (percentY * -8).toFixed(2);
+      svg.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(1.1)`;
+    }
+    
+    card.style.setProperty("--mouse-x", `${x}px`);
+    card.style.setProperty("--mouse-y", `${y}px`);
+  };
+
+  const handleSubCardTiltLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    const svg = card.querySelector(".subcategory-icon-box svg");
+    if (svg) {
+      svg.style.transform = `translate3d(0, 0, 0) scale(1)`;
+    }
+  };
+
   const subCategories = [
     {
       name: "Hatchback",
@@ -2047,9 +2121,11 @@ function CategoryServices() {
                 {currentSubCategories.map((sub, index) => (
                   <div
                     key={sub.name}
-                    className="premium-card subcategory-card reveal animate-fade-in"
-                    style={{ transitionDelay: `${index * 0.1}s`, '--card-theme': sub.themeColor }}
+                    className="premium-card subcategory-card glow-card staggered-entry"
+                    style={{ animationDelay: `${index * 0.1}s`, '--card-theme': sub.themeColor }}
                     onClick={() => setSelectedSubCategory(sub.name)}
+                    onMouseMove={handleSubCardTilt}
+                    onMouseLeave={handleSubCardTiltLeave}
                   >
                     <div className="subcategory-icon-box">
                       {sub.icon}
@@ -2100,11 +2176,13 @@ function CategoryServices() {
                 {services.map((service, index) => (
                   <div
                     key={index}
-                    className="premium-card service-list-card reveal animate-fade-in"
-                    style={{ transitionDelay: `${index * 0.1}s` }}
+                    className="premium-card service-list-card glow-card staggered-entry"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                    onMouseMove={handleCardTilt}
+                    onMouseLeave={handleCardTiltLeave}
                   >
                     <div className="service-img-box">
-                      <img src={service.image} alt={service.name} />
+                      <img src={service.image} alt={service.name} style={{ transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)' }} />
                       <div className="service-price-floating">₹{service.price}</div>
                     </div>
                     <div className="service-list-content">

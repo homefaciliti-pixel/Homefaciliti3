@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useReveal from "../../hooks/useReveal";
 import MainLayout from "../../layouts/MainLayout";
@@ -32,6 +32,43 @@ function Categories() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   useReveal();
+
+  const handleCardTilt = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const percentX = (x - centerX) / centerX;
+    const percentY = (y - centerY) / centerY;
+    
+    const maxTilt = 10;
+    const tiltX = (percentY * maxTilt).toFixed(2);
+    const tiltY = (-percentX * maxTilt).toFixed(2);
+    
+    card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
+    
+    const img = card.querySelector(".explorer-img-box img");
+    if (img) {
+      const moveX = (percentX * -12).toFixed(2);
+      const moveY = (percentY * -12).toFixed(2);
+      img.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(1.15)`;
+    }
+    
+    card.style.setProperty("--mouse-x", `${x}px`);
+    card.style.setProperty("--mouse-y", `${y}px`);
+  };
+
+  const handleCardTiltLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    const img = card.querySelector(".explorer-img-box img");
+    if (img) {
+      img.style.transform = `translate3d(0, 0, 0) scale(1)`;
+    }
+  };
 
   const categories = [
     { name: "Plumbing", image: plumbingImg, count: 12 },
@@ -89,12 +126,14 @@ function Categories() {
             {filteredCategories.map((cat, index) => (
               <div
                 key={index}
-                className="premium-card explorer-card reveal"
-                style={{ transitionDelay: `${index * 0.05}s` }}
+                className="premium-card explorer-card glow-card staggered-entry"
+                style={{ animationDelay: `${index * 0.05}s` }}
                 onClick={() => navigate(`/category/${cat.name}`)}
+                onMouseMove={handleCardTilt}
+                onMouseLeave={handleCardTiltLeave}
               >
                 <div className="explorer-img-box">
-                  <img src={cat.image} alt={cat.name} />
+                  <img src={cat.image} alt={cat.name} style={{ transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)' }} />
                   <div className="overlay-premium"></div>
                 </div>
                 <div className="explorer-content">

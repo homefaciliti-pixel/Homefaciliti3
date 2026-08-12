@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Navbar from "../components/navbar/Navbar";
+import logo from "../assets/images/logo.jpeg";
 
 function MainLayout({ children }) {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -7,6 +8,31 @@ function MainLayout({ children }) {
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
+
+  const [playIntro, setPlayIntro] = useState(false);
+  const [introState, setIntroState] = useState("entering"); // entering -> exiting -> done
+
+  useEffect(() => {
+    const hasLoaded = sessionStorage.getItem("hasLoadedIntro");
+    if (!hasLoaded) {
+      setPlayIntro(true);
+      const exitTimeout = setTimeout(() => {
+        setIntroState("exiting");
+      }, 1000);
+
+      const doneTimeout = setTimeout(() => {
+        setIntroState("done");
+        sessionStorage.setItem("hasLoadedIntro", "true");
+      }, 2200);
+
+      return () => {
+        clearTimeout(exitTimeout);
+        clearTimeout(doneTimeout);
+      };
+    } else {
+      setIntroState("done");
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,6 +86,18 @@ function MainLayout({ children }) {
 
   return (
     <div className="layout-root">
+      {playIntro && introState !== "done" && (
+        <div className={`split-loader-overlay ${introState === "exiting" ? "reveal" : ""}`}>
+          <div className="split-gate split-gate-left" />
+          <div className="split-gate split-gate-right" />
+          <div className={`split-loader-logo-container ${introState === "exiting" ? "exit" : ""}`}>
+            <div className="split-loader-logo">
+              <img src={logo} alt="HomeFaciliti Logo" />
+            </div>
+            <h1 className="split-loader-text">HomeFaciliti</h1>
+          </div>
+        </div>
+      )}
       {!isMobile && (
         <>
           <div 
