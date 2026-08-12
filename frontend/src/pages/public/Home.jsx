@@ -3,6 +3,7 @@ import MainLayout from "../../layouts/MainLayout";
 import { Link } from "react-router-dom";
 import useReveal from "../../hooks/useReveal";
 import AnimatedCounter from "../../components/common/AnimatedCounter";
+import InteractiveParticles from "../../components/common/InteractiveParticles";
 
 // Import Assets
 import heroBg from "../../assets/images/hero-bg.png";
@@ -41,7 +42,6 @@ function Home() {
 
   const words = ["Perfectly Mastered", "Smartly Cleaned", "Expertly Repaired", "Carefully Protected"];
   const [activeWordIndex, setActiveWordIndex] = useState(0);
-  const sparkles = Array.from({ length: 12 });
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -212,21 +212,8 @@ function Home() {
     <MainLayout>
       {/* ===== HERO SECTION ===== */}
       <section className="hero-section" style={{ position: "relative", overflow: "hidden" }}>
-        {/* Ambient Sparkles Background */}
-        <div className="hero-sparkles-container" style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
-          {sparkles.map((_, i) => (
-            <div 
-              key={i} 
-              className="sparkle-particle"
-              style={{
-                left: `${(Math.sin(i * 1.7) * 45 + 50).toFixed(2)}%`,
-                top: `${((i * 13) % 100).toFixed(2)}%`,
-                animationDelay: `${(i * 0.6).toFixed(2)}s`,
-                animationDuration: `${(6 + (i % 4) * 2).toFixed(2)}s`
-              }}
-            />
-          ))}
-        </div>
+        {/* Ambient Interactive Particles Background */}
+        <InteractiveParticles />
 
         <div className="hero-content animate-fade-in" style={{ position: "relative", zIndex: 1 }}>
           <div className="hero-announcement animate-fade-in-left">
