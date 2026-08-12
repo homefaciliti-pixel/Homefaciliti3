@@ -545,31 +545,6 @@ function Home() {
       </section>
 
        <style jsx>{`
-        .rotating-word-wrapper {
-          position: relative;
-          display: inline-block;
-          height: 1.15em;
-          vertical-align: bottom;
-          overflow: hidden;
-          width: 100%;
-        }
-        .rotating-word {
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          opacity: 0;
-          transform: translateY(100%);
-          transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
-          background: var(--grad-main);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-        .rotating-word.active {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
         @keyframes fadeInLeft {
           from {
             opacity: 0;
