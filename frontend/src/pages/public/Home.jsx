@@ -234,15 +234,8 @@ function Home() {
           </div>
           <h1 className="hero-title">
             Your Home, <br />
-            <span className="rotating-word-wrapper">
-              {words.map((word, idx) => (
-                <span 
-                  key={idx} 
-                  className={`rotating-word ${idx === activeWordIndex ? "active" : ""}`}
-                >
-                  {word}.
-                </span>
-              ))}
+            <span key={activeWordIndex} className="rotating-word-anim">
+              {words[activeWordIndex]}.
             </span>
           </h1>
           <p className="hero-subtitle">Experience the next generation of home services with verified experts and seamless booking.</p>
