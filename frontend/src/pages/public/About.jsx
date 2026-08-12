@@ -168,13 +168,13 @@ function About() {
           <div className="stats-grid glass-premium">
             <div className="stat-item">
               <h2 className="stat-number text-grad-pink">
-                <AnimatedCounter end={120000} suffix="+" />
+                <AnimatedCounter end={351000} suffix="+" />
               </h2>
               <p className="stat-label">Customers Served</p>
             </div>
             <div className="stat-item">
               <h2 className="stat-number text-grad-gold">
-                <AnimatedCounter end={500} suffix="+" />
+                <AnimatedCounter end={31000} suffix="+" />
               </h2>
               <p className="stat-label">Verified Vendors</p>
             </div>
