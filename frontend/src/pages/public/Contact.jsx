@@ -21,20 +21,8 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormStatus("sending");
-
-    const whatsappNumber = "919462661184";
-    const text = `Hello HomeFaciliti, I would like to get in touch.
-
-*Name:* ${formData.name}
-*Email:* ${formData.email}
-*Message:* ${formData.message}`;
-
-    const encodedText = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
-
     setTimeout(() => {
       setFormStatus("success");
-      window.open(whatsappUrl, "_blank");
     }, 1000);
   };
 
