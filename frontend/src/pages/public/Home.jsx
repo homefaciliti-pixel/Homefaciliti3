@@ -2,6 +2,7 @@ import { useState } from "react";
 import MainLayout from "../../layouts/MainLayout";
 import { Link } from "react-router-dom";
 import useReveal from "../../hooks/useReveal";
+import AnimatedCounter from "../../components/common/AnimatedCounter";
 
 // Import Assets
 import heroBg from "../../assets/images/hero-bg.png";
@@ -37,6 +38,15 @@ import interiorDesignImg from "../../assets/images/interior-design.png";
 
 function Home() {
   useReveal();
+
+  const handleMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty("--mouse-x", `${x}px`);
+    card.style.setProperty("--mouse-y", `${y}px`);
+  };
 
   const getTagGradient = (tag) => {
     switch (tag?.toLowerCase()) {
@@ -188,13 +198,18 @@ function Home() {
 
           <div className="hero-stats animate-fade-in-delay-2">
             <div className="stat">
-              <strong>12k+</strong>
+              <AnimatedCounter end={12000} suffix="+" />
               <span>Happy Homeowners</span>
             </div>
             <div className="stat-sep"></div>
             <div className="stat">
-              <strong>15min</strong>
+              <AnimatedCounter end={15} suffix=" min" />
               <span>Avg. Booking Time</span>
+            </div>
+            <div className="stat-sep"></div>
+            <div className="stat">
+              <AnimatedCounter end={250} suffix="+" />
+              <span>Certified Experts</span>
             </div>
           </div>
         </div>
@@ -221,6 +236,43 @@ function Home() {
           </div>
         </div>
       </section>
+      
+      {/* ===== INFINITE LOGO MARQUEE ===== */}
+      <div className="marquee-container reveal">
+        <div className="marquee-content">
+          {[
+            { label: "Apex Tech", icon: "A" },
+            { label: "Nexus Corp", icon: "N" },
+            { label: "Vortex Media", icon: "V" },
+            { label: "Quantum Labs", icon: "Q" },
+            { label: "Elevate Systems", icon: "E" },
+            { label: "Alpha Group", icon: "α" },
+            { label: "Prime Service", icon: "P" },
+            { label: "Stellar Co", icon: "S" },
+          ].map((item, idx) => (
+            <div key={idx} className="marquee-item">
+              <span className="marquee-logo-icon">{item.icon}</span>
+              <span>{item.label}</span>
+            </div>
+          ))}
+          {/* Duplicate for seamless wrapping */}
+          {[
+            { label: "Apex Tech", icon: "A" },
+            { label: "Nexus Corp", icon: "N" },
+            { label: "Vortex Media", icon: "V" },
+            { label: "Quantum Labs", icon: "Q" },
+            { label: "Elevate Systems", icon: "E" },
+            { label: "Alpha Group", icon: "α" },
+            { label: "Prime Service", icon: "P" },
+            { label: "Stellar Co", icon: "S" },
+          ].map((item, idx) => (
+            <div key={`dup-${idx}`} className="marquee-item">
+              <span className="marquee-logo-icon">{item.icon}</span>
+              <span>{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* ===== HOW IT WORKS SECTION ===== */}
       <section className="section bg-alt overflow-hidden">
@@ -288,7 +340,8 @@ function Home() {
                   <Link 
                     to="/categories" 
                     key={index} 
-                    className="category-card-premium reveal" 
+                    className="category-card-premium glow-card reveal" 
+                    onMouseMove={handleMouseMove}
                     style={{ 
                       transitionDelay: `${(index % 8) * 0.05}s`,
                       "--theme-color": item.color
@@ -343,7 +396,8 @@ function Home() {
             {services.map((service, index) => (
               <div 
                 key={index} 
-                className="premium-card service-card reveal" 
+                className="premium-card service-card glow-card reveal" 
+                onMouseMove={handleMouseMove}
                 style={{ 
                   transitionDelay: `${index * 0.1}s`,
                   "--glow-color": getTagShadow(service.tag)

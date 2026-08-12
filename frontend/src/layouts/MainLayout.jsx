@@ -1,8 +1,53 @@
+import { useState, useEffect } from "react";
 import Navbar from "../components/navbar/Navbar";
 
 function MainLayout({ children }) {
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalScroll > 0) {
+        setScrollProgress((window.scrollY / totalScroll) * 100);
+      }
+
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
   return (
     <div className="layout-root">
+      {/* Scroll Progress Bar */}
+      <div 
+        className="scroll-progress-bar"
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: `${scrollProgress}%`,
+          height: "4px",
+          background: "var(--grad-main)",
+          zIndex: 9999,
+          transition: "width 0.1s ease-out",
+          boxShadow: "0 0 10px rgba(37, 99, 235, 0.5)"
+        }}
+      />
+
       {/* ================= NAVBAR ================= */}
       <Navbar />
 
@@ -12,6 +57,17 @@ function MainLayout({ children }) {
           {children}
         </div>
       </main>
+
+      {/* Scroll to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className={`scroll-to-top-btn ${showScrollTop ? "visible" : ""}`}
+        aria-label="Scroll to top"
+      >
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+          <path d="M12 4l-8 8h6v8h4v-8h6z" />
+        </svg>
+      </button>
 
       {/* ================= FOOTER ================= */}
       <footer className="main-footer">
