@@ -1,5 +1,7 @@
 import MainLayout from "../../layouts/MainLayout";
 import useReveal from "../../hooks/useReveal";
+import InteractiveParticles from "../../components/common/InteractiveParticles";
+import AnimatedCounter from "../../components/common/AnimatedCounter";
 
 // Import Assets
 import cleaningImg from "../../assets/images/about_cleaning.png";
@@ -9,11 +11,74 @@ import bannerImg from "../../assets/images/about_banner.png";
 function About() {
   useReveal();
 
+  const handleCardTilt = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const percentX = (x - centerX) / centerX;
+    const percentY = (y - centerY) / centerY;
+    
+    const maxTilt = 8;
+    const tiltX = (percentY * maxTilt).toFixed(2);
+    const tiltY = (-percentX * maxTilt).toFixed(2);
+    
+    card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
+    card.style.setProperty("--mouse-x", `${x}px`);
+    card.style.setProperty("--mouse-y", `${y}px`);
+  };
+
+  const handleCardTiltLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+  };
+
+  const handleImageStackParallax = (e) => {
+    const stack = e.currentTarget;
+    const rect = stack.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const percentX = (x - centerX) / centerX;
+    const percentY = (y - centerY) / centerY;
+    
+    const mainImg = stack.querySelector(".image-main img");
+    const subImg = stack.querySelector(".image-sub img");
+    const subContainer = stack.querySelector(".image-sub");
+    
+    if (mainImg) {
+      mainImg.style.transform = `scale(1.03) translate3d(${(percentX * 8).toFixed(2)}px, ${(percentY * 8).toFixed(2)}px, 0)`;
+    }
+    if (subContainer) {
+      subContainer.style.transform = `translate3d(${(percentX * -15).toFixed(2)}px, ${(percentY * -15).toFixed(2)}px, 20px) rotate(3deg)`;
+    }
+    if (subImg) {
+      subImg.style.transform = `scale(1.05) translate3d(${(percentX * -5).toFixed(2)}px, ${(percentY * -5).toFixed(2)}px, 0)`;
+    }
+  };
+
+  const handleImageStackLeave = (e) => {
+    const stack = e.currentTarget;
+    const mainImg = stack.querySelector(".image-main img");
+    const subImg = stack.querySelector(".image-sub img");
+    const subContainer = stack.querySelector(".image-sub");
+    
+    if (mainImg) mainImg.style.transform = "scale(1) translate3d(0, 0, 0)";
+    if (subContainer) subContainer.style.transform = "translate3d(0, 0, 0) rotate(3deg)";
+    if (subImg) subImg.style.transform = "scale(1) translate3d(0, 0, 0)";
+  };
+
   return (
     <MainLayout>
       {/* ===== HERO SECTION ===== */}
-      <section className="about-hero">
+      <section className="about-hero" style={{ position: "relative", overflow: "hidden" }}>
         <div className="about-hero-bg" style={{ backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.8)), url(${bannerImg})` }}></div>
+        <InteractiveParticles />
         <div className="container hero-container animate-fade-in">
           <div className="hero-badge animate-float-slow">✨ Our Journey</div>
           <h1 className="hero-title white text-shadow-premium">Redefining Home Services</h1>
@@ -24,12 +89,17 @@ function About() {
       {/* ===== WHO WE ARE ===== */}
       <section className="section about-who">
         <div className="container grid-2">
-          <div className="about-image-stack reveal-left">
+          <div 
+            className="about-image-stack reveal-left"
+            onMouseMove={handleImageStackParallax}
+            onMouseLeave={handleImageStackLeave}
+            style={{ cursor: 'pointer' }}
+          >
             <div className="image-main">
-              <img src={cleaningImg} alt="Professional Cleaning Service" />
+              <img src={cleaningImg} alt="Professional Cleaning Service" style={{ transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }} />
             </div>
-            <div className="image-sub glass">
-              <img src={architectureImg} alt="Professional Service Consultation" />
+            <div className="image-sub glass" style={{ transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }}>
+              <img src={architectureImg} alt="Professional Service Consultation" style={{ transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }} />
             </div>
             <div className="image-stack-glow"></div>
           </div>
@@ -65,13 +135,22 @@ function About() {
       <section className="section about-vision bg-alt">
         <div className="container">
           <div className="grid-2">
-            <div className="premium-card vision-card card-mission reveal">
+            <div 
+              className="premium-card vision-card card-mission glow-card reveal"
+              onMouseMove={handleCardTilt}
+              onMouseLeave={handleCardTiltLeave}
+            >
               <div className="icon-badge">🎯</div>
               <h3>Our Mission</h3>
               <p>To deliver trusted home services within minutes through technology-driven solutions and skilled professionals, empowering both customers and service partners.</p>
               <div className="card-accent-line"></div>
             </div>
-            <div className="premium-card vision-card card-vision reveal" style={{ transitionDelay: '0.2s' }}>
+            <div 
+              className="premium-card vision-card card-vision glow-card reveal" 
+              style={{ transitionDelay: '0.2s' }}
+              onMouseMove={handleCardTilt}
+              onMouseLeave={handleCardTiltLeave}
+            >
               <div className="icon-badge">✨</div>
               <h3>Our Vision</h3>
               <p>To become India’s most trusted 24/7 home services ecosystem, creating a new standard for home comfort and professional reliability.</p>
@@ -88,11 +167,15 @@ function About() {
         <div className="container">
           <div className="stats-grid glass-premium">
             <div className="stat-item">
-              <h2 className="stat-number text-grad-pink">10K+</h2>
+              <h2 className="stat-number text-grad-pink">
+                <AnimatedCounter end={10000} suffix="+" />
+              </h2>
               <p className="stat-label">Customers Served</p>
             </div>
             <div className="stat-item">
-              <h2 className="stat-number text-grad-gold">500+</h2>
+              <h2 className="stat-number text-grad-gold">
+                <AnimatedCounter end={500} suffix="+" />
+              </h2>
               <p className="stat-label">Verified Vendors</p>
             </div>
             <div className="stat-item">
