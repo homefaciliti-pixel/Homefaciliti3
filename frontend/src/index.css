@@ -366,3 +366,101 @@ input:focus::placeholder {
   box-shadow: 0 15px 30px rgba(37, 99, 235, 0.25);
   border-color: transparent;
 }
+
+/* ===== CUSTOM CURSOR FOLLOWER ===== */
+@media (pointer: fine) {
+  /* Hide standard cursor on desktop screens to allow custom cursor */
+  body, a, button, select, input, textarea, .glow-card, .category-card-premium, .step-card {
+    cursor: none !important;
+  }
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(37, 99, 235, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.3s, 
+              border-color 0.3s, 
+              transform 0.05s linear;
+}
+
+/* Hover States for Cursor */
+.cursor-ring.hovered {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.8);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+}
+
+.cursor-dot.hovered {
+  width: 4px;
+  height: 4px;
+  background-color: var(--primary-hover);
+}
+
+/* ===== 3D PERSPECTIVE TILT ===== */
+.perspective-container {
+  perspective: 1200px;
+}
+
+.tilt-element {
+  transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-style: preserve-3d;
+}
+
+.tilt-element > * {
+  transform: translateZ(20px); /* Creates absolute depth separation */
+}
+
+/* ===== AMBIENT BACKDROP SPARKLES ===== */
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-120px) translateX(60px) scale(0.4);
+    opacity: 0;
+  }
+}
+
+.sparkle-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.7) 0%, transparent 80%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float-particle 8s ease-in-out infinite;
+  z-index: 0;
+}

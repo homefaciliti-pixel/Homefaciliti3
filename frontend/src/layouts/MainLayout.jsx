@@ -4,6 +4,9 @@ import Navbar from "../components/navbar/Navbar";
 function MainLayout({ children }) {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
+  const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,8 +22,33 @@ function MainLayout({ children }) {
       }
     };
 
+    const checkDevice = () => {
+      setIsMobile(!window.matchMedia("(pointer: fine)").matches);
+    };
+    checkDevice();
+
+    const handleMouseMove = (e) => {
+      setCursorPos({ x: e.clientX, y: e.clientY });
+    };
+
+    const handleMouseOver = (e) => {
+      const target = e.target;
+      if (!target) return;
+      const isClickable = target.closest("a, button, select, input, textarea, .glow-card, .category-card-premium, .step-card");
+      setIsHovered(!!isClickable);
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", checkDevice);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseover", handleMouseOver);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", checkDevice);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseover", handleMouseOver);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -32,6 +60,22 @@ function MainLayout({ children }) {
 
   return (
     <div className="layout-root">
+      {!isMobile && (
+        <>
+          <div 
+            className={`cursor-dot ${isHovered ? "hovered" : ""}`}
+            style={{
+              transform: `translate3d(${cursorPos.x}px, ${cursorPos.y}px, 0)`
+            }}
+          />
+          <div 
+            className={`cursor-ring ${isHovered ? "hovered" : ""}`}
+            style={{
+              transform: `translate3d(${cursorPos.x}px, ${cursorPos.y}px, 0)`
+            }}
+          />
+        </>
+      )}
       {/* Scroll Progress Bar */}
       <div 
         className="scroll-progress-bar"

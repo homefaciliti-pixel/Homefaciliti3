@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MainLayout from "../../layouts/MainLayout";
 import { Link } from "react-router-dom";
 import useReveal from "../../hooks/useReveal";
@@ -39,13 +39,40 @@ import interiorDesignImg from "../../assets/images/interior-design.png";
 function Home() {
   useReveal();
 
-  const handleMouseMove = (e) => {
+  const words = ["Perfectly Mastered", "Smartly Cleaned", "Expertly Repaired", "Carefully Protected"];
+  const [activeWordIndex, setActiveWordIndex] = useState(0);
+  const sparkles = Array.from({ length: 12 });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveWordIndex((prev) => (prev + 1) % words.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleCardTilt = (e) => {
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const percentX = (x - centerX) / centerX;
+    const percentY = (y - centerY) / centerY;
+    
+    const maxTilt = 10;
+    const tiltX = (percentY * maxTilt).toFixed(2);
+    const tiltY = (-percentX * maxTilt).toFixed(2);
+    
+    card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
     card.style.setProperty("--mouse-x", `${x}px`);
     card.style.setProperty("--mouse-y", `${y}px`);
+  };
+
+  const handleCardTiltLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
   };
 
   const getTagGradient = (tag) => {
@@ -184,12 +211,40 @@ function Home() {
   return (
     <MainLayout>
       {/* ===== HERO SECTION ===== */}
-      <section className="hero-section">
-        <div className="hero-content animate-fade-in">
+      <section className="hero-section" style={{ position: "relative", overflow: "hidden" }}>
+        {/* Ambient Sparkles Background */}
+        <div className="hero-sparkles-container" style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
+          {sparkles.map((_, i) => (
+            <div 
+              key={i} 
+              className="sparkle-particle"
+              style={{
+                left: `${(Math.sin(i * 1.7) * 45 + 50).toFixed(2)}%`,
+                top: `${((i * 13) % 100).toFixed(2)}%`,
+                animationDelay: `${(i * 0.6).toFixed(2)}s`,
+                animationDuration: `${(6 + (i % 4) * 2).toFixed(2)}s`
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="hero-content animate-fade-in" style={{ position: "relative", zIndex: 1 }}>
           <div className="hero-announcement animate-fade-in-left">
             <span>New</span>  our partner will be avalibale in 15 minutes 24/7.
           </div>
-          <h1 className="hero-title">Your Home, <br /><span>Perfectly Mastered.</span></h1>
+          <h1 className="hero-title">
+            Your Home, <br />
+            <span className="rotating-word-wrapper">
+              {words.map((word, idx) => (
+                <span 
+                  key={idx} 
+                  className={`rotating-word ${idx === activeWordIndex ? "active" : ""}`}
+                >
+                  {word}.
+                </span>
+              ))}
+            </span>
+          </h1>
           <p className="hero-subtitle">Experience the next generation of home services with verified experts and seamless booking.</p>
           <div className="hero-btns">
             <Link to="/categories" className="btn-premium">Get Started Now</Link>
@@ -214,8 +269,12 @@ function Home() {
           </div>
         </div>
 
-        <div className="hero-visual animate-fade-in-right">
-          <div className="hero-image-wrapper">
+        <div className="hero-visual animate-fade-in-right perspective-container">
+          <div 
+            className="hero-image-wrapper tilt-element"
+            onMouseMove={handleCardTilt}
+            onMouseLeave={handleCardTiltLeave}
+          >
             <img src={heroBg} alt="Premium Home" className="hero-main-img" />
 
             {/* Parallax-style Floating elements */}
@@ -341,7 +400,8 @@ function Home() {
                     to="/categories" 
                     key={index} 
                     className="category-card-premium glow-card reveal" 
-                    onMouseMove={handleMouseMove}
+                    onMouseMove={handleCardTilt}
+                    onMouseLeave={handleCardTiltLeave}
                     style={{ 
                       transitionDelay: `${(index % 8) * 0.05}s`,
                       "--theme-color": item.color
@@ -397,7 +457,8 @@ function Home() {
               <div 
                 key={index} 
                 className="premium-card service-card glow-card reveal" 
-                onMouseMove={handleMouseMove}
+                onMouseMove={handleCardTilt}
+                onMouseLeave={handleCardTiltLeave}
                 style={{ 
                   transitionDelay: `${index * 0.1}s`,
                   "--glow-color": getTagShadow(service.tag)
@@ -484,6 +545,31 @@ function Home() {
       </section>
 
        <style jsx>{`
+        .rotating-word-wrapper {
+          position: relative;
+          display: inline-block;
+          height: 1.15em;
+          vertical-align: bottom;
+          overflow: hidden;
+          width: 100%;
+        }
+        .rotating-word {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          opacity: 0;
+          transform: translateY(100%);
+          transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+          background: var(--grad-main);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .rotating-word.active {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
         @keyframes fadeInLeft {
           from {
             opacity: 0;
