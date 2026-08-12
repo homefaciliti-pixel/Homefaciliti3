@@ -511,14 +511,99 @@ function Home() {
       {/* ===== PROMO SECTION ===== */}
       <section className="section promo-banner-section reveal">
         <div className="container">
-          <div className="promo-banner glass-vivid">
-            <div className="promo-content">
-              <h2 className="text-shadow-soft">Ready to transform your home?</h2>
-              <p className="text-shadow-soft">Join over 10,000+ families who trust HomeFaciliti for their daily needs.</p>
-              <a href="https://homefaciliti-pixel.github.io/homefaciliti-partner-aap-link/" target="_blank" rel="noopener noreferrer" className="btn-premium white-bg" style={{ textDecoration: 'none', display: 'inline-block' }}>Download our App</a>
+          <div className="promo-banner-premium">
+            {/* Animated background elements */}
+            <div className="promo-orb promo-orb-1"></div>
+            <div className="promo-orb promo-orb-2"></div>
+            <div className="promo-orb promo-orb-3"></div>
+            <div className="promo-mesh"></div>
+
+            {/* Left: Content */}
+            <div className="promo-content-premium">
+              <div className="promo-badge">🏠 Trusted by 10,000+ Families</div>
+              <h2 className="promo-headline">
+                Ready to transform
+                <span className="promo-headline-accent"> your home?</span>
+              </h2>
+              <p className="promo-subtext">Professional services at your doorstep — book in under 60 seconds. Available 24/7, anywhere in India.</p>
+
+              <div className="promo-stats-row">
+                <div className="promo-stat">
+                  <span className="promo-stat-num">10K+</span>
+                  <span className="promo-stat-label">Happy Customers</span>
+                </div>
+                <div className="promo-stat-divider"></div>
+                <div className="promo-stat">
+                  <span className="promo-stat-num">500+</span>
+                  <span className="promo-stat-label">Expert Partners</span>
+                </div>
+                <div className="promo-stat-divider"></div>
+                <div className="promo-stat">
+                  <span className="promo-stat-num">4.8★</span>
+                  <span className="promo-stat-label">App Rating</span>
+                </div>
+              </div>
+
+              <div className="promo-cta-row">
+                <a href="https://homefaciliti-pixel.github.io/homefaciliti-user-aap-link/" target="_blank" rel="noopener noreferrer" className="promo-btn-primary" style={{ textDecoration: 'none' }}>
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.4c1.38.07 2.33.76 3.13.78 1.18-.28 2.31-1.03 3.53-.9 1.51.17 2.65.77 3.4 1.93-3.17 1.87-2.57 5.9.24 7.13-.56 1.5-1.28 2.98-2.3 3.94zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                  User App
+                </a>
+                <a href="https://homefaciliti-pixel.github.io/homefaciliti-partner-aap-link/" target="_blank" rel="noopener noreferrer" className="promo-btn-secondary" style={{ textDecoration: 'none' }}>
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M3.18 23.76c.3.17.64.24.99.2l12.5-12.5-2.89-2.89-10.6 15.19zm17.6-12.65l-2.37-1.37-3.09 3.09 3.1 3.1 2.39-1.38c.68-.39.68-1.38-.03-2.44zM.87 1.59C.6 1.83.43 2.2.43 2.7v18.6c0 .5.17.87.44 1.11l.06.05 10.4-10.4v-.24L.93 1.54l-.06.05zm14.66 8.51L4.04.66C3.69.48 3.32.42 2.99.55l10.5 10.5 2.04-1.95z"/></svg>
+                  Partner App
+                </a>
+              </div>
             </div>
-            <div className="promo-visual">
-              <div className="hero-blob small"></div>
+
+            {/* Right: Visual phone mockup */}
+            <div className="promo-visual-premium">
+              <div className="promo-phone-glow"></div>
+              <div className="promo-phone">
+                <div className="promo-phone-screen">
+                  <div className="phone-screen-header">
+                    <div className="phone-dot"></div>
+                    <span>HomeFaciliti</span>
+                  </div>
+                  <div className="phone-screen-body">
+                    <div className="phone-service-row">
+                      <div className="phone-service-icon">🔧</div>
+                      <div className="phone-service-text">
+                        <div className="phone-service-name">Plumbing</div>
+                        <div className="phone-service-sub">In 30 min</div>
+                      </div>
+                      <div className="phone-service-badge">Book</div>
+                    </div>
+                    <div className="phone-service-row">
+                      <div className="phone-service-icon">⚡</div>
+                      <div className="phone-service-text">
+                        <div className="phone-service-name">Electrical</div>
+                        <div className="phone-service-sub">Expert verified</div>
+                      </div>
+                      <div className="phone-service-badge">Book</div>
+                    </div>
+                    <div className="phone-service-row">
+                      <div className="phone-service-icon">🧹</div>
+                      <div className="phone-service-text">
+                        <div className="phone-service-name">Cleaning</div>
+                        <div className="phone-service-sub">4.9 ★ rated</div>
+                      </div>
+                      <div className="phone-service-badge active">Book</div>
+                    </div>
+                    <div className="phone-rating-banner">
+                      <span>⭐ 4.8 Rating</span>
+                      <span>10K+ Users</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Floating badges */}
+              <div className="promo-float-badge badge-top">
+                <span>✅</span> Booking Confirmed!
+              </div>
+              <div className="promo-float-badge badge-bottom">
+                <span>⚡</span> 60-sec booking
+              </div>
             </div>
           </div>
         </div>
@@ -1146,20 +1231,257 @@ function Home() {
           transform: translateX(4px);
         }
 
-        .promo-banner {
-          background: var(--grad-main);
-          border-radius: 48px;
-          padding: 80px;
+        /* ===== PREMIUM PROMO BANNER ===== */
+        .promo-banner-premium {
+          position: relative;
+          background: linear-gradient(135deg, #1e1b4b 0%, #2563eb 45%, #7c3aed 100%);
+          border-radius: 32px;
+          padding: 72px 64px;
           color: white;
           display: grid;
-          grid-template-columns: 1.5fr 1fr;
+          grid-template-columns: 1.1fr 0.9fr;
           align-items: center;
+          gap: 60px;
           overflow: hidden;
-          position: relative;
+          border: 1px solid rgba(255,255,255,0.12);
+          box-shadow: 0 40px 100px rgba(37,99,235,0.35), 0 0 0 1px rgba(255,255,255,0.05);
         }
-        .glass-vivid { background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); }
-        .promo-content h2 { font-size: 48px; margin-bottom: 24px; color: white; }
-        .promo-content p { font-size: 20px; opacity: 0.9; margin-bottom: 40px; }
+        .promo-orb {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(60px);
+          animation: promoFloat 8s ease-in-out infinite;
+          pointer-events: none;
+        }
+        .promo-orb-1 { width: 300px; height: 300px; background: rgba(124,58,237,0.45); top: -80px; right: 100px; animation-delay: 0s; }
+        .promo-orb-2 { width: 200px; height: 200px; background: rgba(37,99,235,0.5); bottom: -60px; left: 200px; animation-delay: 2s; }
+        .promo-orb-3 { width: 150px; height: 150px; background: rgba(16,185,129,0.3); top: 50%; right: 40%; animation-delay: 4s; }
+        @keyframes promoFloat {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(20px, -30px) scale(1.05); }
+          66% { transform: translate(-15px, 20px) scale(0.95); }
+        }
+        .promo-mesh {
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+          background-size: 30px 30px;
+          pointer-events: none;
+        }
+
+        /* Content */
+        .promo-content-premium { position: relative; z-index: 2; }
+        .promo-badge {
+          display: inline-block;
+          background: rgba(255,255,255,0.12);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(255,255,255,0.2);
+          padding: 8px 18px;
+          border-radius: 100px;
+          font-size: 13px;
+          font-weight: 600;
+          margin-bottom: 24px;
+          animation: badgePulse 3s ease-in-out infinite;
+        }
+        @keyframes badgePulse {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.1); }
+          50% { box-shadow: 0 0 0 8px rgba(255,255,255,0); }
+        }
+        .promo-headline {
+          font-size: 48px;
+          font-weight: 800;
+          line-height: 1.15;
+          margin-bottom: 20px;
+          color: white;
+        }
+        .promo-headline-accent {
+          background: linear-gradient(90deg, #a78bfa, #34d399);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .promo-subtext {
+          font-size: 17px;
+          opacity: 0.82;
+          line-height: 1.7;
+          margin-bottom: 36px;
+          max-width: 480px;
+        }
+
+        /* Stats row */
+        .promo-stats-row {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          margin-bottom: 40px;
+        }
+        .promo-stat { display: flex; flex-direction: column; gap: 2px; }
+        .promo-stat-num { font-size: 22px; font-weight: 800; color: white; }
+        .promo-stat-label { font-size: 11px; opacity: 0.65; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        .promo-stat-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.2); }
+
+        /* CTA buttons */
+        .promo-cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+        .promo-btn-primary {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          background: white;
+          color: #1e1b4b;
+          font-weight: 700;
+          font-size: 15px;
+          padding: 14px 28px;
+          border-radius: 14px;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        .promo-btn-primary:hover {
+          transform: translateY(-3px) scale(1.03);
+          box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+        }
+        .promo-btn-secondary {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          background: rgba(255,255,255,0.12);
+          backdrop-filter: blur(12px);
+          color: white;
+          font-weight: 700;
+          font-size: 15px;
+          padding: 14px 28px;
+          border-radius: 14px;
+          border: 1px solid rgba(255,255,255,0.25);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .promo-btn-secondary:hover {
+          background: rgba(255,255,255,0.2);
+          transform: translateY(-3px) scale(1.03);
+          border-color: rgba(255,255,255,0.45);
+        }
+
+        /* Phone Visual */
+        .promo-visual-premium {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .promo-phone-glow {
+          position: absolute;
+          width: 200px;
+          height: 200px;
+          background: radial-gradient(circle, rgba(139,92,246,0.6), transparent 70%);
+          border-radius: 50%;
+          animation: promoFloat 5s ease-in-out infinite;
+        }
+        .promo-phone {
+          width: 200px;
+          background: rgba(255,255,255,0.08);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(255,255,255,0.18);
+          border-radius: 28px;
+          overflow: hidden;
+          box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+          animation: phoneFloat 6s ease-in-out infinite;
+          position: relative;
+          z-index: 2;
+        }
+        @keyframes phoneFloat {
+          0%, 100% { transform: translateY(0) rotate(-2deg); }
+          50% { transform: translateY(-16px) rotate(2deg); }
+        }
+        .promo-phone-screen { padding: 0; }
+        .phone-screen-header {
+          background: rgba(255,255,255,0.1);
+          padding: 12px 16px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 11px;
+          font-weight: 700;
+          color: white;
+          border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .phone-dot {
+          width: 8px; height: 8px;
+          background: #34d399;
+          border-radius: 50%;
+          animation: dotPulse 2s ease-in-out infinite;
+        }
+        @keyframes dotPulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.5; transform: scale(0.8); }
+        }
+        .phone-screen-body { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+        .phone-service-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          background: rgba(255,255,255,0.06);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 12px;
+          padding: 10px 12px;
+          transition: background 0.3s;
+        }
+        .phone-service-row:hover { background: rgba(255,255,255,0.12); }
+        .phone-service-icon { font-size: 18px; }
+        .phone-service-text { flex: 1; }
+        .phone-service-name { font-size: 11px; font-weight: 700; color: white; }
+        .phone-service-sub { font-size: 9px; opacity: 0.55; color: white; margin-top: 1px; }
+        .phone-service-badge {
+          font-size: 9px;
+          font-weight: 700;
+          padding: 4px 8px;
+          border-radius: 8px;
+          background: rgba(255,255,255,0.15);
+          color: white;
+        }
+        .phone-service-badge.active {
+          background: linear-gradient(135deg, #2563eb, #7c3aed);
+          animation: badgePulse 2s ease-in-out infinite;
+        }
+        .phone-rating-banner {
+          display: flex;
+          justify-content: space-between;
+          background: rgba(52,211,153,0.15);
+          border: 1px solid rgba(52,211,153,0.3);
+          border-radius: 10px;
+          padding: 8px 12px;
+          font-size: 10px;
+          font-weight: 700;
+          color: #6ee7b7;
+          margin-top: 4px;
+        }
+
+        /* Floating badges */
+        .promo-float-badge {
+          position: absolute;
+          background: rgba(255,255,255,0.12);
+          backdrop-filter: blur(16px);
+          border: 1px solid rgba(255,255,255,0.2);
+          border-radius: 12px;
+          padding: 10px 16px;
+          font-size: 12px;
+          font-weight: 700;
+          color: white;
+          white-space: nowrap;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          z-index: 3;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        .badge-top { top: -16px; right: -20px; animation: badgeFloatA 5s ease-in-out infinite; }
+        .badge-bottom { bottom: -16px; right: 30px; animation: badgeFloatB 5s ease-in-out 1s infinite; }
+        @keyframes badgeFloatA {
+          0%, 100% { transform: translateY(0) rotate(-3deg); }
+          50% { transform: translateY(-8px) rotate(-1deg); }
+        }
+        @keyframes badgeFloatB {
+          0%, 100% { transform: translateY(0) rotate(2deg); }
+          50% { transform: translateY(-10px) rotate(4deg); }
+        }
         .white-bg { background: white; color: black; }
         .white-bg:hover { filter: brightness(0.9); }
 
