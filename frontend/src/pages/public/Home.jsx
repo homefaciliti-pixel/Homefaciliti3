@@ -233,7 +233,7 @@ function Home() {
 
           <div className="hero-stats animate-fade-in-delay-2">
             <div className="stat">
-              <AnimatedCounter end={12000} suffix="+" />
+              <AnimatedCounter end={120000} suffix="+" />
               <span>Happy Homeowners</span>
             </div>
             <div className="stat-sep"></div>
@@ -520,7 +520,7 @@ function Home() {
 
             {/* Left: Content */}
             <div className="promo-content-premium">
-              <div className="promo-badge">🏠 Trusted by 10,000+ Families</div>
+              <div className="promo-badge">🏠 Trusted by 1,20,000+ Families</div>
               <h2 className="promo-headline">
                 Ready to transform
                 <span className="promo-headline-accent"> your home?</span>
@@ -529,7 +529,7 @@ function Home() {
 
               <div className="promo-stats-row">
                 <div className="promo-stat">
-                  <span className="promo-stat-num">10K+</span>
+                  <span className="promo-stat-num">1.2L+</span>
                   <span className="promo-stat-label">Happy Customers</span>
                 </div>
                 <div className="promo-stat-divider"></div>
@@ -592,7 +592,7 @@ function Home() {
                     </div>
                     <div className="phone-rating-banner">
                       <span>⭐ 4.8 Rating</span>
-                      <span>10K+ Users</span>
+                      <span>1,20,000+ Users</span>
                     </div>
                   </div>
                 </div>

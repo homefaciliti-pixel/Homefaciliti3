@@ -145,7 +145,7 @@ function Categories() {
 
             {/* Stats strip */}
             <div className="cat-stats-strip">
-              <div className="cat-stat-pill">🏆 10K+ Bookings</div>
+              <div className="cat-stat-pill">🏆 1.2L+ Bookings</div>
               <div className="cat-stat-pill">✅ Verified Pros</div>
               <div className="cat-stat-pill">⚡ 60-sec Booking</div>
               <div className="cat-stat-pill">⭐ 4.8 Rated</div>

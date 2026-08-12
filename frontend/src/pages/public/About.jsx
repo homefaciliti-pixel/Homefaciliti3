@@ -168,7 +168,7 @@ function About() {
           <div className="stats-grid glass-premium">
             <div className="stat-item">
               <h2 className="stat-number text-grad-pink">
-                <AnimatedCounter end={10000} suffix="+" />
+                <AnimatedCounter end={120000} suffix="+" />
               </h2>
               <p className="stat-label">Customers Served</p>
             </div>
