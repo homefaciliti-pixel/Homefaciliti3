@@ -630,3 +630,177 @@ input:focus::placeholder {
   transform-origin: center;
   animation: spin-wheel 1s linear infinite;
 }
+
+/* ===== CONTACT LAYOUT ADJUSTMENTS ===== */
+.contact-main-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  text-align: left;
+  align-items: start;
+}
+
+@media (max-width: 968px) {
+  .contact-main-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+/* ===== QUICK MESSAGE FORM ===== */
+.contact-form-premium {
+  padding: 40px 32px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.45) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-form-premium h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.input-group-premium {
+  position: relative;
+  width: 100%;
+}
+
+.input-group-premium input,
+.input-group-premium textarea {
+  width: 100%;
+  padding: 16px 4px 8px 4px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(226, 232, 240, 0.8);
+  outline: none;
+  font-size: 16px;
+  color: var(--text-main);
+  transition: border-color 0.3s ease;
+}
+
+.input-group-premium textarea {
+  resize: none;
+}
+
+.input-group-premium label {
+  position: absolute;
+  left: 4px;
+  top: 16px;
+  color: var(--text-muted);
+  font-size: 16px;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.input-group-premium input:focus ~ label,
+.input-group-premium input:valid ~ label,
+.input-group-premium textarea:focus ~ label,
+.input-group-premium textarea:valid ~ label {
+  top: -8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.input-bar {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--grad-main);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.input-group-premium input:focus ~ .input-bar,
+.input-group-premium textarea:focus ~ .input-bar {
+  width: 100%;
+  left: 0;
+}
+
+/* ===== SUCCESS CHECKMARK ANIMATION ===== */
+.form-success-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  text-align: center;
+  animation: elastic-fade-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.form-success-animation h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.form-success-animation p {
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.success-icon-svg-wrapper {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #10b981;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0 0 0 #10b981;
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s forwards;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke: #10b981;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0 0 0 30px rgba(16, 185, 129, 0.1);
+  }
+}
