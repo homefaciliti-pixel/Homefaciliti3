@@ -132,7 +132,7 @@ function Contact() {
 
                       {/* WhatsApp Us */}
                       <a 
-                        href="https://wa.me/919512392301" 
+                        href="https://wa.me/919462661184" 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="contact-info-card full-width whatsapp-card glow-card"
@@ -147,7 +147,7 @@ function Contact() {
                         </div>
                         <div className="info-text">
                           <h3>WhatsApp Us</h3>
-                          <p>+91 9512392301</p>
+                          <p>+91 9462661184</p>
                         </div>
                       </a>
 
